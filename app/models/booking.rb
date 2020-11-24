@@ -7,6 +7,5 @@ class Booking < ApplicationRecord
   validates :end_date, presence: true
   validates :category, presence: true, inclusion: { in: ["Ski", "Snowboard", "Handiski", "Telemark"] }
 
-  scope :past, -> { where("end_date < ?", Date.today) }
-  scope :upcoming, -> { where("end_date > ?", Date.today) }
+  
 end
