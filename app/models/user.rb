@@ -8,7 +8,8 @@ class User < ApplicationRecord
   has_many :user_bookings
   validates :first_name, presence: true
   validates :last_name, presence: true
-  validates :instructor, presence: true
+  validates :technical_skill, presence: true, inclusion: { in: ["Beginner", "Intermediate", "Advanced", "Very advanced"] }
+
 
 
 end
