@@ -1,0 +1,29 @@
+
+.rectangle {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  width: 560px;
+  height: 200px;
+  border-radius: 2%;
+}
+
+.photo-profile-teacher {
+  border-radius: 50%;
+  width: 80px;
+  height: 80px;
+  box-shadow: 5px 5px 3px #7893C1;
+  margin-top: 50px;
+}
+
+.teacher-details, {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buttons-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
