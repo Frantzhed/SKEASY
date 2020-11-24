@@ -1,0 +1,6 @@
+<h1><% @users.each do |user|%>
+  <%= user.email %>
+  <%= link_to "show", user_path(user) %>
+  <%= user.id %>
+  <% end %>
+</h1>
