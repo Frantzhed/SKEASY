@@ -15,4 +15,5 @@ class User < ApplicationRecord
     user_bookings.map(&:booking)
   end
 
+
 end
