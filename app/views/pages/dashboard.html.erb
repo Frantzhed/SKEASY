@@ -1,0 +1,21 @@
+<div class="container my-container">
+  <div class="row">
+    <div class="col-sm center">
+      <div id="owner">
+        <% if current_user.bookings.upcoming.count == 0 %>
+          <h1> No upcoming bookings </h1>
+          <%= link_to "Find your booking", root_path, class: "button-search btn btn-success marginn", style: "padding: 10px"%>
+        <% else %>
+        <h1> Upcoming bookings </h1>
+          <% current_user.bookings.upcoming.each do |booking| %>
+            <div class="card-product"style="height: ">
+              <div class="card-product-infos">
+                <h3><%= booking.instructor.email %></h3>
+              </div>
+            </div>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
