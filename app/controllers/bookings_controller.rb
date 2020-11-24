@@ -12,7 +12,6 @@ class BookingsController < ApplicationController
   end
   
   def create
-
     @instructor = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
     @booking.instructor = @instructor
