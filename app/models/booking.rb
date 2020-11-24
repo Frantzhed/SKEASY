@@ -6,6 +6,6 @@ class Booking < ApplicationRecord
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :category, presence: true, inclusion: { in: ["Ski", "Snowboard", "Handiski", "Telemark"] }
-  validates :technical_skill, :presence: true, inclusion: { in: ["Beginner", "Intermediate", "Advanced", "Very advanced"] }
 
+  
 end
