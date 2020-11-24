@@ -12,12 +12,16 @@ class BookingsController < ApplicationController
   end
   
   def create
+    @instructor = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @user = User.find(params[:user_id])
-    @booking.instructor = current_user
-    @booking.instructor = @user
-    @booking.save
-    redirect_to user_path(@user)
+    @booking.instructor = @instructor
+    if @booking.save
+      @user_booking = UserBooking.new(user: current_user, booking: @booking)
+      @user_booking.save
+      redirect_to user_path(@instructor)
+    else
+      render :new
+    end
   end
 
   def edit
