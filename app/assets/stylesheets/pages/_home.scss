@@ -1,1 +1,34 @@
+.banner {
+  background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), image-url('homepage_skeasy.png');
+  background-size: cover;
+  background-position: center;
+  padding: 207px 0;
+  height: 929px;
+  margin-top: -73px;
+}
+
+.container {
+  width: 100%;
+  padding-right: 19px;
+  padding-left: 15px;
+  margin-top: 239px;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.banner h1 {
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.banner p {
+  font-size: 20px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
 // Specific CSS for your home-page
