@@ -1,5 +1,51 @@
-<h1><%= @user.first_name %><%= @user.last_name %><%= @user.description %></h1>
+<div class="show">
+
+  <div class="left-box">
+    <h2>Other instructors</h2>
+    <div class="card-instructor">
+        <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
+      <div class="card-info">
+        <h1> Guillaume Arsan</h1>
+          <p> 5 étoiles </p>
+          <p> Ski </p>
+          <p> Super prof </p>
+          <p> France </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="center-box">
+    <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
+    <p> 5 étoiles </p>
+    <div class="card-specialities">
+      <p>Toutes les spécialités</p>
+    </div>
+    <div class="card-languages">
+      <p>Toutes les langues</p>
+    </div>
 
 
-<%= link_to "new booking", new_user_booking_path(@user) %>
+  </div>
 
+
+
+  <div class="right-box">
+    <h1> Hey ! I'm <%= @user.first_name %><%= @user.last_name %></h1>
+
+      <h4> Val Thorens, joined in December 2019 </h4>
+
+        <p> Hey everyone, my name is <%= @user.first_name %>. I was born and raised in
+            Savoie and i’ve been skiing basically all my life.
+            I’m comfortable with all kinds of practice (ski, snowboard, biathlon...),
+            i’ve been a profesionnal ski racer for more than fifteen-years,
+            then i decided to become a ski teacher in Val Thorens which is the ski
+            resort where i’ve been living and practicing ski since a long time ago.
+            I would be please to become your ski teacher for your holidays ! </p>
+
+        <%= @user.description %>
+
+      <h3> Videos <i class="fab fa-youtube"></i> </h3>
+
+    <%= link_to "Book your lesson", new_user_booking_path(@user) %>
+  </div>
+</div>
