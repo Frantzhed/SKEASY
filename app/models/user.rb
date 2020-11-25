@@ -6,10 +6,8 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_many :user_bookings
+  has_many_attached :photos
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
-  validates :technical_skill, presence: true, inclusion: { in: ["Beginner", "Intermediate", "Advanced", "Very advanced"] }
 
   def booked_instructors
     user_bookings.map(&:booking)
