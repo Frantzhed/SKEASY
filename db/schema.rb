@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_113056) do
+ActiveRecord::Schema.define(version: 2020_11_25_151759) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -48,6 +48,15 @@ ActiveRecord::Schema.define(version: 2020_11_25_113056) do
     t.index ["user_id"], name: "index_bookings_on_user_id"
   end
 
+  create_table "categories", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "name"
+    t.integer "note"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.bigint "booking_id", null: false
@@ -80,16 +89,17 @@ ActiveRecord::Schema.define(version: 2020_11_25_113056) do
     t.string "last_name"
     t.string "phone_number"
     t.text "description"
-    t.string "language"
     t.string "technical_skill"
     t.boolean "instructor", default: false
-    t.string "category"
+    t.string "languages", default: [], array: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["languages"], name: "index_users_on_languages", using: :gin
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "bookings", "users"
+  add_foreign_key "categories", "users"
   add_foreign_key "reviews", "bookings"
   add_foreign_key "reviews", "users"
   add_foreign_key "user_bookings", "bookings"

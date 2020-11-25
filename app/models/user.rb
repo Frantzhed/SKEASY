@@ -6,11 +6,16 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_many :user_bookings
+  has_many :categories
   has_many_attached :photos
 
 
   def booked_instructors
     user_bookings.map(&:booking)
+  end
+
+  def average_rating
+    reviews.map(&:rate).sum / reviews.count
   end
 
 
