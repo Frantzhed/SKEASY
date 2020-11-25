@@ -1,11 +1,11 @@
-
 .rectangle {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
   width: 560px;
-  height: 200px;
+
   border-radius: 2%;
+  padding: 12px;
 }
 
 .photo-profile-teacher {
@@ -13,17 +13,43 @@
   width: 80px;
   height: 80px;
   box-shadow: 5px 5px 3px #7893C1;
-  margin-top: 50px;
+  margin-top: -35px;
+  display: flex;
+  align-items: flex-start;
+  margin-right: 8px;
 }
 
 .teacher-details, {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
-.buttons-price {
+.first-box {
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
+  > .photo-and-name {
+  display: flex;
+  padding: 5px;
+  justify-content: space-between;
+  }
+}
+
+.second-box {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 8px;
+  > .infos {
+    text-align: left;
+    margin-left: 8px;
+  }
+  > .price {
+    display: flex;
+  }
+}
+
+.third-box {
+
+  text-align: center;
   align-items: flex-end;
 }
