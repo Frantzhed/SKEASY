@@ -1,14 +1,34 @@
-<div class="container my-container">
-  <div class="row">
-    <div class="col-sm center">
-      <div id="owner">
-      <h1>Dahsboard general</h1>
-      <ul>
-        <% current_user.booked_instructors.each do |booked_instructor|%>
-        <li><%= booked_instructor.start_date%> --- <%= booked_instructor.end_date%> --- <%= booked_instructor.instructor.email%> --- <%= booked_instructor.category%></li>
-        <% end %>
-      </ul>
-      </div>
-    </div>
-  </div>
-</div>
+
+<h1>All bookings from an Instructor</h1>
+<% if current_user.client_bookings.upcoming.count == 0 %>
+    <h1> No upcoming bookings </h1>
+<% else %>
+    <h1> Upcoming bookings </h1>
+    <% current_user.client_bookings.upcoming.each do |booking| %>
+        <div class="card-product"style="height: ">
+          <div class="card-product-infos">
+              <h3><%= booking.start_date %></h3>
+              <h4> <%= booking.end_date%></h4>
+              <h4> <%= booking.category%></h4>
+              <h4> price :<%= booking.price%></h4>
+              <h4> </h4>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+
+<% if current_user.client_bookings.past.count == 0 %>
+    <h1> No past bookings </h1>
+<% else %>
+    <h1> past bookings </h1>
+    <% current_user.client_bookings.past.each do |booking| %>
+        <div class="card-product"style="height: ">
+          <div class="card-product-infos">
+              <h3><%= booking.start_date %></h3>
+              <h4> <%= booking.end_date%></h4>
+              <h4> Station :<%= booking.category %> </h4>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+
