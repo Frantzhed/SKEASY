@@ -1,36 +1,83 @@
 .banner {
-  background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), image-url('homepage_skeasy.png');
+  background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(215,224,240,1) 100%), image-url('homepage_skeasy2.png');
   background-size: cover;
-  background-position: center;
-  padding: 207px 0;
-  height: 929px;
-  margin-top: -73px;
+  background-position: top;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding-bottom: 75px;
+
 }
 
-.container {
+.banner h1 {
+  margin: -10px;
+  color: $blue;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 80px;
+  font-weight: bold;
+  font-family: Josefin Sans;
+}
+
+.banner p {
+  font-size: 30px;
+  color: $third-blue;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: 'Inter';
+  letter-spacing: 2px;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+
+.banner-down {
+  background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), image-url('homepage_bas.png');
+  background-size: cover;
+  background-position: center;
+  height: 745px;
+}
+
+.banner-down h1 {
+  color: $blue;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-size: 50px;
+  font-family: Josefin Sans;
+  }
+
+.container-down {
   width: 100%;
   padding-right: 19px;
-  padding-left: 15px;
-  margin-top: 239px;
+  padding-left: 19px;
   text-align: center;
   margin-right: auto;
   margin-left: auto;
 }
 
-.banner h1 {
-  margin: 0;
-  color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-  font-size: 32px;
-  font-weight: bold;
+
+
+.product-demo {
+  display: flex;
+  width: 60%;
+  height:200px;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 auto;
+    h1 {
+      color: $blue;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 80px;
+      font-family: Josefin Sans;
+      }
+    p {
+      color: $blue;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+      font-size: 20px;
+      font-family: Inter;
+      }
 }
 
-.banner p {
-  font-size: 20px;
-  color: white;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
-}
+
 // Specific CSS for your home-page
 
 

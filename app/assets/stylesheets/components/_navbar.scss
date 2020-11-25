@@ -1,6 +1,8 @@
 .navbar-lewagon {
   justify-content: space-between;
   background: transparent;
+  position: absolute;
+  width: 100%;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,18 +11,23 @@
 
 .navbar-lewagon .navbar-brand {
   width: 40px;
-  color: #167FFB
+  color: #0F3057;
 }
 
 .navbar-nav {
   align-items: center;
+  color: #0F3057;
+}
+
+.nav-link {
+  color: #0F3057;
 }
 
 .navbar-nav .nav-item .nav-link {
-  color:  #167FFB;
+  color:  #0F3057;;
 }
 
 .navbar-nav .nav-item-language {
-  color:  #167FFB;
+  color:  #0F3057;;
   justify-content: center;
 }

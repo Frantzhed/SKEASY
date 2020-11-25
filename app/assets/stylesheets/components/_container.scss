@@ -1,0 +1,10 @@
+.custom-container {
+  min-height: 100vh;
+}
+
+#pages-home {
+  .custom-container {
+    max-width: 100vw;
+    padding: 0;
+  }
+}
