@@ -1,0 +1,43 @@
+  .resort-title{
+    position: relative;
+    text-align: center;
+    color: $dark-blue;
+    height: 191px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    &:before {
+    content: attr(data-name);
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    font-size: 13.8vw;
+    color: $fifth-blue;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    z-index: -1;
+    top: 25%;
+    line-height: 155px;
+  }
+}
+
+.multi-drop-down {
+  margin-top: 64px;
+  background: white;
+}
+
+
+.teacher-cards {
+  margin-top: 50px;
+}
+
+.price-info {
+  margin-top: 50px;
+}
+
+.booking-cards {
+  margin-top: 50px;
+}
+
+
