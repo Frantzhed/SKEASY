@@ -4,39 +4,97 @@
   align-items: center;
 }
 
-.card-instructor {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  text-align: center;
+.left-box {
 
-
-  border-radius: 2%;
 }
 
-.card-instructor:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+.center-box {
+  width: 220px;
+  flex-shrink: 0;
+  margin-right: 40px;
+  margin-left: 40px;
 }
 
-.card-info {
-  padding: 10px;
-  > h2 {
-    margin-top: 25px;
-  }
+.right-box {
+
+}
+
+.info-image {
+  display: flex;
+  padding: 8px;
 }
 
 .photo-profile-other-teacher {
   border-radius: 50%;
-  width: 80px;
-  height: 80px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: flex-start;
 }
 
+.text-card {
+  flex: 1;
+}
+
+.flag-icon {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-left: 8px;
+  margin-right: 8px;
+  margin-bottom: 8px;
+}
+
+.cards-instructors {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card-instructor {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  width: 200px;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px,
+}
+
+.cards-instructor:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
 
 .photo-profile-teacher {
   border-radius: 10%;
-  width: 100px;
-  height: 80px;
+  width: 200px;
+  height: 120px;
   display: flex;
   align-items: flex-start;
+}
+
+.stars {
+  margin-top: 15px;
+  margin-bottom: 35px;
+}
+
+
+.card-specialities {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  width: 200px;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px,
+}
+
+.card-languages {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  width: 200px;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px,
 }

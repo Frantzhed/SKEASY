@@ -1,33 +1,110 @@
 <div class="show">
 
   <div class="left-box">
+
     <h2>Other instructors</h2>
-    <div class="card-instructor">
-        <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
-      <div class="card-info">
-        <h1> Guillaume Arsan</h1>
-          <p> 5 étoiles </p>
-          <p> Ski </p>
-          <p> Super prof </p>
-          <p> France </p>
+
+    <div class="cards-instructors">
+
+      <div class="card-instructor">
+        <div class="info-image">
+          <img src="https://picsum.photos/200" alt="Avatar"
+              class="photo-profile-other-teacher">
+            <div class="text-card">
+              <h5> Lomig </h5>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <p> Super prof </p>
+            </div>
+        </div>
+
+        <div class="flag-icon">
+          <i class="far fa-flag"></i>
+          <i class="fas fa-skiing"></i>
+        </div>
+
       </div>
+
+      <div class="card-instructor">
+        <div class="info-image">
+          <img src="https://picsum.photos/200" alt="Avatar"
+              class="photo-profile-other-teacher">
+            <div class="text-card">
+            <h5> Julien </h5>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <p> Incroyable prof </p>
+            </div>
+        </div>
+
+        <div class="flag-icon">
+          <i class="far fa-flag"></i>
+          <i class="fas fa-skiing"></i>
+        </div>
+
+      </div>
+
+       <div class="card-instructor">
+        <div class="info-image">
+          <img src="https://picsum.photos/200" alt="Avatar"
+              class="photo-profile-other-teacher">
+            <div class="text-card">
+              <h5> Cécile </h5>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <p> Excellente prof </p>
+            </div>
+        </div>
+
+        <div class="flag-icon">
+          <i class="far fa-flag"></i>
+          <i class="fas fa-skiing"></i>
+        </div>
+      </div>
+
     </div>
   </div>
+
 
   <div class="center-box">
+
     <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
-    <p> 5 étoiles </p>
-    <div class="card-specialities">
-      <p>Toutes les spécialités</p>
-    </div>
-    <div class="card-languages">
-      <p>Toutes les langues</p>
+
+    <div class="stars">
+      <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+      <i class="fas fa-star"></i> <i class="far fa-star"></i>
     </div>
 
+    <div class="card-specialities p-2">
+
+      <h5>SPECIALITIES</h5>
+      <div class="text-left">
+        <p>Ski :
+        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+        </p>
+
+        <p>Snowboard :
+        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+        <i class="fas fa-star-half"></i>
+        </p>
+
+        <p>Telemark :
+        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
+        <i class="fas fa-star"></i> <i class="fas fa-star-half"></i>
+        </p>
+      </div>
+    </div>
+
+    <div class="card-languages p-2">
+      <h5>LANGUAGES</h5>
+        <div class="text-left">
+          <p>French : <em> Native language </em> </p>
+
+          <p>English : <em> Good level </em> </p>
+        </div>
+    </div>
 
   </div>
-
-
 
   <div class="right-box">
     <h1> Hey ! I'm <%= @user.first_name %><%= @user.last_name %></h1>
@@ -45,7 +122,8 @@
         <%= @user.description %>
 
       <h3> Videos <i class="fab fa-youtube"></i> </h3>
+        <iframe width="460" height="215" src="https://www.youtube.com/embed/fNRPiXes7OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <%= link_to "Book your lesson", new_user_booking_path(@user) %>
+    <%= link_to "Book your lesson", new_user_booking_path(@user), class:"btn btn-primary" %>
   </div>
 </div>
