@@ -1,3 +1,3 @@
-class UserbookingController < ApplicationController
+class UserbookingsController < ApplicationController
 
 end

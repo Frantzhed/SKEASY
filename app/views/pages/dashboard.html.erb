@@ -5,7 +5,7 @@
       <h1>Dahsboard general</h1>
       <ul>
         <%= current_user.booked_instructors.each do |booked_instructor|%>
-        <li><%= booked_instructor.start_date%> --- <%= booked_instructor.end_date%> --- <%= booked_instructor.user_id%> --- <%= booked_instructor.category%></li>
+        <li><%= booked_instructor.start_date%> --- <%= booked_instructor.end_date%> --- <%= booked_instructor.user_id%> --- <%= booked_instructor.category%> -- <%= booked_instructor.group_session%></li>
         <% end %>
       </ul>
       </div>

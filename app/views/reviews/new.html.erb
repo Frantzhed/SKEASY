@@ -1,0 +1,14 @@
+<h1>review</h1>
+<div class="container" style="width: 60%;">
+
+  <%= simple_form_for [ @booking, @review ] do |f| %>
+
+    <%= f.input :content %>
+
+    <%= f.input :rate, :collection => ['0', '1', '2', '3', '4', '5'] %>
+
+    <%= f.submit "Submit your review", class: "btn btn-success" %>
+
+  <% end %>
+
+</div>
