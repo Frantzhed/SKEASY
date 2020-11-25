@@ -6,6 +6,7 @@ class User < ApplicationRecord
   has_many :bookings, dependent: :destroy
   has_many :reviews, through: :bookings
   has_many :user_bookings
+  has_many :client_bookings, through: :user_bookings, class_name: "Booking", source: "booking"
   has_many_attached :photos
 
 

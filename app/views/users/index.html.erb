@@ -1,6 +1,6 @@
 <ol>
     <% @users.each do |user|%>
-      <li><%= user.first_name %>/<%= user.last_name %> ---<%= user.category %> --- <%= user.description %> ---<%= user.language %> </li>
+      <li><%= user.first_name %>/<%= user.last_name %> ---<%= user.categories %> --- <%= user.description %> ---<%= user.languages %> </li>
       <%= link_to "show", user_path(user) %>
     <% end %>
 </ol>
