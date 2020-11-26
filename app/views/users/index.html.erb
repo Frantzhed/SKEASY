@@ -1,25 +1,25 @@
 
-  <h1 class="resort-title" data-name= <%="#{params[:user][:resort]}" %>>   
+  <h1 class="resort-title" data-name= <%="#{params[:user][:resort]}" %>>
     <%= params[:user][:resort] %>
   </h1>
 
 
 <div class="container multi-drop-down" data-controller="filters">
-    
+
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
       input_html: { data: { action: "change->filters#submit"}}
     } do |f| %>
-        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", 
+        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
         selected: params[:user][:category]%>
-        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level", 
+        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level",
         selected: params[:user][:technical_skill]%>
-        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language", 
+        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language",
         selected: params[:user][:languages]%>
         <%= f.submit  class: "d-none", data: {target: "filters.submit"} %>
     <% end %>
 
-    
-    
+    <%= @users.count %>
+
 </div>
 
 <div class="container price-info">
@@ -31,7 +31,8 @@
 </div>
 
 <div class="d-flex bd-highlight teacher-cards flex-wrap">
-  <% @users.each do |user|%>
+
+    <% @users.each do |user|%>
       <%= render "shared/teacher_card", teacher: user %>
   <% end %>
 </div>
