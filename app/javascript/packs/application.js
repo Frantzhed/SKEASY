@@ -27,23 +27,9 @@ import "bootstrap";
 import "controllers"
 
 // Internal imports, e.g:
-// import { initSelect2 } from '../components/init_select2';
+import { turbolinksFix } from '../components/turbolinks_fix';
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
-  // initSelect2();
-});
-
-import Turbolinks from 'turbolinks';
-
-document.addEventListener('turbolinks:load', function(event) {
-  for (let form of document.querySelectorAll('form[method=get][data-remote=true]')) {
-    form.addEventListener('ajax:beforeSend', function (event) {
-      const detail = event.detail,
-            xhr = detail[0], options = detail[1];
-
-      Turbolinks.visit(options.url);
-      event.preventDefault();
-    });
-  }
+  turbolinksFix();
 });
