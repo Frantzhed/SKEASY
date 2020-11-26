@@ -74,6 +74,7 @@
     <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
 
     <div class="stars">
+      <%= (@user.average_rating)%> 
       <i class="fas fa-star"></i> <i class="fas fa-star"></i>
       <i class="fas fa-star"></i> <i class="far fa-star"></i>
     </div>
@@ -112,9 +113,6 @@
 
   <div class="right-box">
     <h1> Hey ! I'm <%= @user.first_name %></h1>
-
-
-      <h4> Val Thorens, joined in December 2019 </h4>
   
       <h5> I'm teaching in <%=@user.ski_resort %> </h5>
               <p> Hey everyone, my name is <%= @user.first_name %>.
@@ -125,7 +123,7 @@
         <div class="text-card">
           <h4> Review :</h4>
         </div>
-        <p> <%= @user.average_rating %> </p>
+        <p> Average rating:<%= @user.average_rating %></p>
           <% @reviews.each do |review| %>
           <%= review.rate %> <%= review.content %>
         <% end %>

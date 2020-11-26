@@ -1,16 +1,18 @@
 
 <div class="card-teacher">
   <div class="card-img">
-    <img src="https://picsum.photos/200" alt="Avatar">
+    <%= cl_image_tag teacher.photo.key, width: 200, crop: :thumb, gravity: :face %>
+    <%# <img src="https://picsum.photos/200" alt="Avatar"> %>
   </div>
   <div class="card-info">
     <h2> <%= teacher.first_name %> <%= teacher.last_name %></h2>
+    <p> <%= "*" * (teacher.average_rating) %></p>
     <p> <%= teacher.categories.pluck(:name).to_sentence %> </p>
-    <p> <%= teacher.description %> </p>
+    <%# <p> <%= teacher.description %> 
     <p> <%= teacher.ski_resort %> </p>
     <p> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
 
-  <%= link_to "Book", user_path(teacher) %>
+    <%= link_to "Book", user_path(teacher) %>
   </div>
 </div>
 
