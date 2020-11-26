@@ -11,7 +11,6 @@ category = ["Ski","Snowboard","Mono-ski","Handiski"]
 technical_skill = ["Beginner","Intermediate","Good-Level","Expert"]
 languages = ["French","English","Russian", "German", "Arabic"]
 
-
 15.times do
 
   User.create!(instructor: true, email: Faker::Internet.email , password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone, description: Faker::Lorem.paragraphs, languages: [User::LANGUAGES.sample, User::LANGUAGES.sample], ski_resort: "Megeve", technical_skill: technical_skill.sample)
