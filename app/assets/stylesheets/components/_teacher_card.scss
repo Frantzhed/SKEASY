@@ -53,24 +53,38 @@
 
 #stars {
   margin-top: 0px;
-  color: yellow;
 }
 
 #category {
   margin-top: 0px;
   font-family: inter;
+  font-size: 12px;
   font-weight: bold;
+  margin-bottom: 5px;
 }
 
 #description {
   margin-top: 0px;
-  font-weight: bold
+  font-style: italic;
+  color: grey;
+  margin-bottom: 0px;
+  font-size: 13px;
+  text-align: left;
+  padding-left: 8px;
+}
+
+#resort {
+padding: 30px;
 }
 
 #languages {
-  margin-top: 0px;
-  font-size: 10px;
+  margin-top: -5px;
+  font-size: 13px;
+  margin-bottom: 0px;
+}
 
+#book-btn {
+  padding:3px;
 }
 
 // .p {
