@@ -11,12 +11,16 @@
       input_html: { data: { action: "change->filters#submit"}}
     } do |f| %>
         <%= f.input :start_date, as: :string,
-        required: false, input_html: {class: "datepicker"} %>
-        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
+        required: false, input_html: {class: "datepickr"} %>
+        
+        <%= f.input :end_date, as: :string,
+        required: false, input_html: {class: "datepickr"} %>
+
+        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
         selected: params[:user][:category]%>
-        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level",
+        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level", label: false,
         selected: params[:user][:technical_skill]%>
-        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language",
+        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language", label: false,
         selected: params[:user][:languages]%>
         <%= f.submit  class: "d-none", data: {target: "filters.submit"} %>
     <% end %>
