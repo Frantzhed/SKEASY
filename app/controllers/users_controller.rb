@@ -12,6 +12,7 @@ end
 def show
  @user = User.new
  set_user
+ @reviews = @user.reviews
 end
 
 
