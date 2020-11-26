@@ -12,11 +12,9 @@ class UsersController < ApplicationController
 
 
 def show
- @user = User.new
- set_user
-  @reviews = @user.reviews
-
-  
+  @user = User.new
+  set_user
+  @reviews = @user.reviews 
 end
 
   private

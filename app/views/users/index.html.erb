@@ -4,12 +4,15 @@
 
 
 <div class="container multi-drop-down" data-controller="filters">
-
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
       input_html: { data: { action: "change->filters#submit"}}
-    } , remote: true do |f| %>
-        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
-        selected: params.dig(:user, :category)%>
+    }, remote: true do |f| %>
+        <%= f.input :category,
+          as: :select, 
+          collection: Category::CATEGORIES, 
+          prompt: "Discipline",
+          selected: params.dig(:user, :category)
+        %>
         <%= f.submit  class: "d-none", data: {target: "filters.submit"} %>
     <% end %>
 
