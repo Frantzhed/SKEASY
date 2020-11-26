@@ -12,8 +12,11 @@ end
 def show
  @user = User.new
  set_user
+ @reviews = []
+    Review.all.each do |review|
+      @reviews << review if review.booking.user_id == @user
 end
-
+end
 
 private
 
