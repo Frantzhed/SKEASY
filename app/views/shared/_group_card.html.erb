@@ -1,12 +1,11 @@
 
 <div class="rectangle">
 
-
       <div class="first-box">
         <div class="photo-and-name">
         <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
           <div class="teacher name">
-            <h2> Patrick Balkany </h2>
+            <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
           </div>
           </div>
           <div class="spot">
@@ -18,27 +17,25 @@
           <div class="infos">
             <p>
               <i class="fas fa-calendar-alt"></i>
-              DEC 2 2020 // 9am-12pm
+              <%= booking.start_date %>
+              <%= booking.end_date %>
                 </p>
 
             <p>
               <i class="far fa-flag"></i>
-              English // French
+              <%= booking.user.languages.to_sentence %>
+              <%= booking.user.description %>
+              <%= booking.user.ski_resort %>
                 </p>
 
             <p>
               <i class="fas fa-skiing"></i>
-              Ski // Beginner level
+              <%= booking.user.categories.pluck(:name).to_sentence %>
             </p>
 
           </div>
           <div class="price">
-            <h3> 90€ </h3>
+            <h3> Price : <%= booking.price %></h3>
           </div>
-        </div>
-
-
-        <div class="third-box">
-          <h3> Book (button) </h3>
         </div>
 </div>

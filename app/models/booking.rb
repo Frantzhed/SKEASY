@@ -1,5 +1,6 @@
 class Booking < ApplicationRecord
   belongs_to :instructor, class_name: :User, foreign_key: :user_id
+  belongs_to :user
   has_many :reviews
   has_many :user_bookings
 

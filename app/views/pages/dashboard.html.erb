@@ -1,37 +1,21 @@
+<h1>SKEASY</h1>
 
+<%= link_to "Upcoming", dashboard_path, class: "dashboard-menu-item #{'active' if params[:past] != 'true'}" %>
 
-<h1>All bookings from an Instructor</h1>
-<% if current_user.client_bookings.upcoming.count == 0 %>
-    <h1> No upcoming bookings </h1>
+<%= link_to "Past", dashboard_path(past: true), class: "dashboard-menu-item #{'active' if params[:past] == 'true'}" %>
+
+<% if @bookings.count == 0 %>
+    <p> No bookings </p>
 <% else %>
-    <h1> Upcoming bookings </h1>
-    <% current_user.client_bookings.upcoming.each do |booking| %>
+  <div class="d-flex flex-wrap">
+    <% @bookings.each do |booking| %>
         <div class="card-product"style="height: ">
           <div class="card-product-infos">
-              <h3><%= booking.start_date %></h3>
-              <h4> <%= booking.end_date%></h4>
-              <h4> <%= booking.category%></h4>
-              <h4> price :<%= booking.price%></h4>
-              <h4> </h4>
+              <%= render "shared/group_card", booking: booking %>
           </div>
         </div>
     <% end %>
-<% end %>
-
-<% if current_user.client_bookings.past.count == 0 %>
-    <h1> No past bookings </h1>
-<% else %>
-    <h1> past bookings </h1>
-    <% current_user.client_bookings.past.each do |booking| %>
-        <div class="card-product"style="height: ">
-          <div class="card-product-infos">
-              <h3><%= booking.start_date %></h3>
-              <h4> <%= booking.end_date%></h4>
-              <h4> Station :<%= booking.category %> </h4>
-          </div>
-        </div>
-    <% end %>
+  </div>
 <% end %>
 
 
-<%#= render "shared/dashboard" %>
