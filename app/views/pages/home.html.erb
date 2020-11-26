@@ -2,6 +2,14 @@
 <!--       <div class="container">
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
+        <%= form_tag users_path(), method: :get do %>
+          <%= text_field_tag :query,
+          params[:query],
+          class: "form-control",
+          placeholder: "Find a resort"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
         <input type="text" placeholder="  🔎      Type your ski ressort !" class="search-bar">
 <!--       </div>
  -->    </div>

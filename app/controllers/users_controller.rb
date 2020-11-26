@@ -1,7 +1,12 @@
 class UsersController < ApplicationController
 
 def index
-  @users = User.where(instructor: true)
+  if params[:query].present?
+    @users = User.where(instructor: true)
+    @users = User.where("email ILIKE ?", "%#{params[:query]}%")
+  else
+    @users = User.all
+  end
 end
 
 def show
