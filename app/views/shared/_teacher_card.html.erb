@@ -1,9 +1,11 @@
 
 <div class="card-teacher">
   <div class="card-img">
-    <img src="https://picsum.photos/200" alt="Avatar">
+    <%= cl_image_tag teacher.photo.key, width: 200, crop: :thumb, gravity: :face %>
+    <%# <img src="https://picsum.photos/200" alt="Avatar"> %>
   </div>
   <div class="card-info">
+
     <h2 id="first-name"><%= teacher.first_name %></h2>
     <h2 id="last-name"><%= teacher.last_name %></h2>
     <p id="stars">
@@ -21,6 +23,7 @@
     <p id="ressort"> 🗻 <%= teacher.ski_resort %> 🗻 </p>
     <p id="languages"> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
     <p id="book"><%= link_to "Book", user_path(teacher) %></p>
+
   </div>
 </div>
 
