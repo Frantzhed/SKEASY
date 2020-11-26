@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
     @user = User.find(params[:user_id])
     @booking = Booking.new
   end
-  
+
   def create
     @instructor = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
     if @booking.save
       @user_booking = UserBooking.new(user: current_user, booking: @booking)
       @user_booking.save
-      redirect_to user_path(@instructor)
+      redirect_to dashboard_path
     else
       render :new
     end

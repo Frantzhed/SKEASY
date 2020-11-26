@@ -20,12 +20,14 @@
 
     <%= @users.count %>
 
-
 </div>
 
 <div class="container price-info">
   <h1>Share your lesson and divide the price !</h1>
   <h2>Private booking 85 € / hour | Shared booking up to 21 € / hour </h2>
+  <%if @users.count==0 %>
+  <h2>No instructors matching search</h2>
+  <% end %>
 </div>
 
 <div class="d-flex bd-highlight teacher-cards flex-wrap">
