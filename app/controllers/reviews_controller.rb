@@ -10,8 +10,7 @@ class ReviewsController < ApplicationController
     @review.booking = @booking
     @review.user = @booking.instructor
     @review.save
-    @user = @booking.reviews
-    redirect_to user_path(@user)
+    redirect_to user_path(@booking.instructor)
   end
 
   def destroy

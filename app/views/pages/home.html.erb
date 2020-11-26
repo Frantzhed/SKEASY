@@ -1,14 +1,15 @@
-    <div class="banner">
+
+      <div class="banner">
 <!--       <div class="container">
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
         <%= form_tag users_path(), method: :get do %>
-          <%= text_field_tag :resort,
-          params[:resort],
+          <%= text_field_tag "user[resort]",
+          params.dig(:user,:resort),
           class: "search-bar",
           placeholder: "🔎     Type your ski resort !"
           %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
+          <%= submit_tag "Search", class: "btn btn-primary btn-home" %>
         <% end %>
         <!--       </div>
  -->    </div>
@@ -31,8 +32,6 @@
           </div>
       </div>
     </div>
-
-  <%= link_to "index", users_path()  %>
 
 
 
