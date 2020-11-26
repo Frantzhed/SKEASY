@@ -113,7 +113,7 @@
 
   <div class="right-box">
     <h1> Hey ! I'm <%= @user.first_name %></h1>
-  
+
       <h5> I'm teaching in <%=@user.ski_resort %> </h5>
               <p> Hey everyone, my name is <%= @user.first_name %>.
                   <%= @user.description %>
@@ -142,11 +142,9 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
 
-
               <div class="modal-body">
                 <%= render "bookings/new", user: @user, booking: @booking %>
               </div>
-
             </div>
           </div>
         </div>
