@@ -3,8 +3,8 @@
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
         <%= form_tag users_path(), method: :get do %>
-          <%= text_field_tag :query,
-          params[:query],
+          <%= text_field_tag :resort,
+          params[:resort],
           class: "search-bar",
           placeholder: "🔎     Type your ski resort !"
           %>
@@ -31,3 +31,8 @@
           </div>
       </div>
     </div>
+
+  <%= link_to "index", users_path()  %>
+
+
+

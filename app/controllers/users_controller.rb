@@ -1,24 +1,27 @@
 class UsersController < ApplicationController
 
-def index
-  if params[:query].present?
-    @users = User.where(instructor: true)
-    @users = User.where("ski_resort ILIKE ?", "%#{params[:query]}%")
-  else
-    @users = User.all
+  def index
+    @users = User.instructor
+    if params[:user][:resort].present?
+      @users = @users.where("ski_resort ILIKE ?", "%#{params[:user][:resort]}%")
+    end
+    if params[:user][:category].present?
+      @users = @users.joins(:categories).where(categories: {name: params[:user][:category]})
+    end
   end
-end
+
 
 def show
  @user = User.new
  set_user
- @reviews = @user.reviews
+  @reviews = @user.reviews
+
+  
 end
 
+  private
 
-private
-
-def set_user
-  @user = User.find(params[:id])
-end
+  def set_user
+    @user = User.find(params[:id])
+  end
 end
