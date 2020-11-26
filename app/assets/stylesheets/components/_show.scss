@@ -16,7 +16,9 @@
 }
 
 .right-box {
-
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .info-image {
@@ -78,7 +80,6 @@
   margin-bottom: 35px;
 }
 
-
 .card-specialities {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
@@ -86,7 +87,8 @@
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
-  margin-bottom: 10px,
+  margin-bottom: 10px;
+  background-color: $light-gray;
 }
 
 .card-languages {
@@ -96,5 +98,22 @@
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
-  margin-bottom: 10px,
+  margin-bottom: 10px;
+  background-color: $light-gray;
+}
+
+.book-button {
+  margin: 5px;
+}
+
+.card-review {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  border-radius: 2%;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  text-align: left-center;
+  background-color: $light-gray;
+  width: 400px;
+  padding: 5px;
 }

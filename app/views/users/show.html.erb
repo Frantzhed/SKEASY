@@ -111,34 +111,46 @@
   </div>
 
   <div class="right-box">
-    <h1> Hey ! I'm <%= @user.first_name %><%= @user.last_name %></h1>
-
-      <h4> I'm teaching in <%=@user.ski_resort %> </h4>
-        <p> Hey everyone, my name is <%= @user.first_name %>.
-            <%= @user.description %>
-        </p>
-
-      <h3> Videos <i class="fab fa-youtube"></i> </h3>
-        <iframe width="460" height="215" src="https://www.youtube.com/embed/fNRPiXes7OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-    <%= link_to "Book your lesson", new_user_booking_path(@user), class:"btn btn-primary" %>
-  </div>
-</div>
+    <h1> Hey ! I'm <%= @user.first_name %></h1>
 
 
+      <h4> Val Thorens, joined in December 2019 </h4>
+  
+      <h5> I'm teaching in <%=@user.ski_resort %> </h5>
+              <p> Hey everyone, my name is <%= @user.first_name %>.
+                  <%= @user.description %>
+              </p>
 
-
-
-<h1> <%= @user.average_rating %> </h1>
-
-
+      <div class="card-review">
+        <div class="text-card">
+          <h4> Review :</h4>
+        </div>
+        <p> <%= @user.average_rating %> </p>
           <% @reviews.each do |review| %>
           <%= review.rate %> <%= review.content %>
-          <% end %>
+        <% end %>
+      </div>
 
 
-<H1> ID <%= @user.id %> </H1>
+      <h3> Videos <i class="fab fa-youtube p-2"></i> </h3>
+        <iframe width="460" height="215" src="https://www.youtube.com/embed/fNRPiXes7OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <div class="book-button">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">
+              Book your lesson
+          </button>
+        </div>
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
 
 
+              <div class="modal-body">
+                <%= render "bookings/new", user: @user, booking: @booking %>
+              </div>
 
-
+            </div>
+          </div>
+        </div>
+  </div>
+</div>
