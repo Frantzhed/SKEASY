@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :categories
   has_many :client_bookings, through: :user_bookings, class_name: "Booking", source: "booking"
 
-  validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
+  # validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
 
 
   has_many_attached :photos

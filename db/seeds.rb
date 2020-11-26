@@ -7,13 +7,22 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
+Review.destroy_all
+puts "review destroy"
+Booking.destroy_all
+puts "booking destroy"
+Category.destroy_all
+puts "category destroy"
+User.destroy_all
+puts "user destroy"
+
 category = ["Ski","Snowboard","Mono-ski","Handiski"]
 technical_skill = ["Beginner","Intermediate","Good-Level","Expert"]
 languages = ["French","English","Russian", "German", "Arabic"]
 
 
-15.times do
 
+15.times do
   User.create!(instructor: true, email: Faker::Internet.email , password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone, description: Faker::Lorem.paragraphs, languages: [User::LANGUAGES.sample, User::LANGUAGES.sample], ski_resort: "Megeve", technical_skill: technical_skill.sample)
   puts "Created 15 users"
   Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
