@@ -131,11 +131,16 @@
 
 
 
+
 <H1> <%= @user.average_rating %> </H1>
+
 
           <% @reviews.each do |review| %>
           <%= review.rate %> <%= review.content %>
           <% end %>
+
+
+<H1> <%= @user.id %> </H1>
 
 
 
