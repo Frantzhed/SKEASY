@@ -3,8 +3,8 @@
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
         <%= form_tag users_path(), method: :get do %>
-          <%= text_field_tag :resort,
-          params[:resort],
+          <%= text_field_tag "user[resort]",
+          params.dig(:user,:resort),
           class: "search-bar",
           placeholder: "🔎     Type your ski resort !"
           %>
