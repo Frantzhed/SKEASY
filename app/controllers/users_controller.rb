@@ -11,13 +11,11 @@ class UsersController < ApplicationController
   end
 
 
-def show
- @user = User.new
- set_user
-  @reviews = @user.reviews
-
-  
-end
+  def show
+    set_user
+    @reviews = @user.reviews
+    @booking = Booking.new
+  end
 
   private
 

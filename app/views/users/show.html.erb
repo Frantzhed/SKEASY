@@ -107,11 +107,11 @@
   </div>
 
   <div class="right-box">
-    <h1> Hey ! I'm <%= @user.first_name %><%= @user.last_name %></h1>
+    <h1> Hey ! I'm <%= @user.first_name %></h1>
 
       <h4> Val Thorens, joined in December 2019 </h4>
 
-        <p> Hey everyone, my name is <%= @user.first_name %>. I was born and raised in
+        <p> Hello everyone, my name is <%= @user.first_name %> <%= @user.last_name %>. I was born and raised in
             Savoie and i’ve been skiing basically all my life.
             I’m comfortable with all kinds of practice (ski, snowboard, biathlon...),
             i’ve been a profesionnal ski racer for more than fifteen-years,
@@ -119,28 +119,40 @@
             resort where i’ve been living and practicing ski since a long time ago.
             I would be please to become your ski teacher for your holidays ! </p>
 
-        <%= @user.description %>
+      <div class="card-review">
+        <div class="text-card">
+          <h4> Review :</h4>
+        </div>
+        <p> <%= @user.average_rating %> </p>
+          <% @reviews.each do |review| %>
+          <%= review.rate %> <%= review.content %>
+        <% end %>
+      </div>
 
-      <h3> Videos <i class="fab fa-youtube"></i> </h3>
+      <h3> Videos <i class="fab fa-youtube p-2"></i> </h3>
         <iframe width="460" height="215" src="https://www.youtube.com/embed/fNRPiXes7OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-    <%= link_to "Book your lesson", new_user_booking_path(@user), class:"btn btn-primary" %>
+        <div class="book-button">
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">
+              Book your lesson
+          </button>
+        </div>
+        <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+              <div class="modal-body">
+                <%= render "bookings/new", user: @user, booking: @booking %>
+              </div>
+
+            </div>
+          </div>
+        </div>
   </div>
 </div>
 
 
 
-
-
-<H1> <%= @user.average_rating %> </H1>
-
-
-          <% @reviews.each do |review| %>
-          <%= review.rate %> <%= review.content %>
-          <% end %>
-
-
-<H1> <%= @user.id %> </H1>
 
 
 
