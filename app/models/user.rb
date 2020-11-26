@@ -11,10 +11,8 @@ class User < ApplicationRecord
   has_many :user_bookings, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :client_bookings, through: :user_bookings, class_name: "Booking", source: "booking"
-
   validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
   validate :languages_included_in_list
-
   has_one_attached :photo
   attr_accessor :category
 
