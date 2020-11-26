@@ -14,7 +14,6 @@ class UsersController < ApplicationController
 
   end
 
-
   def show
     set_user
     @reviews = @user.reviews

@@ -1,27 +1,26 @@
 
-  <h1 class="resort-title" data-name= <%="#{params[:user][:resort]}" %>>
-    <%= params[:user][:resort] %>
+  <h1 class="resort-title" data-name= <%="#{params.dig(:user, :resort) }" %>>
+    <%= params.dig(:user, :resort) %>
   </h1>
 
 
 <div class="container multi-drop-down" data-controller="filters">
-
-
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
       input_html: { data: { action: "change->filters#submit"}}
-    } do |f| %>
-        <%= f.input :start_date, as: :string,
-        required: false, input_html: {class: "datepickr"} %>
+    }, remote: true do |f| %>
         
+                   <%= f.input :start_date, as: :string,
+        required: false, input_html: {class: "datepickr"} %>
         <%= f.input :end_date, as: :string,
         required: false, input_html: {class: "datepickr"} %>
+        
+                   <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
+        selected: params.dig(:user, :category) %>
+        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level",
+        selected: params.dig(:user, :technical_skill) %>
+        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language",
+        selected: params.dig(:user, :languages) %>
 
-        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
-        selected: params[:user][:category]%>
-        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level", label: false,
-        selected: params[:user][:technical_skill]%>
-        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language", label: false,
-        selected: params[:user][:languages]%>
         <%= f.submit  class: "d-none", data: {target: "filters.submit"} %>
     <% end %>
 
