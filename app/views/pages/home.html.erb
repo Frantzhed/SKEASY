@@ -5,13 +5,12 @@
         <%= form_tag users_path(), method: :get do %>
           <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
-          placeholder: "Find a resort"
+          class: "search-bar",
+          placeholder: "🔎     Type your ski resort !"
           %>
           <%= submit_tag "Search", class: "btn btn-primary" %>
         <% end %>
-        <input type="text" placeholder="  🔎      Type your ski ressort !" class="search-bar">
-<!--       </div>
+        <!--       </div>
  -->    </div>
     <div class="banner-down">
       <div class="container-down">
@@ -32,4 +31,3 @@
           </div>
       </div>
     </div>
-  <%= link_to "index", users_path()  %>

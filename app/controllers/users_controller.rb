@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 def index
   if params[:query].present?
     @users = User.where(instructor: true)
-    @users = User.where("email ILIKE ?", "%#{params[:query]}%")
+    @users = User.where("ski_resort ILIKE ?", "%#{params[:query]}%")
   else
     @users = User.all
   end
