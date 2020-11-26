@@ -8,6 +8,10 @@ class UsersController < ApplicationController
     if params.dig(:user, :category).present?
       @users = @users.joins(:categories).where(categories: {name: params[:user][:category]})
     end
+    if params[:user][:technical_skill].present?
+      @users = @users.where("technical_skill ILIKE ?", "%#{params[:user][:technical_skill]}%")
+    end
+
   end
 
 
@@ -22,4 +26,5 @@ class UsersController < ApplicationController
   def set_user
     @user = User.find(params[:id])
   end
+
 end

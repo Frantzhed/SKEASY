@@ -10,10 +10,12 @@
         <div class="info-image">
           <img src="https://picsum.photos/200" alt="Avatar"
               class="photo-profile-other-teacher">
-            <div class="text-card">
-              <h5> Lomig </h5>
+             <div class="text-card">
+                <% user3 = User.all.sample%>
+              <h5><%= user3.first_name%> <%= user3.last_name%></h5>
               <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> Super prof </p>
+              <i class="far fa-star"></i> <i class="far fa-star"></i>
+              <p> <%= user3.technical_skill %> </p>
             </div>
         </div>
 
@@ -28,11 +30,12 @@
         <div class="info-image">
           <img src="https://picsum.photos/200" alt="Avatar"
               class="photo-profile-other-teacher">
-            <div class="text-card">
-            <h5> Julien </h5>
+             <div class="text-card">
+                <% user3 = User.all.sample%>
+              <h5><%= user3.first_name%> <%= user3.last_name%></h5>
               <i class="far fa-star"></i> <i class="far fa-star"></i>
               <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> Incroyable prof </p>
+              <p> <%= user3.technical_skill %> </p>
             </div>
         </div>
 
@@ -48,10 +51,11 @@
           <img src="https://picsum.photos/200" alt="Avatar"
               class="photo-profile-other-teacher">
             <div class="text-card">
-              <h5> Cécile </h5>
+                <% user3 = User.all.sample%>
+              <h5><%= user3.first_name%> <%= user3.last_name%></h5>
               <i class="far fa-star"></i> <i class="far fa-star"></i>
               <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> Excellente prof </p>
+              <p> <%= user3.technical_skill %> </p>
             </div>
         </div>
 
@@ -98,9 +102,9 @@
     <div class="card-languages p-2">
       <h5>LANGUAGES</h5>
         <div class="text-left">
-          <p>French : <em> Native language </em> </p>
-
-          <p>English : <em> Good level </em> </p>
+        <% User.last.languages.each do |language|%>
+        <%= "#{language}" %>
+        <% end %>
         </div>
     </div>
 
@@ -109,15 +113,13 @@
   <div class="right-box">
     <h1> Hey ! I'm <%= @user.first_name %></h1>
 
-      <h4> Val Thorens, joined in December 2019 </h4>
 
-        <p> Hello everyone, my name is <%= @user.first_name %> <%= @user.last_name %>. I was born and raised in
-            Savoie and i’ve been skiing basically all my life.
-            I’m comfortable with all kinds of practice (ski, snowboard, biathlon...),
-            i’ve been a profesionnal ski racer for more than fifteen-years,
-            then i decided to become a ski teacher in Val Thorens which is the ski
-            resort where i’ve been living and practicing ski since a long time ago.
-            I would be please to become your ski teacher for your holidays ! </p>
+      <h4> Val Thorens, joined in December 2019 </h4>
+  
+      <h5> I'm teaching in <%=@user.ski_resort %> </h5>
+              <p> Hey everyone, my name is <%= @user.first_name %>.
+                  <%= @user.description %>
+              </p>
 
       <div class="card-review">
         <div class="text-card">
@@ -128,6 +130,7 @@
           <%= review.rate %> <%= review.content %>
         <% end %>
       </div>
+
 
       <h3> Videos <i class="fab fa-youtube p-2"></i> </h3>
         <iframe width="460" height="215" src="https://www.youtube.com/embed/fNRPiXes7OQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -141,6 +144,7 @@
           <div class="modal-dialog" role="document">
             <div class="modal-content">
 
+
               <div class="modal-body">
                 <%= render "bookings/new", user: @user, booking: @booking %>
               </div>
@@ -150,10 +154,3 @@
         </div>
   </div>
 </div>
-
-
-
-
-
-
-
