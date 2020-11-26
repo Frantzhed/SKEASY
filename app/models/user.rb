@@ -10,6 +10,9 @@ class User < ApplicationRecord
   has_many :client_bookings, through: :user_bookings, class_name: "Booking", source: "booking"
 
   has_many_attached :photos
+  attr_accessor :category
+
+  scope :instructor, -> {where(instructor: true)}
 
 
   def booked_instructors

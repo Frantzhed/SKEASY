@@ -1,11 +1,13 @@
 
-.card {
+.card-teacher {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
   width: 260px;
   height: 360px;
-  border-radius: 2%;
+  border-radius: 40px 40px 4px 4px;
+  background-color: white;
+  cursor: pointer
 }
 
 .card-img {
@@ -16,12 +18,12 @@
     border-radius: 50%;
     width: 110px;
     height: 110px;
-    box-shadow: 5px 5px 3px #7893C1;
     margin-top: -50px;
+    border: 6px solid $light-blue;
   }
 }
 
-.card:hover {
+.card-teacher:hover {
   box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 
