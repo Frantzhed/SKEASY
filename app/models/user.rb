@@ -20,8 +20,12 @@ class User < ApplicationRecord
   end
 
   def average_rating
+    if reviews.count == 0
+      puts "No mark yet "
+    else
     reviews.map(&:rate).sum / reviews.count
   end
+end
 
 
 end

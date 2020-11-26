@@ -127,3 +127,16 @@
     <%= link_to "Book your lesson", new_user_booking_path(@user), class:"btn btn-primary" %>
   </div>
 </div>
+
+
+
+
+<H1> <%= @user.average_rating %> </H1>
+
+          <% @reviews.each do |review| %>
+          <%= review.rate %> <%= review.content %>
+          <% end %>
+
+
+
+
