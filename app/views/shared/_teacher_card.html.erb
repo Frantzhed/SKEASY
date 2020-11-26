@@ -4,11 +4,11 @@
     <img src="https://picsum.photos/200" alt="Avatar">
   </div>
   <div class="card-info">
-    <h2> Guillaume Arsan </h2>
-    <p> 5 étoiles </p>
-    <p> Ski </p>
-    <p> Super prof </p>
-    <p> France </p>
+    <h2> <%= teacher.first_name %> <%= teacher.last_name %></h2>
+    <p> <%= teacher.categories.pluck(:name).to_sentence %> </p>
+    <p> <%= teacher.description %> </p>
+    <p> <%= teacher.ski_resort %> </p>
+    <p> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
   </div>
 </div>
 
