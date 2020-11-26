@@ -47,10 +47,13 @@
 </div>
 
 <div class="d-flex bd-highlight teacher-cards">
-  <div class="p-2 flex-fill bd-highlight">Flex item</div>
-  <div class="p-2 flex-fill bd-highlight">Flex item</div>
-  <div class="p-2 flex-fill bd-highlight">Flex item</div>
-  <div class="p-2 flex-fill bd-highlight">Flex item</div>
+<ol>
+    <% @users.each do |user|%>
+      <li><%= user.first_name %>/<%= user.last_name %> ---<%= user.categories %> --- <%= user.description %> ---<%= user.languages %> </li>
+      <%= link_to "show", user_path(user) %>
+      <%= render "shared/teacher_card" %>
+    <% end %>
+</ol>
 </div>
 
 
@@ -68,10 +71,3 @@
 </div>
 
 
-
-<ol>
-    <% @users.each do |user|%>
-      <li><%= user.first_name %>/<%= user.last_name %> ---<%= user.categories %> --- <%= user.description %> ---<%= user.languages %> </li>
-      <%= link_to "show", user_path(user) %>
-    <% end %>
-</ol>
