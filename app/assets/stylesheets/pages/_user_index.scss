@@ -22,6 +22,11 @@
   }
 }
 
+.price-info {
+  justify-content: space-around;
+  text-align: center
+}
+
 .multi-drop-down {
   margin-top: 64px;
   background: white;
@@ -29,6 +34,8 @@
 
 
 .teacher-cards {
+  display: flex;
+  justify-content: space-around;
   margin-top: 50px;
 }
 
@@ -37,7 +44,13 @@
 }
 
 .booking-cards {
+  display: flex;
+  justify-content: space-around;
   margin-top: 50px;
+}
+
+.p-2 {
+  text-align: center;
 }
 
 
