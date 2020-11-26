@@ -2,14 +2,16 @@
 <!--       <div class="container">
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
-        <%= form_tag users_path(), method: :get do %>
-          <%= text_field_tag :resort,
-          params[:resort],
-          class: "search-bar",
-          placeholder: "🔎     Type your ski resort !"
-          %>
-          <%= submit_tag "Search", class: "btn btn-primary" %>
-        <% end %>
+        <div class="container form">
+          <%= form_tag users_path(), method: :get do %>
+            <%= text_field_tag :resort,
+            params[:resort],
+            class: "search-bar",
+            placeholder: "🔎     Type your ski resort !"
+            %>
+            <%= submit_tag "Search", class: "btn btn-primary" %>
+          <% end %>
+        </div>
         <!--       </div>
  -->    </div>
     <div class="banner-down">
