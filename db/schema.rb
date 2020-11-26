@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_11_25_151759) do
+ActiveRecord::Schema.define(version: 2020_11_25_170712) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -92,6 +92,7 @@ ActiveRecord::Schema.define(version: 2020_11_25_151759) do
     t.string "technical_skill"
     t.boolean "instructor", default: false
     t.string "languages", default: [], array: true
+    t.string "ski_resort"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["languages"], name: "index_users_on_languages", using: :gin
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true

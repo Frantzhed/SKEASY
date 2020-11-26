@@ -2,8 +2,15 @@
 <!--       <div class="container">
  -->        <h1>SKEASY</h1>
         <p>Find the best instructor for your stay</p>
-        <input type="text" placeholder="  🔎      Type your ski ressort !" class="search-bar">
-<!--       </div>
+        <%= form_tag users_path(), method: :get do %>
+          <%= text_field_tag :resort,
+          params[:resort],
+          class: "search-bar",
+          placeholder: "🔎     Type your ski resort !"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+        <!--       </div>
  -->    </div>
     <div class="banner-down">
       <div class="container-down">
@@ -24,6 +31,7 @@
           </div>
       </div>
     </div>
+
   <%= link_to "index", users_path()  %>
 
 
