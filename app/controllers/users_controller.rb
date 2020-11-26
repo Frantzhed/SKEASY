@@ -2,10 +2,10 @@ class UsersController < ApplicationController
 
   def index
     @users = User.instructor
-    if params[:user][:resort].present?
+    if params.dig(:user, :resort).present?
       @users = @users.where("ski_resort ILIKE ?", "%#{params[:user][:resort]}%")
     end
-    if params[:user][:category].present?
+    if params.dig(:user, :category).present?
       @users = @users.joins(:categories).where(categories: {name: params[:user][:category]})
     end
   end

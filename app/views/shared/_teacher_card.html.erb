@@ -9,7 +9,10 @@
     <p> <%= teacher.description %> </p>
     <p> <%= teacher.ski_resort %> </p>
     <p> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
+
+  <%= link_to "Book", user_path(teacher) %>
   </div>
 </div>
+
 
 
