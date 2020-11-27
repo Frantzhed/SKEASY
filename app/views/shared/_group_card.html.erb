@@ -13,34 +13,17 @@
             <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
           </div>
           </div>
-          <!-- <div class="spot">
-            <p> One spot left (button) </p>
-          </div> -->
       </div>
-
         <div class="second-box">
           <div class="infos">
-            <p>
-              📅
-              <%= booking.start_date %>
-              <%= booking.end_date %>
-                </p>
-
-            <p>
-              🇺🇳
-              <%= booking.user.languages.to_sentence %> 🇺🇳
-              </p>
-              <p> <%= booking.user.description %> </p>
-
-              <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
-
-
+            <p>📅<%= booking.start_date %><%= booking.end_date %></p>
+            <p><%= booking.user.languages.to_sentence %></p>
+            <p> <%= booking.user.description %> </p>
+            <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
             <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
-
-
           </div>
           <div class="price">
-            <h3> Price : <%= booking.price %> 💸 </h3>
+            <h3>Price :<%= booking.price %>💸 </h3>
           </div>
         </div>
 </div>
