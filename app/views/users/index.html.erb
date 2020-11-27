@@ -4,13 +4,12 @@
     </h1>
   <% else %>
     <h1 class="resort-title" data-name= <%="#{params.dig(:user, :ski_resort) }" %>>
-      <%= params.dig(:user, :ski_resort) %>
+      <%= (params.dig(:user, :ski_resort)).capitalize %>
     </h1>
   <% end %>
   <%if @users.count==0 %>
     <h2 style="text-align: center"> We don't have any instructors available in  <%= "#{params.dig(:user, :ski_resort) }"%></h2>
   <% end %>
-
 
 <div class="container multi-drop-down" data-controller="filters">
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
@@ -34,6 +33,8 @@
         <%= f.submit class: "d-none", data: {target: "filters.submit"} %>
     <% end %>
 </div>
+<br>
+  <h2 style="text-align:center"><%= "Fixed Price: 45euros/hour"  %></h2>
 
 
 <div class="d-flex bd-highlight teacher-cards flex-wrap">
@@ -44,5 +45,5 @@
 </div>
 <div class="container price-info">
   <h1>Share your lesson and divide the price !</h1>
-  <h2>Private booking 85 € / hour | Shared booking up to 21 € / hour </h2>
+  <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
 </div>
