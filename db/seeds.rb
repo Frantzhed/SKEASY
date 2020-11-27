@@ -26,7 +26,7 @@ User.destroy_all
 
 
 7.times do |index|
-  user = User.new(instructor: true, email: emails[index] , password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone, description: Faker::Lorem.paragraphs, languages: [User::LANGUAGES.sample, User::LANGUAGES.sample].uniq, ski_resort: "Megeve", technical_skill: technical_skill.sample)
+  user = User.new(instructor: true, email: emails[index] , password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone, description: description, languages: [User::LANGUAGES.sample, User::LANGUAGES.sample].uniq, ski_resort: "Megeve", technical_skill: technical_skill.sample)
   user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user#{index + 1}.jpg")), filename: 'photo.jpg')
   user.save!
   puts "Created one user"
