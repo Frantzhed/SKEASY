@@ -16,10 +16,10 @@
       input_html: { data: { action: "change->filters#submit"}}
     }, remote: true do |f| %>
 
-        <%= f.input :start_date, as: :string, prompt: "Start Date", label: false,
+        <%= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
         required: false, input_html: {class: "datepickr", value: params[:user][:start_date]} %>
 
-        <%= f.input :end_date, as: :string, prompt: "End Date", label: false,
+        <%= f.input :end_date, as: :string, placeholder: "End Date", label: false,
         required: false, input_html: {class: "datepickr", value: params[:user][:end_date]} %>
 
         <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
