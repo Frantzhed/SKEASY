@@ -14,7 +14,6 @@
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
   }
 }
-
 .card-img {
   display: flex;
   align-items: center;
@@ -23,6 +22,36 @@
     border-radius: 50%;
     width: 110px;
     height: 110px;
+    margin-top: -50px;
+    border: 6px solid $light-blue;
+  }
+}
+.card-teachershow {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  text-align: center;
+  width: 180px;
+  height: 200px;
+  border-radius: 40px 40px 4px 4px;
+  background-color: white;
+  cursor: pointer;
+  margin: 50px;
+  margin-bottom: 80px;
+  &:hover {
+    background-color: #dbdde0;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
+  }
+}
+
+
+.card-imgshow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  > img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
     margin-top: -50px;
     border: 6px solid $light-blue;
   }
