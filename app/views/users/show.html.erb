@@ -86,12 +86,16 @@
 
       <h5>SPECIALITIES</h5>
       <div class="text-left">
-        <p>Ski :
-        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i> <i class="fas fa-star"></i>
-        </p>
+        <% @user.categories.each do |category| %>
 
-        <p>Snowboard :
+          <p> <%= category.name %> :
+            <% category.note.times do %>
+            <i class='fas fa-star'></i>
+           <% end %>
+          </p>
+        <% end %>
+
+<!--         <p>Snowboard :
         <i class="fas fa-star"></i> <i class="fas fa-star"></i>
         <i class="fas fa-star-half"></i>
         </p>
@@ -99,7 +103,7 @@
         <p>Telemark :
         <i class="fas fa-star"></i> <i class="fas fa-star"></i>
         <i class="fas fa-star"></i> <i class="fas fa-star-half"></i>
-        </p>
+        </p> -->
       </div>
     </div>
 

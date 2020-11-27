@@ -24,9 +24,11 @@
             <p>
               <i class="far fa-flag"></i>
               <%= booking.user.languages.to_sentence %>
-              <%= booking.user.description %>
-              <%= booking.user.ski_resort %>
-                </p>
+              </p>
+              <p> <%= booking.user.description %> </p>
+
+              <p> <%= booking.user.ski_resort %> </p>
+
 
             <p>
               <i class="fas fa-skiing"></i>
@@ -35,7 +37,7 @@
 
           </div>
           <div class="price">
-            <h3> Price : <%= booking.price %></h3>
+            <h3> Price : <%= booking.price %> </h3>
           </div>
         </div>
 </div>

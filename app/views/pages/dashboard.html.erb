@@ -13,7 +13,7 @@
 <% if @current_user.client_bookings.upcoming.each == 0 %>
     <p> No bookings </p>
 <% else %>
-  <div class="d-flex flex-wrap">
+  <div class="d-flex flex-wrap mt-5">
     <% current_user.client_bookings.upcoming.each do |booking| %>
         <div class="card-product"style="height: ">
           <div class="card-product-infos">
@@ -30,7 +30,8 @@
     <% if @current_user.client_bookings.past.each == 0 %>
     <p> No bookings </p>
 <% else %>
-  <div class="d-flex flex-wrap">
+
+    <div class="d-flex flex-wrap mt-5">
     <% current_user.client_bookings.past.each do |booking| %>
         <div class="card-product"style="height: ">
           <div class="card-product-infos">
@@ -40,12 +41,7 @@
     <% end %>
   </div>
 <% end %>
-
-
   </div>
-
-
-
 </div>
 
 

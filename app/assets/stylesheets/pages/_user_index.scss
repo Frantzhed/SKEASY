@@ -25,6 +25,7 @@
 .simple_form {
   width: 100%;
   display: flex;
+  flex-direction: column;
 }
 form.user .form-group {
   flex: 1 1 auto
