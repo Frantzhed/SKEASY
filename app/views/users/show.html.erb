@@ -13,9 +13,10 @@
              <div class="text-card">
                 <% user3 = User.all.sample%>
               <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> <%= user3.technical_skill %> </p>
+               <% user3.average_rating.times do %>
+                    ⭐️
+                <% end %>
+              <p>Teaching : <%= user3.technical_skill %> </p>
             </div>
         </div>
 
@@ -33,9 +34,10 @@
              <div class="text-card">
                 <% user3 = User.all.sample%>
               <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> <%= user3.technical_skill %> </p>
+              <% user3.average_rating.times do %>
+                    ⭐️
+              <% end %>
+              <p>Teaching :<%= user3.technical_skill %> </p>
             </div>
         </div>
 
@@ -53,9 +55,10 @@
             <div class="text-card">
                 <% user3 = User.all.sample%>
               <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <i class="far fa-star"></i> <i class="far fa-star"></i>
-              <p> <%= user3.technical_skill %> </p>
+              <% user3.average_rating.times do %>
+                    ⭐️
+              <% end %>
+              <p>Teaching :<%= user3.technical_skill %> </p>
             </div>
         </div>
 
