@@ -14,13 +14,8 @@
 
 <div class="container multi-drop-down" data-controller="filters">
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
-
       input_html: { data: { action: "change->filters#submit"}}
     }, remote: true do |f| %>
-        
-        <%= f.input :start_date, as: :string,
-        input_html: { data: { action: "change->filters#submit"}}
-         }, remote: true do |f| %>
   
         <%= f.input :start_date, as: :string, prompt: "Start Date", label: false,
         required: false, input_html: {class: "datepickr"} %>
