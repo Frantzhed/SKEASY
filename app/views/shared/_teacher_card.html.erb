@@ -22,7 +22,7 @@
 
     <!-- <img src="<%=teacher.categories.pluck(:name).to_sentence%>.jpg" alt=""> -->
     <p id="category"> <%= teacher.categories.pluck(:name).to_sentence %> </p>
-    <p id="description"><i class="fas fa-quote-left"></i><%= teacher.description.truncate(60)%><i class="fas fa-quote-left"></i></p>
+    <p id="description"><i class="fas fa-quote-left"></i><%= teacher.description.truncate(90)%><i class="fas fa-quote-left"></i></p>
     <p id="ressort"> 🗻 <%= teacher.ski_resort %> 🗻 </p>
     <p id="languages"> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
     <p id="book-btn"> <%= link_to "Book", user_path(teacher) %></p>
