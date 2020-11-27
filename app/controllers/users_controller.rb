@@ -11,6 +11,9 @@ class UsersController < ApplicationController
     if params[:user][:technical_skill].present?
       @users = @users.where("technical_skill ILIKE ?", "%#{params[:user][:technical_skill]}%")
     end
+    
+    
+    
 
   end
 
