@@ -25,7 +25,7 @@ description = [
 "I've been teaching for 2 years, I'm sure you'll learn fast!!",
 "Hello I am a specialized ski teacher, I will be happy to make you discover the domain so that you will spend the best vacations",
 "I am a specialized teacher, I will be please to make you discover the domain so that you will spend the best time!",
-"Be the fastest on the slopes!!, I will be please to make you discover the domain so that you will spend the best time!",
+"Be the fastest on the slopes!! I will be please to make you discover the domain so that you will spend the best time!",
 "Ride with me and enjoy time on the slopes, I will be please to make you discover the domain so that you will spend the best time!",
 ]
 Review.destroy_all
