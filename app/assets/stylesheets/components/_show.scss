@@ -5,6 +5,7 @@
   font-size: 56px;
   font-weight: 900;
   color: #001E54;
+  margin-bottom: -1px;
 }
 
 #greeting-message {
@@ -26,13 +27,15 @@
 
 #other-instructors {
   font-family: Josefin Sans;
-  font-size: 40px;
+  font-size: 26px;
+  margin-bottom: 0px;
   font-weight: 900;
   color: #001E54;
 }
 
 .center-box {
   width: 220px;
+  margin-top: -1px;
   flex-shrink: 0;
   margin-right: 40px;
   margin-left: 40px;
@@ -77,13 +80,15 @@
 }
 
 .card-instructor {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
-  text-align: center;
+  text-align: right;
+  font-family: Inter;
+  background-color: white;
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
-  margin-bottom: 10px,
+  margin-bottom: 10px;
 }
 
 .cards-instructor:hover {
