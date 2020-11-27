@@ -26,6 +26,9 @@
   width: 100%;
   display: flex;
 }
+form.user .form-group {
+  flex: 1 1 auto
+}
 
 .price-info {
   justify-content: space-around;
