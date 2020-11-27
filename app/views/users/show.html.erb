@@ -2,7 +2,7 @@
 
   <div class="left-box">
 
-    <h2>Other instructors</h2>
+    <h2 id="other-instructors">Other instructors</h2>
 
     <div class="cards-instructors">
 
@@ -119,10 +119,10 @@
   </div>
 
   <div class="right-box">
-    <h1> Hey ! I'm <%= @user.first_name %></h1>
+    <h1 id="name"> Hey ! I'm <%= @user.first_name %></h1>
 
-      <h5> I'm teaching in <%=@user.ski_resort %> </h5>
-              <p> Hey everyone, my name is <%= @user.first_name %>.
+      <h5> 🗻 I'm teaching in <%=@user.ski_resort %> 🗻</h5>
+              <p id="greeting-message"> Hey everyone, my name is <%= @user.first_name %>.
                   <%= @user.description %>
               </p>
 

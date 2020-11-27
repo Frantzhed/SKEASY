@@ -1,3 +1,19 @@
+
+
+#name {
+  font-family: Josefin Sans;
+  font-size: 56px;
+  font-weight: 900;
+  color: #001E54;
+}
+
+#greeting-message {
+  font-family: Inter;
+  font-size: 16px;
+  font-style: italic;
+}
+
+
 .show {
   display: flex;
   justify-content: space-between;
@@ -6,6 +22,13 @@
 
 .left-box {
 
+}
+
+#other-instructors {
+  font-family: Josefin Sans;
+  font-size: 40px;
+  font-weight: 900;
+  color: #001E54;
 }
 
 .center-box {

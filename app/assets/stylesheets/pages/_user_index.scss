@@ -27,6 +27,9 @@
   display: flex;
   flex-direction: column;
 }
+form.user .form-group {
+  flex: 1 1 auto
+}
 
 .price-info {
   justify-content: space-around;
@@ -58,6 +61,13 @@
 
 .p-2 {
   text-align: center;
+}
+
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none
+  }
 }
 
 

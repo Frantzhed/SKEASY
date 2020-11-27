@@ -1,14 +1,20 @@
 <h1>SKEASY</h1>
 
-<%= link_to "Upcoming", dashboard_path, class: "dashboard-menu-item #{'active' if params[:past] != 'true'}" %>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Upcoming</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Past</a>
+  </li>
 
-<%= link_to "Past", dashboard_path(past: true), class: "dashboard-menu-item #{'active' if params[:past] == 'true'}" %>
-
-<% if @bookings.count == 0 %>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+<% if @current_user.client_bookings.upcoming.each == 0 %>
     <p> No bookings </p>
 <% else %>
   <div class="d-flex flex-wrap mt-5">
-    <% @bookings.each do |booking| %>
+    <% current_user.client_bookings.upcoming.each do |booking| %>
         <div class="card-product"style="height: ">
           <div class="card-product-infos">
               <%= render "shared/group_card", booking: booking %>
@@ -17,5 +23,25 @@
     <% end %>
   </div>
 <% end %>
+</div>
+
+  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+
+    <% if @current_user.client_bookings.past.each == 0 %>
+    <p> No bookings </p>
+<% else %>
+
+    <div class="d-flex flex-wrap mt-5">
+    <% current_user.client_bookings.past.each do |booking| %>
+        <div class="card-product"style="height: ">
+          <div class="card-product-infos">
+              <%= render "shared/group_card", booking: booking %>
+          </div>
+        </div>
+    <% end %>
+  </div>
+<% end %>
+  </div>
+</div>
 
 
