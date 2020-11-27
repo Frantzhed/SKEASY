@@ -22,6 +22,11 @@
   }
 }
 
+.simple_form {
+  width: 100%;
+  display: flex;
+}
+
 .price-info {
   justify-content: space-around;
   text-align: center
@@ -29,7 +34,8 @@
 
 .multi-drop-down {
   margin-top: 64px;
-  background: white;
+  background: transparent;
+  display: flex;
 }
 
 
