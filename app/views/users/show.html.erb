@@ -5,48 +5,51 @@
     <h2 id="other-instructors">Other instructors</h2>
 
     <div class="cards-instructors">
+      <% user3 = User.all.sample%>
+      <%= link_to user_path(user3) do %>
+        <div class="card-instructor">
+          <div class="info-image">
+            <img src="https://picsum.photos/200" alt="Avatar"
+                class="photo-profile-other-teacher">
+              <div class="text-card">
+                <h5><%= user3.first_name%> <%= user3.last_name%></h5>
+                <% user3.average_rating.times do %>
+                      ⭐️
+                  <% end %>
+                <p>Teaching : <%= user3.technical_skill %> </p>
+              </div>
+          </div>
 
-      <div class="card-instructor">
-        <div class="info-image">
-          <img src="https://picsum.photos/200" alt="Avatar"
-              class="photo-profile-other-teacher">
-             <div class="text-card">
-                <% user3 = User.all.sample%>
-              <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-               <% user3.average_rating.times do %>
-                    ⭐️
+          <div class="flag-icon">
+            <i class="far fa-flag"></i>
+            <i class="fas fa-skiing"></i>
+          </div>
+
+        </div>
+      <% end %>
+
+      <% user3 = User.all.sample%>
+      <%= link_to user_path(user3) do %>
+        <div class="card-instructor">
+          <div class="info-image">
+            <img src="https://picsum.photos/200" alt="Avatar"
+                class="photo-profile-other-teacher">
+              <div class="text-card">
+                <h5><%= user3.first_name%> <%= user3.last_name%></h5>
+                <% user3.average_rating.times do %>
+                      ⭐️
                 <% end %>
-              <p>Teaching : <%= user3.technical_skill %> </p>
-            </div>
+                <p>Teaching :<%= user3.technical_skill %> </p>
+              </div>
+          </div>
+
+          <div class="flag-icon">
+            <i class="far fa-flag"></i>
+            <i class="fas fa-skiing"></i>
+          </div>
+
         </div>
-
-        <div class="flag-icon">
-          <i class="far fa-flag"></i>
-          <i class="fas fa-skiing"></i>
-        </div>
-
-      </div>
-
-      <div class="card-instructor">
-        <div class="info-image">
-          <img src="https://picsum.photos/200" alt="Avatar"
-              class="photo-profile-other-teacher">
-             <div class="text-card">
-                <% user3 = User.all.sample%>
-              <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-              <% user3.average_rating.times do %>
-                    ⭐️
-              <% end %>
-              <p>Teaching :<%= user3.technical_skill %> </p>
-            </div>
-        </div>
-
-        <div class="flag-icon">
-          <i class="far fa-flag"></i>
-          <i class="fas fa-skiing"></i>
-        </div>
-
-      </div>
+      <% end %>
 
        <div class="card-instructor">
         <div class="info-image">
@@ -129,10 +132,12 @@
         <div class="text-card">
           <h4> Past reviews :</h4>
         </div>
-        <p> Average rating from past customers:<%= @user.average_rating %>/5</p>
           <% @reviews.each do |review| %>
-          <%= review.rate %> <%= review.content %>
+          <ul>
+            <li><%= review.content %>-- <%= review.rate %>/5</li>
+          </ul>
         <% end %>
+
       </div>
 
 
