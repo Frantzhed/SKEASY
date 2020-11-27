@@ -3,41 +3,44 @@
 
       <div class="first-box">
         <div class="photo-and-name">
-        <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
+          <% if booking.user.photo.attached? %>
+            <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-teacher" %>
+          <% else %>
+            <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
+          <% end %>
+
           <div class="teacher name">
             <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
           </div>
           </div>
-          <div class="spot">
+          <!-- <div class="spot">
             <p> One spot left (button) </p>
-          </div>
+          </div> -->
       </div>
 
         <div class="second-box">
           <div class="infos">
             <p>
-              <i class="fas fa-calendar-alt"></i>
+              📅
               <%= booking.start_date %>
               <%= booking.end_date %>
                 </p>
 
             <p>
-              <i class="far fa-flag"></i>
-              <%= booking.user.languages.to_sentence %>
+              🇺🇳
+              <%= booking.user.languages.to_sentence %> 🇺🇳
               </p>
               <p> <%= booking.user.description %> </p>
 
-              <p> <%= booking.user.ski_resort %> </p>
+              <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
 
 
-            <p>
-              <i class="fas fa-skiing"></i>
-              <%= booking.user.categories.pluck(:name).to_sentence %>
-            </p>
+            <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
+
 
           </div>
           <div class="price">
-            <h3> Price : <%= booking.price %> </h3>
+            <h3> Price : <%= booking.price %> 💸 </h3>
           </div>
         </div>
 </div>
