@@ -1,35 +1,37 @@
 
-<div class="card-teacher">
-  <div class="card-img">
-    <% if teacher.photo.attached? %>
-      <%= cl_image_tag teacher.photo.key, width: 200, crop: :thumb, gravity: :face %>
-    <% end %>
-    <%# <img src="https://picsum.photos/200" alt="Avatar"> %>
-  </div>
-  <div class="card-info">
 
 
-    <h2 id="first-name"><%= teacher.first_name %></h2>
-    <h2 id="last-name"><%= teacher.last_name %></h2>
-    <p id="stars">
-      <% teacher.average_rating.times do %>
-        ⭐️
+<%= link_to user_path(teacher) do %>
+  <div class="card-teacher">
+    <div class="card-img">
+      <% if teacher.photo.attached? %>
+        <%= cl_image_tag teacher.photo.key, width: 200, crop: :thumb, gravity: :face %>
       <% end %>
-    </p>
-    <% teacher.categories.each do |categorie| %>
-      <%= image_tag(categorie.name + ".jpg") %>
-    <% end %>
-
-    <!-- <img src="<%=teacher.categories.pluck(:name).to_sentence%>.jpg" alt=""> -->
-    <p id="category"> <%= teacher.categories.pluck(:name).to_sentence %> </p>
-    <p id="description"><i class="fas fa-quote-left"></i><%= teacher.description.truncate(90)%><i class="fas fa-quote-left"></i></p>
-    <p id="ressort"> 🗻 <%= teacher.ski_resort %> 🗻 </p>
-    <p id="languages"> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
-    <p id="book-btn"> <%= link_to "Book", user_path(teacher) %></p>
+      <%# <img src="https://picsum.photos/200" alt="Avatar"> %>
+    </div>
+    <div class="card-info">
 
 
+      <h2 id="first-name"><%= teacher.first_name %></h2>
+      <h2 id="last-name"><%= teacher.last_name %></h2>
+      <p id="stars">
+        <% teacher.average_rating.times do %>
+          ⭐️
+        <% end %>
+      </p>
+      <% teacher.categories.each do |categorie| %>
+        <%= image_tag(categorie.name + ".jpg") %>
+      <% end %>
+
+      <!-- <img src="<%=teacher.categories.pluck(:name).to_sentence%>.jpg" alt=""> -->
+      <p id="category"> <%= teacher.categories.pluck(:name).to_sentence %> </p>
+      <p id="description"><i class="fas fa-quote-left"></i><%= teacher.description.truncate(90)%><i class="fas fa-quote-left"></i></p>
+      <p id="ressort"> 🗻 <%= teacher.ski_resort %> 🗻 </p>
+      <p id="languages"> <%= "#{teacher.first_name} speaks #{teacher.languages.to_sentence}" %> </p>
+      <p id="book-btn"> <%= link_to "Book", user_path(teacher) %></p>
+    </div>
   </div>
-</div>
+<% end %>
 
 
 

@@ -62,4 +62,11 @@ form.user .form-group {
   text-align: center;
 }
 
+a {
+  text-decoration: none;
+  &:hover {
+    text-decoration: none
+  }
+}
+
 
