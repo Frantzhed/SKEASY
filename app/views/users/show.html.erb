@@ -77,7 +77,6 @@
     <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-teacher">
 
     <div class="stars">
-      <%= (@user.average_rating)%>
       <i class="fas fa-star"></i> <i class="fas fa-star"></i>
       <i class="fas fa-star"></i> <i class="far fa-star"></i>
     </div>
@@ -110,7 +109,7 @@
     <div class="card-languages p-2">
       <h5>LANGUAGES</h5>
         <div class="text-left">
-        <% User.last.languages.each do |language|%>
+        <% @user.languages.each do |language|%>
         <%= "#{language}" %>
         <% end %>
         </div>
@@ -130,7 +129,7 @@
         <div class="text-card">
           <h4> Past reviews :</h4>
         </div>
-        <p> Average rating:<%= @user.average_rating %></p>
+        <p> Average rating from past customers:<%= @user.average_rating %>/5</p>
           <% @reviews.each do |review| %>
           <%= review.rate %> <%= review.content %>
         <% end %>
