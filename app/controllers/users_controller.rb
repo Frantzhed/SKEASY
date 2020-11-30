@@ -29,6 +29,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+
   def query
     @query ||= params.dig(:user, :ski_resort)&.capitalize || "SKEASY"
   end
@@ -36,4 +37,5 @@ class UsersController < ApplicationController
   def query_name
     @query_name ||= params.dig(:user, :first_name, :last_name)&.capitalize || "SKEASY"
   end
+
 end

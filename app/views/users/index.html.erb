@@ -34,7 +34,6 @@
 
 
 <div class="d-flex bd-highlight teacher-cards flex-wrap">
-
     <% @users.each do |user|%>
       <%= render "shared/teacher_card", teacher: user %>
   <% end %>
@@ -42,4 +41,21 @@
 <div class="container price-info">
   <h1>Share your lesson and divide the price !</h1>
   <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
+
+<ul>
+  <% Booking.available.each do |booking| %>
+  <% if booking.group_session == true %>
+ <li> Spot available:  <%= booking.available_spots %>
+ <%= booking.user.first_name %>
+<%= booking.start_date %>
+<%= booking.end_date %>
+<%= booking.category %> </li>
+</ul>
+
+
+  <% end %>
+ <% end %>
 </div>
+
+
+

@@ -6,86 +6,60 @@
 <div class="show">
 <!--   <div class="left-box">
     <h2 id="other-instructors">Other instructors</h2>
-    <div class="cards-instructors">
-      <div class="card-instructor">
-        <% user3 = User.all.sample%>
-        <%= link_to user_path(user3) do %>
-        <div class="info-image">
-          <% if user3.photo.attached? %>
-            <%= cl_image_tag user3.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-other-teacher" %>
-          <% else %>
-            <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
-          <% end %>
-          <div class="text-card">
-            <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-            <% user3.average_rating.times do %>
-                ⭐️
-            <% end %>
-            <p>Teaching : <%= user3.technical_skill %> </p>
+      <% 4.times do %>
+          <div class="card-teachershow">
+            <% def random_instructor
+                  User.all.sample  
+                end %>
+              <% instructor = random_instructor%>
+              <%= link_to user_path(instructor) do %>
+                <div class="card-imgshow">
+                  <% if instructor.photo.attached? %>
+                    <%= cl_image_tag instructor.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-other-teacher" %>
+                  <% else %>
+                    <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
+                  <% end %>
+                </div>
+                    <div class="text-card">
+                      <h5><%= instructor.first_name%> <%= instructor.last_name%></h5>
+                      <% instructor.average_rating.times do %>
+                        ⭐️
+                      <% end %>
+                      <p>Teaching : <%= instructor.technical_skill %> </p>
+                    </div>
+                    <div class="flag-icon">
+                      <% instructor.categories.each do |categorie| %>
+                        <%= image_tag(categorie.name + ".jpg") %>
+                      <% end %>
+                    </div>
+              <% end %>
           </div>
-        </div>
-        <div class="flag-icon">
-
-          <% user3.categories.each do |categorie| %>
-        <%= image_tag(categorie.name + ".jpg") %>
       <% end %>
+    
+  </div>
 
+    <div class="center-box">
+      <% if @user.photo.attached? %>
+          <%= cl_image_tag @user.photo.key, width: 200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
+      <% else %>
+          <img src="https://picsum.photos/200" alt="Avatar" class="pix-profile-teacher">
+      <% end %>
+      <div class="stars">
+
+      </div>
+      <div class="card-specialities p-2">
+        <h5>SPECIALITIES</h5>
+        <div class="text-left">
+          <% @user.categories.each do |category| %>
+            <p> <%= category.name %> :
+              <% category.note.times do %>
+              <i class='fas fa-star'></i>
+            <% end %>
+            </p>
+          <% end %>
         </div>
-        <% end %>
       </div>
 
-      <div class="card-instructor">
-        <% user3 = User.all.sample%>
-        <%= link_to user_path(user3) do %>
-        <div class="info-image">
-          <% if user3.photo.attached? %>
-            <%= cl_image_tag user3.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-other-teacher" %>
-          <% else %>
-            <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
-          <% end %>
-          <div class="text-card">
-            <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-            <% user3.average_rating.times do %>
-                ⭐️
-            <% end %>
-            <p>Teaching : <%= user3.technical_skill %> </p>
-          </div>
-        </div>
-        <div class="flag-icon">
-
-          <% user3.categories.each do |categorie| %>
-        <%= image_tag(categorie.name + ".jpg") %>
-      <% end %>
-
-        </div>
-        <% end %>
-      </div>
-      <div class="card-instructor">
-        <% user3 = User.all.sample%>
-        <%= link_to user_path(user3) do %>
-        <div class="info-image">
-          <% if user3.photo.attached? %>
-            <%= cl_image_tag user3.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-other-teacher" %>
-          <% else %>
-            <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
-          <% end %>
-          <div class="text-card">
-            <h5><%= user3.first_name%> <%= user3.last_name%></h5>
-            <% user3.average_rating.times do %>
-                ⭐️
-            <% end %>
-            <p>Teaching : <%= user3.technical_skill %> </p>
-          </div>
-        </div>
-        <div class="flag-icon">
-
-          <% user3.categories.each do |categorie| %>
-        <%= image_tag(categorie.name + ".jpg") %>
-      <% end %>
-
-        </div>
-        <% end %>
-      </div>
     </div>
   </div> -->
 
@@ -129,7 +103,9 @@
             </p>
           <% end %>
         </div>
+
       </div>
+
 
       <div class="card-languages p-2">
         <h5>Languages</h5>
@@ -179,6 +155,11 @@
 
   </div>
 </div>
+      </div>
+    </div>
+  
+</div>
 
 
+  
 
