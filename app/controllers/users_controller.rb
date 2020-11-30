@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.instructor
+    # raise
     if query.present?
       @users = @users.where("ski_resort ILIKE ?", "%#{params[:user][:ski_resort]}%")
     end
@@ -14,6 +15,7 @@ class UsersController < ApplicationController
     if params[:user][:languages].present?
       @users = @users.where("? = ANY(languages)", "#{params[:user][:languages]}")
     end
+      @bookings = Booking.upcoming.available
   end
 
   def show

@@ -27,7 +27,6 @@ import "bootstrap";
 import "controllers"
 
 // Internal imports, e.g:
-
 import { turbolinksFix } from '../components/turbolinks_fix';
 
 document.addEventListener('turbolinks:load', () => {
@@ -37,6 +36,8 @@ document.addEventListener('turbolinks:load', () => {
 
 // import { initSelect2 } from '../components/init_select2';
 import { initFlatPickr } from '../components/init_flatpickr';
+import setGroupLessonForm from '../components/group_lesson_form';
+setGroupLessonForm()
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
