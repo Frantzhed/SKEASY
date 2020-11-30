@@ -60,7 +60,7 @@
 <div class="tab-content w-100" id="myTabContent">
   <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
-      <% Booking.available.each do |booking| %>
+      <% Booking.upcoming.available.each do |booking| %>
         <div class="rectangle">
             <div class="first-box">
               <div class="photo-and-name">
@@ -82,6 +82,7 @@
                 </div>
                 <div class="price">
                   <h3>Spot available:  <%= booking.available_spots %></h3>
+                  <%= link_to "Join now", new_booking_user_booking_path(booking.id)%>
                 </div>
               </div>
           </div>
