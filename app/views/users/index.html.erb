@@ -38,6 +38,7 @@
       <%= render "shared/teacher_card", teacher: user %>
   <% end %>
 </div>
+
 <div class="container price-info">
   <h1>Share your lesson and divide the price !</h1>
   <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
@@ -46,15 +47,47 @@
   <% Booking.available.each do |booking| %>
   <% if booking.group_session == true %>
  <li> Spot available:  <%= booking.available_spots %>
- <%= booking.user.first_name %>
-<%= booking.start_date %>
-<%= booking.end_date %>
-<%= booking.category %> </li>
+  <%= booking.user.first_name %>
+  <%= booking.start_date %>
+  <%= booking.end_date %>
+  <%= booking.category %> </li>
 </ul>
-
-
   <% end %>
  <% end %>
+</div>
+
+<div class="tab-content w-100" id="myTabContent">
+  <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
+      <% Booking.available.each do |booking| %>
+        <div class="rectangle">
+            <div class="first-box">
+              <div class="photo-and-name">
+                <% if booking.group_session == true %>
+                <% end %>
+
+                <div class="teacher name">
+                  <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+                </div>
+              </div>
+            </div>
+              <div class="second-box">
+                <div class="infos">
+                  <p>📅<%= booking.start_date %><%= booking.end_date %></p>
+                  <p><%= booking.user.languages.to_sentence %></p>
+                  <p> <%= booking.user.description %> </p>
+                  <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
+                  <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
+                </div>
+                <div class="price">
+                  <h3>Spot available:  <%= booking.available_spots %></h3>
+                </div>
+              </div>
+          </div>
+        </div>
+      <%end%>
+    </div>
+  </div>
 </div>
 
 
