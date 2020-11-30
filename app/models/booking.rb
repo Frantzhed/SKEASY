@@ -23,9 +23,8 @@ class Booking < ApplicationRecord
   end
 
   # Method called everytime a UserBooking is saved
-  def increment_participants(participant_number)
-    self.participant_counter += participant_number
-    save
+  def calculate_participants
+    update(participant_counter: user_bookings.map(&:participants_number).sum)
   end
 
   # Ruby implementation that results in way too many SQL queries. Replaced by a participant_counter updated through ActiveRecord callbacks.
