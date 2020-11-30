@@ -1,7 +1,5 @@
-
-
 <div class="form-wrapper show-modal">
-  <h2>Let's book your instructor</h2>
+  <h2>Recap</h2>
 
   <%= simple_form_for [ user, booking ] do |f| %>
     <%= f.input :start_date, as: :string,
@@ -13,9 +11,9 @@
     <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
       selected: params.dig(:user, :category)%>
 
-    <%= f.input :group_session, label: "Do you want to share your lesson ? " %>
+    <%= f.input :group_session, label: "Do you want to share your lesson ? ",id: "groupsession"%>
 
-    <%= f.input :participants_number, label: "How many will you be ? " %>
+    <%= f.input :participants_number, label: "How many will you be ? " ,collection: 1..4, selected: 1, wrapper_html: {class: "d-none"} %>
 
     <%= f.submit "Submit your booking", class: "btn btn-primary" %>
   <% end %>

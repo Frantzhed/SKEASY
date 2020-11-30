@@ -17,8 +17,8 @@ class BookingsController < ApplicationController
     @booking.price = rand(80..100)
     @booking.instructor = @instructor
     if @booking.save
-      @user_booking = UserBooking.create(
-        user: current_user,
+     @user_booking = UserBooking.create(
+      user: current_user,
         booking: @booking,
         participants_number: booking_params[:participants_number]
       )
@@ -48,7 +48,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :category, :participants_number, :group_session)
+    params.require(:booking).permit(:start_date, :end_date, :category, :participants_number,:group_session)
   end
 
   def set_booking
