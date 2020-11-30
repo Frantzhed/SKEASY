@@ -7,8 +7,6 @@ class Booking < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :user_bookings, dependent: :destroy
 
-
-
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :category, presence: true, inclusion: { in: Category::CATEGORIES }
@@ -18,7 +16,7 @@ class Booking < ApplicationRecord
 
 
   def available_spots
-    total = user_bookings.map {|user_booking| user_booking.participants_number }.sum
+    total = user_bookings.map(&:participants_number).sum
     max_numbers_of_participants - total
   end
 
