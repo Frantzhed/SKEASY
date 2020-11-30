@@ -1,15 +1,11 @@
-<% if "#{params.dig(:user, :ski_resort) }" == "" %>
-    <h1 class="resort-title" data-name= <%="SKEASY" %>>
-    <%= "SKEASY" %>
-    </h1>
-  <% else %>
-    <h1 class="resort-title" data-name= <%="#{params.dig(:user, :ski_resort) }" %>>
-      <%= (params.dig(:user, :ski_resort)).capitalize %>
-    </h1>
-  <% end %>
-  <%if @users.count==0 %>
-    <h2 style="text-align: center"> We don't have any instructors available in  <%= "#{params.dig(:user, :ski_resort) }"%></h2>
-  <% end %>
+
+<h1 class="resort-title" data-name= <%= @query %>>
+  <%= @query %>
+</h1>
+
+<%if @users.count==0 %>
+  <h2 style="text-align: center"> We don't have any instructors available in  <%= "#{params.dig(:user, :ski_resort) }"%></h2>
+<% end %>
 
 <div class="container multi-drop-down" data-controller="filters">
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
