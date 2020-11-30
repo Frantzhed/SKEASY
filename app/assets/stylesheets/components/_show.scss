@@ -1,4 +1,26 @@
+  .title-show{
+    position: relative;
+    text-align: center;
+    color: $dark-blue;
+    height: 191px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
 
+    &:before {
+    content: attr(data-name);
+    position: absolute;
+    width: 100vw;
+    left: 50%;
+    font-size: 13.8vw;
+    color: $fifth-blue;
+    transform: translateX(-50%);
+    text-transform: uppercase;
+    z-index: -1;
+    top: 25%;
+    line-height: 155px;
+  }
+}
 
 #name {
   font-family: Josefin Sans;
@@ -12,7 +34,6 @@
   font-size: 16px;
   font-style: italic;
 }
-
 
 .show {
   display: flex;
@@ -36,12 +57,16 @@
   flex-shrink: 0;
   margin-right: 40px;
   margin-left: 40px;
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
 }
 
 .right-box {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
+  margin-left: 40px;
 }
 
 .info-image {
@@ -78,14 +103,14 @@
 }
 
 .card-instructor {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  // transition: 0.3s;
   text-align: center;
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: white;
+  // background-color: white;
 }
 
 .cards-instructor:hover {
@@ -94,8 +119,8 @@
 
 .pix-profile-teacher {
   border-radius: 10%;
-  width: 200px;
-  height: 120px;
+  width: 250px;
+  height: 300px;
   display: flex;
   align-items: flex-start;
 
@@ -107,29 +132,42 @@
 }
 
 .card-specialities {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: $light-gray;
+  text-color: $dark-blue;
+  // background-color: $light-gray;
 }
 
 .card-languages {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  // box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
   text-align: center;
   width: 200px;
   border-radius: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
-  background-color: $light-gray;
+  text-color: $dark-blue;
+  // background-color: $light-gray;
+}
+
+.specialities-languages {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.text-photo {
+  text-align: center;
 }
 
 .book-button {
   margin: 5px;
+  text-align: center;
 }
 
 .card-review {

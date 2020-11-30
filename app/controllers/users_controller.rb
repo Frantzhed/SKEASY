@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.instructor
-    if params.dig(:user, :ski_resort).present?
+    if query.present?
       @users = @users.where("ski_resort ILIKE ?", "%#{params[:user][:ski_resort]}%")
     end
     if params.dig(:user, :category).present?
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
 
   def show
     set_user
+    @query_name = @user.first_name + " " + @user.last_name
     @reviews = @user.reviews
     @booking = Booking.new
   end
@@ -26,5 +27,13 @@ class UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+
+  def query
+    @query ||= params.dig(:user, :ski_resort)&.capitalize || "SKEASY"
+  end
+
+  def query_name
+    @query_name ||= params.dig(:user, :first_name, :last_name)&.capitalize || "SKEASY"
   end
 end
