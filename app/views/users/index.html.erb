@@ -43,18 +43,6 @@
   <h1>Share your lesson and divide the price !</h1>
   <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
 
-<ul>
-    <% Booking.available.each do |booking| %>
-    <% if booking.group_session == true %>
-  <li> Spot available:  <%= booking.available_spots %>
-    <%= booking.user.first_name %>
-    <%= booking.start_date %>
-    <%= booking.end_date %>
-    <%= booking.category %> 
-  </li>
-</ul>
-  <% end %>
- <% end %>
 </div>
 
 <div class="tab-content w-100" id="myTabContent">
@@ -83,9 +71,18 @@
                 <div class="price">
                   <h3>Spot available:  <%= booking.available_spots %></h3>
                   <div class="book-button">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#index-Modal">
+                    <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal">
                       + Join it
                     </button>
+                    <div class="modal fade" id="indexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-body">
+                            Modal for joining a lesson 
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   </div>
                   <%= link_to "Join now", new_booking_user_booking_path(booking.id)%>
                 </div>
