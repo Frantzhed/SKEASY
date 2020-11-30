@@ -17,11 +17,14 @@ class BookingsController < ApplicationController
     @booking.price = rand(80..100)
     @booking.instructor = @instructor
     if @booking.save
-      @user_booking = UserBooking.new(user: current_user, booking: @booking)
-      @user_booking.save
+      @user_booking = UserBooking.create(
+        user: current_user,
+        booking: @booking,
+        participants_number: booking_params[:participants_number]
+      )
       redirect_to dashboard_path
     else
-      render :new
+      render "users/", locals: {id: @booking.instructor}
     end
   end
 
@@ -45,7 +48,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :category)
+    params.require(:booking).permit(:start_date, :end_date, :category, :participants_number, :group_session)
   end
 
   def set_booking
