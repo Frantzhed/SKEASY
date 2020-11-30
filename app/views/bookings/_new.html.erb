@@ -13,6 +13,10 @@
     <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
       selected: params.dig(:user, :category)%>
 
+    <%= f.input :group_session, label: "Do you want to share your lesson ? " %>
+
+    <%= f.input :participants_number, label: "How many will you be ? " %>
+
     <%= f.submit "Submit your booking", class: "btn btn-primary" %>
   <% end %>
 </div>
