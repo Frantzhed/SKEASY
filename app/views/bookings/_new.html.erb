@@ -15,7 +15,7 @@
 
     <%= f.input :group_session, label: "Do you want to share your lesson ? " %>
 
-    <%= f.input :participants_number, label: "How many will you be ? " %>
+    <%= f.input :participants_number, label: "How many will you be ? " ,collection: 1..4, selected: 1 %>
 
     <%= f.submit "Submit your booking", class: "btn btn-primary" %>
   <% end %>
