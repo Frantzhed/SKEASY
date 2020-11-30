@@ -1,0 +1,5 @@
+meta_product_name: "Skeasy"
+meta_title: "Skeasy - Find the best instructor for your stay"
+meta_description: "SKEASY as 1, 2, 3"
+meta_image: "logo.png" # should exist in `app/assets/images/`
+twitter_account: "@skeazy_f"   # required for Twitter Cards
