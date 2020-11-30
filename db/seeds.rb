@@ -53,8 +53,8 @@ end
   Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
   Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean, user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today), end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 
-  Review.create!(content: "We had a wonderful day skiing with the best intructor!", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
-  Review.create!(content: "We had a great day skiing with the best intructor!", rate: 3, user_id: User.last.id, booking_id: Booking.last.id)
+  Review.create!(content: "We had a wonderful day skiing with the best intructor!", rate: 5, user_id: User.all.sample.id, booking_id: Booking.last.id)
+  Review.create!(content: "We had a great day skiing with the best intructor!", rate: 3, user_id: User.all.sample.id, booking_id: Booking.last.id)
 end
 
 11.times do |index|

@@ -8,7 +8,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(review_params)
     @booking = Booking.find(params[:booking_id])
     @review.booking = @booking
-    @review.user = @booking.instructor
+    @review.user = current_user
     @review.save
     redirect_to user_path(@booking.instructor)
   end

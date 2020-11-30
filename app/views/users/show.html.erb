@@ -3,125 +3,59 @@
   <%= @query_name %>
   </h1>
 
-<div class="show">
-<!--   <div class="left-box">
-    <h2 id="other-instructors">Other instructors</h2>
-      <% 4.times do %>
-          <div class="card-teachershow">
-            <% def random_instructor
-                  User.all.sample  
-                end %>
-              <% instructor = random_instructor%>
-              <%= link_to user_path(instructor) do %>
-                <div class="card-imgshow">
-                  <% if instructor.photo.attached? %>
-                    <%= cl_image_tag instructor.photo.key, width: 200, crop: :thumb, gravity: :face, class: "photo-profile-other-teacher" %>
-                  <% else %>
-                    <img src="https://picsum.photos/200" alt="Avatar" class="photo-profile-other-teacher">
-                  <% end %>
-                </div>
-                    <div class="text-card">
-                      <h5><%= instructor.first_name%> <%= instructor.last_name%></h5>
-                      <% instructor.average_rating.times do %>
-                        ⭐️
-                      <% end %>
-                      <p>Teaching : <%= instructor.technical_skill %> </p>
-                    </div>
-                    <div class="flag-icon">
-                      <% instructor.categories.each do |categorie| %>
-                        <%= image_tag(categorie.name + ".jpg") %>
-                      <% end %>
-                    </div>
-              <% end %>
-          </div>
-      <% end %>
-    
-  </div>
-
-    <div class="center-box">
+<div>
+  <div class="center-box">
+    <div class="photo-description">
       <% if @user.photo.attached? %>
           <%= cl_image_tag @user.photo.key, width: 200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
       <% else %>
           <img src="https://picsum.photos/200" alt="Avatar" class="pix-profile-teacher">
       <% end %>
-      <div class="stars">
-
+      <div class="text-photo">
+        <h4> <strong> 🗻 </h4>
+        <h4>  I'm teaching in <%=@user.ski_resort %> </strong> </h4>
       </div>
-      <div class="card-specialities p-2">
-        <h5>SPECIALITIES</h5>
-        <div class="text-left">
-          <% @user.categories.each do |category| %>
-            <p> <%= category.name %> :
+    </div>
+
+    <div class="right-box">
+      <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
+      <!-- <div class="greeting-message"></div> -->
+      <p id="greeting-message"> Hey everyone, my name is <%= @user.first_name %>.
+          <%= @user.description %>
+      </p>
+      <div class="specialities-languages">
+        <div class="card-specialities">
+          <h3> <strong> Specialitites </strong> </h3>
+            <div class="text-left">
+             <% @user.categories.each do |category| %>
+               <p> <%= category.name %> :
               <% category.note.times do %>
-              <i class='fas fa-star'></i>
+                <i class="fas fa-circle"></i>
+               <% end %>
+
+              <% (5 - category.note).times do |i| %>
+                io
+              <% end %>
+
+              </p>
             <% end %>
-            </p>
-          <% end %>
+          </div>
         </div>
-      </div>
 
-    </div>
-  </div> -->
-
-  <div class="center-box">
-    <% if @user.photo.attached? %>
-        <%= cl_image_tag @user.photo.key, width: 200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
-    <% else %>
-        <img src="https://picsum.photos/200" alt="Avatar" class="pix-profile-teacher">
-    <% end %>
-    <div class="text-photo">
-      <h5> 🗻 </h5>
-      <h5>  I'm teaching in <%=@user.ski_resort %> </h5>
-    </div>
-
-
-    <div class="stars">
-    </div>
-
-  </div>
-
-  <div class="right-box">
-    <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
-
-    <p id="greeting-message"> Hey everyone, my name is <%= @user.first_name %>.
-        <%= @user.description %>
-    </p>
-    <p id="greeting-message"> Hey everyone, my name is <%= @user.first_name %>.
-        <%= @user.description %>
-    </p>
-
-
-    <div class="specialities-languages">
-      <div class="card-specialities">
-        <h5>Specialitites</h5>
+        <div class="card-languages p-2">
+          <h3> <strong> Languages </strong> </h3>
           <div class="text-left">
-           <% @user.categories.each do |category| %>
-             <p> <%= category.name %> :
-          <% category.note.times do %>
-          <i class='fas fa-star'></i>
-         <% end %>
-            </p>
-          <% end %>
-        </div>
-
-      </div>
-
-
-      <div class="card-languages p-2">
-        <h5>Languages</h5>
-        <div class="text-left">
-        <% @user.languages.each do |language|%>
-          <%= "#{language}" %>
-        <% end %>
+            <%= "#{@user.first_name} speaks #{@user.languages.to_sentence}" %>
+          </div>
         </div>
       </div>
+
+
+      <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
+          + Book your lesson
+      </button>
     </div>
-
-     <div class="book-button">
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#bookingModal">
-            + Book your lesson
-          </button>
-      </div>
+  </div>
 
      <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -132,34 +66,23 @@
           </div>
         </div>
       </div>
+  </div>
 
+  <div class="below-box">
+     <h3> Review : <p><% @user.average_rating.times do %> ⭐️ <% end %></p></h3>
 
-      <!-- <h3> Videos <i class="fab fa-youtube p-2"></i> </h3>
-      <iframe width="460" height="215" src="https://www.youtube.com/embed/n-UBie4Ioqo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> -->
-
-
-
-      <!--  <div class="card-review">
-        <div class="text-card">
-          <p> <% @user.average_rating.times do %>
-              ⭐️
-          <% end %> </p>
-          <h4> Past reviews :</h4>
+    <div class="scrolling-wrapper-flexbox">
+      <% @user.reviews.each do |review| %>
+        <div class="card-review p-3 m-3">
+          <div class="text-card">
+            <h4> <%= review.user.first_name %> </h4>
+          </div>
+          <p> <%= review.rate %>/5 </p>
+          <p> <%= review.content %> </p>
         </div>
-          <% @reviews.each do |review| %>
-          <ul>
-            <li><%= review.content %>-- <%= review.rate %>/5</li>
-          </ul>
-        <% end %>
-      </div> -->
-
+      <% end %>
+    </div>
+    <h3> Videos <i class="fab fa-youtube p-2"></i> </h3>
+    <iframe width="1100" height="415" src="https://www.youtube.com/embed/n-UBie4Ioqo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
   </div>
 </div>
-      </div>
-    </div>
-  
-</div>
-
-
-  
-
