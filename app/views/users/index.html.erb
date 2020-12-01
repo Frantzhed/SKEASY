@@ -58,7 +58,7 @@
                         </div>
                     </div>
                     <div class="available-spots">
-                      <h3>Spot available:  <%= booking.available_spots %></h3>
+                      <h3><%= booking.available_spots %> available spot(s) </h3>
                     </div>
                 </div>
               <div class="booking-info">
@@ -66,26 +66,28 @@
                     <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
                         <div class="modal-content">
-                          <div class="modal-body">  
+                          <div class="modal-body">
                              <%= render 'user_bookings/new_user_booking', booking: booking, user_booking: UserBooking.new %>
                           </div>
                         </div>
                       </div>
                     </div>
                   <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
-                  <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
-                  <p><%= booking.user.languages.to_sentence %></p>
-<!--                   <p> <%= booking.user.description %> </p> -->
+                  <p>
+                    <% booking.user.categories.each do |categorie| %>
+                      <%= image_tag(categorie.name + ".jpg") %>
+                    <% end %>
+                   <%= booking.user.categories.pluck(:name).to_sentence %>
+                  </p>
                   <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
+                  <p>💬 <%= booking.user.first_name %> speacks: <%= booking.user.languages.to_sentence %></p>
+<!--                   <p> <%= booking.user.description %> </p> -->
                 </div>
-                <div class="price">
-                  <h3>Spot available:  <%= booking.available_spots %></h3>
                   <div class="book-button">
                     <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
-                      Join it
+                      Join this class!
                     </button>
                   </div>
-                </div>
               </div>
             </div>
         <%end%>
