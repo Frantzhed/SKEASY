@@ -44,6 +44,10 @@ class BookingsController < ApplicationController
     redirect_to user_path(@booking.user)
   end
 
+  def update_status
+    Booking.find(params[:id]).update(status: params[:status])
+  end
+
 
   private
 

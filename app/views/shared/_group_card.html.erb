@@ -20,6 +20,7 @@
             <p> <%= booking.user.description %> </p>
             <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
             <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
+            <p>  <%=booking.status %> </p>
           </div>
           <div class="price">
             <h3>Price :<%= booking.price %>💸 </h3>
