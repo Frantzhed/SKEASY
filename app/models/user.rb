@@ -2,7 +2,7 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   TECHNICALSKILL = ["Beginner","Intermediate","Good-Level","Expert"]
-  LANGUAGES = ["French","English","Russian", "German", "Arabic"]
+  LANGUAGES = ["French","English","Russian", "German", "Arabic", "Italian", "Spanish"]
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
@@ -30,7 +30,7 @@ class User < ApplicationRecord
       reviews.map(&:rate).sum / reviews.count
     end
   end
-   
+
   private
 
   def languages_included_in_list

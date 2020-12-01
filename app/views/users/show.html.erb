@@ -7,7 +7,7 @@
   <div class="center-box">
     <div class="photo-description">
       <% if @user.photo.attached? %>
-          <%= cl_image_tag @user.photo.key, width: 200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
+          <%= cl_image_tag @user.photo.key, width: 1200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
       <% else %>
           <img src="https://picsum.photos/200" alt="Avatar" class="pix-profile-teacher">
       <% end %>
