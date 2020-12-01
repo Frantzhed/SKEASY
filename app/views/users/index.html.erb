@@ -48,16 +48,15 @@
   <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
       <% @bookings.each do |booking| %>
-        <% if booking.group_session == true %>
-          <div class="rectangle">
-              <div class="first-box">
-                <div class="photo-and-name">
-                  <div class="teacher name">
-                    <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+          <% if booking.group_session == true %>
+            <div class="rectangle">
+                <div class="first-box">
+                  <div class="photo-and-name">
+                    <div class="teacher name">
+                      <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </div>
               <div class="second-box">
                 <div class="infos">
                   <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
@@ -84,10 +83,10 @@
                     <%= link_to "Join now", new_booking_user_booking_path(booking.id)%>
                   </div>
                 </div>
+              </div>
             </div>
-          </div>
         <%end%>
-      </div>
+      <%end%>
     </div>
   </div>
 </div>
