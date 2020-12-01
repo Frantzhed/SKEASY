@@ -16,7 +16,7 @@ class User < ApplicationRecord
   has_one_attached :photo
   attr_accessor :category
 
-  scope :instructor, -> {where(instructor: true)}
+  scope :instructor, -> {where(instructor: true).order(created_at: :desc)}
 
 
   def booked_instructors
@@ -25,7 +25,7 @@ class User < ApplicationRecord
 
   def average_rating
     if reviews.count == 0
-      puts "No mark yet "
+      0
     else
       reviews.map(&:rate).sum / reviews.count
     end
