@@ -48,7 +48,7 @@
   <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
       <% @bookings.each do |booking| %>
-          <% if booking.group_session == true %>
+        <% if booking.group_session == true %>
             <div class="rectangle">
                 <div class="teacher-and-availabilities">
                     <div class="teacher-info">
@@ -63,6 +63,15 @@
                 </div>
               <div class="booking-info">
                 <div class="infos">
+                    <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-body">  
+                             <%= render 'user_bookings/new_user_booking', booking: booking, user_booking: UserBooking.new %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
                   <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
                   <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
                   <p><%= booking.user.languages.to_sentence %></p>
@@ -70,20 +79,11 @@
                   <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
                 </div>
                 <div class="price">
-                  <div class="book-button-booking">
-                    <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal">
-                      + Join it
+                  <h3>Spot available:  <%= booking.available_spots %></h3>
+                  <div class="book-button">
+                    <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
+                      Join it
                     </button>
-                    <div class="modal fade" id="indexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-body">
-                              <%= render 'user_bookings/new_user_booking', booking: booking %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    <%= link_to "Join now", new_booking_user_booking_path(booking.id)%>
                   </div>
                 </div>
               </div>
