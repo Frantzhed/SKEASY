@@ -19,7 +19,7 @@
         <% end %>
       </p>
       <% teacher.categories.each do |categorie| %>
-        <%= image_tag(categorie.name + ".jpg") %>
+        <%= image_tag(categorie.name + ".png", class:"category-image") %>
       <% end %>
 
       <!-- <img src="<%=teacher.categories.pluck(:name).to_sentence%>.jpg" alt=""> -->

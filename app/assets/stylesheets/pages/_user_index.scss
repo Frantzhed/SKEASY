@@ -22,7 +22,7 @@
   }
 }
 
-.simple_form {
+.simple_form.user{
   width: 100%;
   display: flex;
 }
@@ -73,7 +73,7 @@ form.user .form-group:not(.hidden) {
     }
     h5 {
     font-size: 25px;
-    margin-left: 147px;
+    margin-left: 135px;
     font-family: 'Inter';
     color: #001E54;
     }
@@ -82,9 +82,10 @@ form.user .form-group:not(.hidden) {
     background-color: $light-blue;
     padding: 4px;
     border-radius: 18px;
+    height: 30px;
       h3 {
         padding: 4px;
-        font-size: 15px;
+        font-size: 13px;
       }
   }
 }
@@ -96,6 +97,12 @@ form.user .form-group:not(.hidden) {
 .price-info {
   justify-content: space-around;
   text-align: center
+}
+
+.category-image {
+    height: 35px;
+    width: 35px;
+    margin: 3px auto;
 }
 
 .booking-cards {
@@ -120,9 +127,11 @@ book-button-booking{
   border-radius: 20px;
   display: block;
   margin: 0 auto;
-  .btn.btn-primary {
+}
+
+button.btn.btn-primary,
+button.btn.btn-success {
     width: 80%;
-  }
 }
 
 a {
