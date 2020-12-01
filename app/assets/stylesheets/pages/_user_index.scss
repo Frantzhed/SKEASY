@@ -39,17 +39,12 @@ form.user .form-group:not(.hidden) {
   flex: 1 1 auto
 }
 
-.price-info {
-  justify-content: space-around;
-  text-align: center
-}
 
 .multi-drop-down {
   margin-top: 64px;
   background: transparent;
   display: flex;
 }
-
 
 .teacher-cards {
   display: flex;
@@ -60,15 +55,74 @@ form.user .form-group:not(.hidden) {
     margin-bottom: 100px;
   }
 }
+.teacher-and-availabilities {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .teacher-info {
+    .card-img-booking {
+      display: flex;
+      > img {
+        border-radius: 50%;
+        margin-left: 17px;
+        width: 110px;
+        height: 110px;
+        margin-top: -80px;
+        border: 6px solid #D7E0F0;
+      }
+    }
+    h5 {
+    font-size: 25px;
+    margin-left: 147px;
+    font-family: 'Inter';
+    color: #001E54;
+    }
+  }
+  .available-spots {
+    background-color: $light-blue;
+    padding: 4px;
+    border-radius: 18px;
+      h3 {
+        padding: 4px;
+        font-size: 15px;
+      }
+  }
+}
 
 .price-info {
   margin-top: 50px;
+}
+
+.price-info {
+  justify-content: space-around;
+  text-align: center
 }
 
 .booking-cards {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+}
+.booking-info {
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 8px;
+    .infos {
+      text-align: left;
+      p {
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+  }
+}
+book-button-booking{
+  text-align: center;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto;
+  .btn.btn-primary {
+    width: 80%;
+  }
 }
 
 a {
