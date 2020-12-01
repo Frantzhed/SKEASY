@@ -22,7 +22,7 @@
   }
 }
 
-.simple_form {
+.simple_form.user{
   width: 100%;
   display: flex;
 }
@@ -99,6 +99,12 @@ form.user .form-group:not(.hidden) {
   text-align: center
 }
 
+.category-image {
+    height: 35px;
+    width: 35px;
+    margin: 3px auto;
+}
+
 .booking-cards {
   display: flex;
   justify-content: space-around;
@@ -123,7 +129,8 @@ book-button-booking{
   margin: 0 auto;
 }
 
-button.btn.btn-primary {
+button.btn.btn-primary,
+button.btn.btn-success {
     width: 80%;
 }
 
