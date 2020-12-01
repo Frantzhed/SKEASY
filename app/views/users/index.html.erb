@@ -75,7 +75,7 @@
                   <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
                   <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
                   <p><%= booking.user.languages.to_sentence %></p>
-<!--                   <p> <%= booking.user.description %> </p> -->
+                            <!--                   <p> <%= booking.user.description %> </p> -->
                   <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
                 </div>
                 <div class="price">
