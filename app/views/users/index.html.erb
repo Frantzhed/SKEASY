@@ -72,7 +72,7 @@
                         </div>
                       </div>
                     </div>
-                  <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+                  <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
                   <p>
                     <% booking.user.categories.each do |categorie| %>
                       <%= image_tag(categorie.name + ".jpg") %>

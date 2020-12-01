@@ -56,7 +56,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -88,7 +88,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -119,7 +119,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -151,7 +151,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -182,7 +182,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -214,7 +214,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -243,7 +243,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -275,7 +275,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -306,7 +306,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -336,7 +336,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
@@ -365,7 +365,7 @@ user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, price: 50, group_session: Faker::Boolean.boolean,
+Booking.create!(category: category.sample, price: 50, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
