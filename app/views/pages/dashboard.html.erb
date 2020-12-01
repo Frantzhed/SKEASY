@@ -28,7 +28,7 @@
     <% else %>
       <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
         <% current_user.client_bookings.past.each do |booking| %>
-          <%= render "shared/group_card", booking: booking %>
+          <%= render "shared/group_card_with_review", booking: booking %>
         <% end %>
       </div>
     <% end %>

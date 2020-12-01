@@ -10,5 +10,8 @@ class PagesController < ApplicationController
     if params[:past] == "true"
       @bookings = current_user.client_bookings.past
     end
+
+    @review = Review.new
+
   end
 end
