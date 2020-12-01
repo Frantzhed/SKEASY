@@ -35,7 +35,7 @@ form.user select {
     background-color: #e9ecef;
 }
 
-form.user .form-group {
+form.user .form-group:not(.hidden) {
   flex: 1 1 auto
 }
 
@@ -55,6 +55,10 @@ form.user .form-group {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
+   a {
+    width: 22%;
+    margin-bottom: 100px;
+  }
 }
 
 .price-info {
@@ -65,10 +69,6 @@ form.user .form-group {
   display: flex;
   justify-content: space-around;
   margin-top: 50px;
-}
-
-.p-2 {
-  text-align: center;
 }
 
 a {

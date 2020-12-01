@@ -1,6 +1,5 @@
-
 <h1 class="resort-title" data-name= <%= @query %>>
-  <%= @query %>
+    <%= @query %>
 </h1>
 
 <%if @users.count==0 %>
@@ -43,38 +42,33 @@
   <h1>Share your lesson and divide the price !</h1>
   <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
 
-<ul>
-    <% Booking.available.each do |booking| %>
-    <% if booking.group_session == true %>
-  <li> Spot available:  <%= booking.available_spots %>
-    <%= booking.user.first_name %>
-    <%= booking.start_date %>
-    <%= booking.end_date %>
-    <%= booking.category %> 
-  </li>
-</ul>
-  <% end %>
- <% end %>
 </div>
 
 <div class="tab-content w-100" id="myTabContent">
   <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
       <% @bookings.each do |booking| %>
-        <div class="rectangle">
-            <div class="first-box">
-              <div class="photo-and-name">
-                <% if booking.group_session == true %>
-                <% end %>
-
-                <div class="teacher name">
-                  <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+        <% if booking.group_session == true %>
+            <div class="rectangle">
+                <div class="first-box">
+                  <div class="photo-and-name">
+                    <div class="teacher name">
+                      <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
               <div class="second-box">
                 <div class="infos">
-                  <p>📅<%= booking.start_date %><%= booking.end_date %></p>
+                    <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-body">  
+                             <%= render 'user_bookings/new_user_booking', booking: booking, user_booking: UserBooking.new %>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
                   <p><%= booking.user.languages.to_sentence %></p>
                   <p> <%= booking.user.description %> </p>
                   <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
@@ -83,15 +77,14 @@
                 <div class="price">
                   <h3>Spot available:  <%= booking.available_spots %></h3>
                   <div class="book-button">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#index-Modal">
-                      + Join it
+                    <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
+                      Join it
                     </button>
                   </div>
-                  <%= link_to "Join now", new_booking_user_booking_path(booking.id)%>
                 </div>
               </div>
-          </div>
-        </div>
+            </div>
+        <%end%>
       <%end%>
     </div>
   </div>

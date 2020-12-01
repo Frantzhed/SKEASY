@@ -1,6 +1,11 @@
 <div class="form-wrapper show-modal">
   <h2>Recap</h2>
 
+  <%= @technical_skill unless @technical_skill == ""%>
+  <%= @ski_resort unless @ski_resort == ""%>
+  <%= @languages unless @languages == ""%>
+  <%= @category unless @category == ""%>
+
   <%= simple_form_for [ user, booking ] do |f| %>
     <%= f.input :start_date, as: :string,
       required: false, input_html: {class: "datepickr"} %>
