@@ -20,12 +20,12 @@
     <div class="right-box">
       <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
       <!-- <div class="greeting-message"></div> -->
-      <p id="greeting-message"> Hey everyone, my name is <%= @user.first_name %>.
+      <p id="greeting-message">
           <%= @user.description %>
       </p>
       <div class="specialities-languages">
         <div class="card-specialities">
-          <h3> <strong> Specialitites </strong> </h3>
+          <h3> <strong> Specialities </strong> </h3>
             <div class="text-left">
              <% @user.categories.each do |category| %>
                <p> <%= category.name %> :
@@ -34,7 +34,7 @@
                <% end %>
 
               <% (5 - category.note).times do |i| %>
-                io
+                <i class="far fa-circle"></i>
               <% end %>
 
               </p>
@@ -77,7 +77,15 @@
           <div class="text-card">
             <h4> <%= review.user.first_name %> </h4>
           </div>
-          <p> <%= review.rate %>/5 </p>
+
+          <% review.rate.times do |i| %>
+            <i class="fas fa-star"></i>
+          <% end %>
+
+          <% (5 - review.rate).times do |i| %>
+            <i class="far fa-star"></i>
+          <% end %>
+
           <p> <%= review.content %> </p>
         </div>
       <% end %>
