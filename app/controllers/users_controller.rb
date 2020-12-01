@@ -31,13 +31,20 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def ski_resort_params
+    params.dig(:user, :ski_resort)
+  end
+
+  def full_name_params
+    params.dig(:user, :first_name, :last_name)
+  end
 
   def query
-    @query ||= params.dig(:user, :ski_resort)&.capitalize || "SKEASY"
+    @query ||= ski_resort_params.present? ? ski_resort_params.capitalize : "SKEASY"
   end
 
   def query_name
-    @query_name ||= params.dig(:user, :first_name, :last_name)&.capitalize || "SKEASY"
+    @query_name ||= full_name_params.present? ? full_name_params.capitalize : "SKEASY"
   end
 
 end
