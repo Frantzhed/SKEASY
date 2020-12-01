@@ -16,6 +16,9 @@ class UserBookingsController < ApplicationController
       render :new
     end
   end
+
+ 
+
 end
 
 
