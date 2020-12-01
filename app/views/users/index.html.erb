@@ -52,33 +52,31 @@
           <div class="rectangle">
               <div class="first-box">
                 <div class="photo-and-name">
-                  
-
                   <div class="teacher name">
                     <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
                   </div>
                 </div>
               </div>
-                <div class="second-box">
-                  <div class="infos">
-                    <p>📅<%= booking.start_date %><%= booking.end_date %></p>
-                    <p><%= booking.user.languages.to_sentence %></p>
-                    <p> <%= booking.user.description %> </p>
-                    <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
-                    <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
-                  </div>
-                  <div class="price">
-                    <h3>Spot available:  <%= booking.available_spots %></h3>
-                    <div class="book-button">
-                      <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal">
-                        + Join it
-                      </button>
-                      <div class="modal fade" id="indexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                          <div class="modal-content">
-                            <div class="modal-body">
+            </div>
+              <div class="second-box">
+                <div class="infos">
+                  <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+                  <p><%= booking.user.languages.to_sentence %></p>
+                  <p> <%= booking.user.description %> </p>
+                  <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
+                  <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
+                </div>
+                <div class="price">
+                  <h3>Spot available:  <%= booking.available_spots %></h3>
+                  <div class="book-button">
+                    <button type="button primary" class="btn btn-primary" data-toggle="modal" data-target="#indexModal">
+                      + Join it
+                    </button>
+                    <div class="modal fade" id="indexModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-body">
                               <%= render 'user_bookings/new_user_booking', booking: booking %>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -88,10 +86,8 @@
                 </div>
             </div>
           </div>
-        <% else %>
-        <p>not a shared lesson</p>
-        <% end %>
-      <%end%>
+        <%end%>
+      </div>
     </div>
   </div>
 </div>
