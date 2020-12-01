@@ -50,14 +50,18 @@
       <% @bookings.each do |booking| %>
         <% if booking.group_session == true %>
             <div class="rectangle">
-                <div class="first-box">
-                  <div class="photo-and-name">
-                    <div class="teacher name">
+                <div class="teacher-and-availabilities">
+                    <div class="teacher-info">
                       <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+                        <div class="card-img-booking">
+                          <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
+                        </div>
                     </div>
-                  </div>
+                    <div class="available-spots">
+                      <h3>Spot available:  <%= booking.available_spots %></h3>
+                    </div>
                 </div>
-              <div class="second-box">
+              <div class="booking-info">
                 <div class="infos">
                     <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                       <div class="modal-dialog" role="document">
@@ -69,10 +73,10 @@
                       </div>
                     </div>
                   <p>📅 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
-                  <p><%= booking.user.languages.to_sentence %></p>
-                  <p> <%= booking.user.description %> </p>
-                  <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
                   <p> ❄️ <%= booking.user.categories.pluck(:name).to_sentence %> ❄️ </p>
+                  <p><%= booking.user.languages.to_sentence %></p>
+<!--                   <p> <%= booking.user.description %> </p> -->
+                  <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
                 </div>
                 <div class="price">
                   <h3>Spot available:  <%= booking.available_spots %></h3>
