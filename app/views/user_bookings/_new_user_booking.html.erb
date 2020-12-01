@@ -1,8 +1,8 @@
 <div class="form-wrapper ">
   <h2>Let's book your instructor</h2>
-  <%= simple_form_for [ @booking, @user_booking ] do |f| %>
+  <%= simple_form_for booking do |f| %>
 
-    <%= f.input :participants_number, label: "How many will you be ? " ,collection: 1..@booking.available_spots, selected: 1 %>
+    <%= f.input :participants_number, label: "How many will you be ? " ,collection: 1..booking.available_spots, selected: 1 %>
 
     <%= f.submit "Submit your booking", class: "btn btn-primary" %>
   <% end %>
