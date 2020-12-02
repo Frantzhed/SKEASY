@@ -1,13 +1,21 @@
 <div class="rectangle">
   <div class="teacher-and-availabilities">
       <div class="teacher-info">
-        <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+        <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
           <div class="card-img-booking">
             <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
           </div>
       </div>
       <div class="available-spots">
-        <h3><%= booking.available_spots %> available spot(s) </h3>
+        <% if booking.group_session %>
+          <% if booking.available_spots == 0 %>
+            <h3> Group completed </h3>
+          <% else %>
+            <h3><%= booking.available_spots %> available spot(s) </h3>
+          <% end %>
+        <% else %>
+          <h3> Private Lesson </h3>
+        <% end %>
       </div>
   </div>
 <div class="booking-info">
@@ -30,14 +38,30 @@
     </p>
     <p> 🏔 <%= booking.user.ski_resort %> </p>
     <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
-<!--                   <p> <%= booking.user.description %> </p> -->
-
-                </div>
-                  <div class="price">
-                    💸 Price: <%= booking.price %>€
-                    <%= booking.status %>
-                  </div>
-                  <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
-                </div>
-              </div>
+  </div>
+    <div class="price">
+      <% if booking.group_session == true %>
+        <div class="cardprice">
+        💸<%= booking.individual_price %>€/person
+        </div>
+          <% if booking.status == "Accepted" %>
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
+          <% end %>
+      <div class="status">
+        <%= booking.status %>
+      </div>
+      <% else %>
+      <div class="cardprice">
+        💸<%= booking.price %>€
+      </div>
+          <% if booking.status == "Accepted" %>
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
+          <% end %>      
+      <div class="status">
+          <%= booking.status %>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
 

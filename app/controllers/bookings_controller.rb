@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   def create
     @instructor = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.price = rand(80..100)
+    @booking.price = 90
     @booking.instructor = @instructor
     if @booking.save
      @user_booking = UserBooking.create(
