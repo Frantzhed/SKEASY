@@ -12,10 +12,10 @@
     }, remote: true do |f| %>
 
         <%= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params[:user][:start_date]} %>
+        required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
 
         <%= f.input :end_date, as: :string, placeholder: "End Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params[:user][:end_date]} %>
+        required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
 
         <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
         selected: params.dig(:user, :category), include_blank: true %>
