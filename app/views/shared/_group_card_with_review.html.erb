@@ -7,7 +7,7 @@
           </div>
       </div>
       <div class="available-spots">
-        <h3><%= booking.available_spots %> available spot(s) </h3>
+        <h3> Done </h3>
       </div>
   </div>
   <div class="booking-info">
@@ -23,17 +23,15 @@
       </div>
     <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
     <p>
-      <% booking.user.categories.each do |categorie| %>
-          <%= image_tag(categorie.name + ".png", class:"category-image") %>
-      <% end %>
-     <%= booking.user.categories.pluck(:name).to_sentence %>
+      <%= booking.category %>
+      <%= image_tag(booking.category + ".png", class:"category-image") %>
     </p>
-    <p> 🏔 <%= booking.user.ski_resort %> </p>
-    <p>:speech_balloon: <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
+    <p><i class="fas fa-mountain mr-2"></i><%= booking.user.ski_resort %> </p>
+    <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
   <!--                   <p> <%= booking.user.description %> </p> -->
   </div>
     <div class="price">
-      :money_with_wings: Price: <%= booking.price %>€
+       Price: <%= booking.price %>€
     </div>
   </div>
   <div class="btn btn-success btn-review" data-toggle="modal" data-target="#NewReviewModal"> Leave a review </div>
