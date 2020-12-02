@@ -12,3 +12,19 @@
 @import "form";
 @import "show";
 @import "button";
+
+.button-shared-groups {
+  border-radius: 40px;
+  text-align: center;
+  color: #001E54;
+  border: solid;
+  background-color: white;
+  width: 375px;
+  align-items: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  // position: absolute;
+  // bottom: -32px;
+  // right: 28px;
+  //
+}
