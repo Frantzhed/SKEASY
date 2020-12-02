@@ -21,12 +21,11 @@
           </div>
         </div>
       </div>
-    <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p>🗓 <%= booking.end_date.strftime("%A %B %d") %></p>
     <p>
-      <%= booking.category %>
-      <%= image_tag(booking.category + ".png", class:"category-image") %>
+    <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
     </p>
-    <p><i class="fas fa-mountain mr-2"></i><%= booking.user.ski_resort %> </p>
+    <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
     <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
   <!--                   <p> <%= booking.user.description %> </p> -->
   </div>
