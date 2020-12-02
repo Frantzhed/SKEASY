@@ -31,10 +31,13 @@
     <p> 🏔 <%= booking.user.ski_resort %> </p>
     <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
 <!--                   <p> <%= booking.user.description %> </p> -->
-  </div>
-    <div class="price">
-      💸 Price: <%= booking.price %>€
-      <%= booking.status %>
-    </div>
-  </div>
-</div>
+
+                </div>
+                  <div class="price">
+                    💸 Price: <%= booking.price %>€
+                    <%= booking.status %>
+                  </div>
+                  <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
+                </div>
+              </div>
+

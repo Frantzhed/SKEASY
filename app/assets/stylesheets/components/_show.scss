@@ -61,13 +61,14 @@ h2 {
 
 .center-box {
   margin-top: 40px;
-  margin-bottom: 10px;
+
   justify-content: space-between;
   flex-shrink: 0;
   margin-right: 60px;
   margin-left: 60px;
   display: flex;
   justify-content: space-evenly;
+   margin-bottom: 75px;
   // flex-direction: column;
 }
 
@@ -182,6 +183,7 @@ h2 {
 .below-box {
   color: $dark-blue;
   text-align: left;
+
 }
 
 .scrolling-wrapper-flexbox {
@@ -213,3 +215,20 @@ h2 {
   width: 400px;
   padding: 5px;
 }
+
+.text-photo {
+  border-radius: 40px;
+  text-align: center;
+  color: #001E54;
+  border: solid;
+  background-color: white;
+  position: absolute;
+  bottom: -32px;
+  right: 28px;
+  width: 282px;
+}
+
+.teacher-photo {
+  position: relative;
+}
+
