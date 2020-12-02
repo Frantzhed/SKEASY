@@ -45,7 +45,7 @@
         <div class="card-languages p-2">
           <h3> <strong> Languages </strong> </h3>
           <div class="text-left">
-            <%= "#{@user.first_name} speaks #{@user.languages.to_sentence}" %>
+            <%= "#{@user.languages.to_sentence}" %>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
   </div>
 
   <div class="below-box">
-     <h3> Review : <p><% @user.average_rating.times do %> ⭐️ <% end %></p></h3>
+     <h3> Review : <p><% @user.average_rating.times do |review |%> <i class="fas fa-star"></i> <% end %></p></h3>
 
     <div class="scrolling-wrapper-flexbox">
       <% @user.reviews.each do |review| %>
