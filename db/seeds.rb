@@ -47,7 +47,7 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/nicolas.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
+Category.create!(name: category.sample, note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -97,8 +97,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/léa.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -123,8 +123,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Sebastian-Keiler.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -159,8 +159,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user3.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Mono-ski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Mono-ski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -197,8 +197,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/melanie.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -234,7 +234,7 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Lee.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -269,8 +269,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/camille.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -306,8 +306,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/paul.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -345,8 +345,8 @@ user.photo.attach(io: File.open(Rails.root.join("db/fixtures/preise.jpg")), file
 user.save!
 puts "Created one user"
 
-Category.create!(name: "Mono-ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Mono-ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -385,8 +385,8 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/raphael.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
@@ -418,16 +418,16 @@ user = User.new(
   honored to make you discover this wonderful place full of incredible views and of amazing people.
   If you have any questions let me know i answer fast trying to be the more avaible for you. See you soon ! :)",
   languages: ["French", "English", "German", "Spanish"].uniq,
-  ski_resort: "Megeve",
+  ski_resort: "Val d'isère",
   technical_skill: technical_skill.sample
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/elodie.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
 
 
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -444,6 +444,128 @@ reviewer = User.where.not(id: user.id).sample
 Review.create!(content: "She's incredible", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
 reviewer = User.where.not(id: user.id).sample
 Review.create!(content: "I highly recommand this teacher", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+
+user = User.new(
+  instructor: true,
+  email: "Nathan.gentil@gmail.com",
+  password: "123456",
+  first_name: "Nathan",
+  last_name: "Gentil",
+  phone_number: "06 56 46 79 34",
+  description: "Holà todos, my name is Nathan, i've been living in Haute Savoie all my life
+  and skiing in these mountains is what have been doing since i'm a kid. I would love to
+  take you with you to show you the beauty of this incredible place which is out of time. I can
+  adapt to any level of skiing and any mood you want to practice this amazing sport. Let me
+  know if you have any questions i can answer really fast. I am able to do traditionnal courses or
+  off pistes and backcountry if you're ready to do experience a more adventurous journey.
+  I would be thrilled to become your new teacher for your holidays",
+  languages: ["French", "English"].uniq,
+  ski_resort: "Tignes",
+  technical_skill: technical_skill.sample
+)
+user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Nathan.jpg")), filename: 'photo.jpg')
+user.save!
+puts "Created one user"
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
+
+puts "Created one category"
+Booking.create!(category: category.sample, price: 45, group_session: false,
+  user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+puts "Created one booking"
+
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nice guy, very simple and a good instructor", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "It's true, he knows the best posts", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nothing to say ! It was just super nice", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Great class", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "He's definitely the best ski instructor", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+
+user = User.new(
+  instructor: true,
+  email: "Valentin.gentil@gmail.com",
+  password: "123456",
+  first_name: "Valentin",
+  last_name: "Gentil",
+  phone_number: "06 56 46 79 45",
+  description: "My name is Valentin, I've been living in Savoie all my life
+  and skiing in these mountains is what have been doing since i'm a kid. I would love to
+  take you with you to show you the beauty of this incredible place which is out of time. I can
+  adapt to any level of skiing and any mood you want to practice this amazing sport. Let me
+  know if you have any questions i can answer really fast. I am able to do traditionnal courses or
+  off pistes and backcountry if you're ready to do experience a more adventurous journey.",
+  languages: ["French", "English"].uniq,
+  ski_resort: "Les Arcs",
+  technical_skill: technical_skill.sample
+)
+user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Valentin.jpg")), filename: 'photo.jpg')
+user.save!
+puts "Created one user"
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
+
+puts "Created one category"
+Booking.create!(category: category.sample, price: 45, group_session: false,
+  user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+puts "Created one booking"
+
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nice guy, very simple and a good instructor", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "It's true, he knows the best posts", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nothing to say ! It was just super nice", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Great class", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "He's definitely the best ski instructor", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+
+
+user = User.new(
+  instructor: true,
+  email: "Joacquim.gentil@gmail.com",
+  password: "123456",
+  first_name: "Joacquim",
+  last_name: "Rodriguez",
+  phone_number: "06 75 46 79 45",
+  description: "My name is Joacquim, I am able to do traditionnal courses or
+  off pistes and backcountry if you're ready to do experience a more adventurous journey, I've been living in Savoie all my life
+  and skiing in these mountains is what have been doing since i'm a kid. I would love to
+  take you with you to show you the beauty of this incredible place which is out of time. I can
+  adapt to any level of skiing and any mood you want to practice this amazing sport. Let me
+  know if you have any questions i can answer really fast",
+  languages: ["French", "Arabic"].uniq,
+  ski_resort: "Tignes",
+  technical_skill: technical_skill.sample
+)
+user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Joacquim.jpg")), filename: 'photo.jpg')
+user.save!
+puts "Created one user"
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
+
+puts "Created one category"
+Booking.create!(category: category.sample, price: 45, group_session: false,
+  user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+puts "Created one booking"
+
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nice guy, very simple and a good instructor", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "It's true, he knows the best posts", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Nothing to say ! It was just super nice", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Great class", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "He's definitely the best ski instructor", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
 
 user = User.new(
   instructor: true,
@@ -467,9 +589,9 @@ user.photo.attach(io: File.open(Rails.root.join("db/fixtures/emanuel_bellwald_53
 user.save!
 puts "Created one user"
 
-Category.create!(name: "Snowboard", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 
-Category.create!(name: "Handiski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
@@ -501,7 +623,7 @@ user = User.new(
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user4.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
-Category.create!(name: "Ski", note: rand(0..5), user_id: User.last.id )
+Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
 
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
