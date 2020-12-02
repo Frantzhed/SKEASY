@@ -36,5 +36,6 @@
                   <div class="price">
                     💸 Price: <%= booking.price %>€
                   </div>
+                  <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
                 </div>
               </div>
