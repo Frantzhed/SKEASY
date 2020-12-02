@@ -27,6 +27,10 @@ h2 {
   text-align: center;
 }
 
+.specialities-languages h3 {
+  text-align: left;
+}
+
 
 
 #name {
@@ -61,13 +65,14 @@ h2 {
 
 .center-box {
   margin-top: 40px;
-  margin-bottom: 10px;
+
   justify-content: space-between;
   flex-shrink: 0;
   margin-right: 60px;
   margin-left: 60px;
   display: flex;
   justify-content: space-evenly;
+   margin-bottom: 75px;
   // flex-direction: column;
 }
 
@@ -158,7 +163,6 @@ h2 {
   text-align: center;
   width: 200px;
   border-radius: 2%;
-  margin-top: 10px;
   margin-bottom: 10px;
   color: $dark-blue;
   // background-color: $light-gray;
@@ -182,6 +186,7 @@ h2 {
 .below-box {
   color: $dark-blue;
   text-align: left;
+
 }
 
 .scrolling-wrapper-flexbox {
@@ -208,8 +213,25 @@ h2 {
   border-radius: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: left-center;
+  text-align: center;
   background-color: $light-gray;
   width: 400px;
   padding: 5px;
 }
+
+.text-photo {
+  border-radius: 40px;
+  text-align: center;
+  color: #001E54;
+  border: solid;
+  background-color: white;
+  position: absolute;
+  bottom: -32px;
+  right: 28px;
+  width: 282px;
+}
+
+.teacher-photo {
+  position: relative;
+}
+
