@@ -30,12 +30,14 @@ import "controllers"
 import { turbolinksFix } from '../components/turbolinks_fix';
 import { initFlatPickr } from '../components/init_flatpickr';
 import setGroupLessonForm from '../components/group_lesson_form';
+import { initSharedBtn } from "../components/init_shared_btn";
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:
   setGroupLessonForm()
   turbolinksFix();
   initFlatPickr();
+  initSharedBtn()
 });
 
 // import { initSelect2 } from '../components/init_select2';
