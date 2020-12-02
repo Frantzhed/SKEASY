@@ -22,9 +22,12 @@
   }
 }
 
-.simple_form.user{
+.simple_form.user {
   width: 100%;
   display: flex;
+  background: white;
+  border-radius: 50px;
+  border:  none;
 }
 
 .show-modal .simple_form {
@@ -90,6 +93,7 @@ form.user .form-group:not(.hidden) {
   }
 }
 
+
 .price-info {
   margin-top: 50px;
 }
@@ -102,7 +106,7 @@ form.user .form-group:not(.hidden) {
 .category-image {
     height: 35px;
     width: 35px;
-    margin: 3px auto;
+    margin: 10px;
 }
 
 .booking-cards {
@@ -141,4 +145,16 @@ a {
   }
 }
 
+.simple_form.user .form-group {
+  margin: 0;
+}
 
+.simple_form.user input, .simple_form.user select {
+  background: transparent;
+  border: none;
+  border-left: 1px solid grey;
+}
+
+#user_start_date {
+    border: none;
+}

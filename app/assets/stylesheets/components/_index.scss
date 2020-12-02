@@ -13,12 +13,17 @@
 @import "show";
 @import "button";
 
+.pay-less {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
 .button-shared-groups {
   border-radius: 40px;
   text-align: center;
-  color: #001E54;
-  border: solid;
-  background-color: white;
+
+
   width: 375px;
   align-items: center;
   margin-top: 20px;

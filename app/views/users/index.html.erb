@@ -31,11 +31,11 @@
 <br>
   <h2 style="text-align:center"><%= "Fixed Price: 45euros/hour"  %></h2>
 
-
-  <div class="button-shared-groups btn btn-success">
-   <button id="Shared"> <h4> <strong>  💸 Pay less : join a group ! 💸  </strong> </h4></button>
+  <div class="pay-less">
+    <div id="Shared"class="button-shared-groups btn btn-success">
+      <p class="m-0"> <strong> Pay less : join a group ! </strong> </p>
+    </div>
   </div>
-
 
 <div class="d-flex bd-highlight teacher-cards flex-wrap">
     <% @users.each do |user|%>
@@ -77,16 +77,15 @@
                         </div>
                       </div>
                     </div>
-                  <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+                  <p> <i class="far fa-calendar-alt mr-2"></i> <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
                   <p>
                     <% booking.user.categories.each do |categorie| %>
                       <%= image_tag(categorie.name + ".png", class:"category-image") %>
                     <% end %>
                    <%= booking.user.categories.pluck(:name).to_sentence %>
                   </p>
-                  <p> 🏔 <%= booking.user.ski_resort %> 🏔 </p>
-                  <p>💬 <%= booking.user.first_name %> speacks: <%= booking.user.languages.to_sentence %></p>
-<!--                   <p> <%= booking.user.description %> </p> -->
+                  <p> <i class="fas fa-mountain mr-2"> </i><%= booking.user.ski_resort %> </p>
+                  <p> <i class="far fa-comments mr-2"> </i> <%= booking.user.first_name %> speacks: <%= booking.user.languages.to_sentence %></p>
                 </div>
                   <div class="book-button">
                     <button type="button primary" class="btn btn-success" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
