@@ -27,8 +27,17 @@ h2 {
   text-align: center;
 }
 
-.specialities-languages h3 {
+.specialities-languages{
+  h3 {
   text-align: left;
+  }
+  p {
+  text-align: left;
+  color: grey;
+
+
+  }
+
 }
 
 
@@ -52,9 +61,7 @@ h2 {
 //   align-items: center;
 // }
 
-.left-box {
 
-}
 
 #other-instructors {
   font-family: Josefin Sans;
@@ -62,6 +69,7 @@ h2 {
   font-weight: 900;
   color: $dark-blue;
 }
+
 
 .center-box {
   margin-top: 40px;
@@ -72,8 +80,35 @@ h2 {
   margin-left: 60px;
   display: flex;
   justify-content: space-evenly;
-   margin-bottom: 75px;
+  margin-bottom: 60px;
   // flex-direction: column;
+}
+
+.teacher-photo {
+  display: flex;
+  justify-content: space-around;
+  position: relative;
+  .text-photo {
+    border-radius: 76px;
+    position: absolute;
+    text-align: center;
+    bottom: 0;
+    transform: translateY(50%);
+    color: #001E54;
+    background-color: #F4F4F4;
+    padding-bottom: -14px;
+    width: 222px;
+    p {
+      font-size: 14px;
+      color: grey;
+      margin-bottom: 0px;
+    }
+    h4 {
+      font-size: 20px;
+      color: grey;
+
+    }
+  }
 }
 
 .right-box {
@@ -81,6 +116,11 @@ h2 {
   // justify-content: space-evenly;
   // flex-direction: column;
   margin-left: 40px;
+}
+
+
+button.btn.btn-primary.book-button {
+    width: 98%;
 }
 
 .info-image {
@@ -133,11 +173,10 @@ h2 {
 
 .pix-profile-teacher {
   border-radius: 10%;
-  width: 350px;
-  height: 400px;
+  width: 330px;
+  height: 420px;
   display: flex;
   align-items: flex-start;
-  margin-bottom: 15px;
 }
 
 .stars {
@@ -214,24 +253,34 @@ h2 {
   margin-top: 10px;
   margin-bottom: 10px;
   text-align: center;
-  background-color: $light-gray;
-  width: 400px;
-  padding: 5px;
-}
-
-.text-photo {
-  border-radius: 40px;
-  text-align: center;
-  color: #001E54;
-  border: solid;
   background-color: white;
-  position: absolute;
-  bottom: -32px;
-  right: 28px;
-  width: 282px;
+  width: 350px;
+  padding: 5px;
+  h4 {
+    color: black;
+    margin-top: 2px;
+    margin-bottom: -3px;
+    font-size: 25px;
+    font-weight: lighter;
+  }
+  p{
+    color: grey;
+    text-align: center;
+    font-style: italic;
+    font-size: 13px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+  }
 }
 
-.teacher-photo {
-  position: relative;
+
+.fa-circle {
+  color: $fifth-blue;
+  font-size: 20px;
+  &.level {
+    color: $dark-blue;
+  }
 }
+
+
 
