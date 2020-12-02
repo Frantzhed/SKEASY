@@ -8,7 +8,11 @@
       </div>
       <div class="available-spots">
         <% if booking.group_session %>
-          <h3><%= booking.available_spots %> available spot(s) </h3>
+          <% if booking.available_spots == 0 %>
+            <h3> Group completed </h3>
+          <% else %>
+            <h3><%= booking.available_spots %> available spot(s) </h3>
+          <% end %>
         <% else %>
           <h3> Private Lesson </h3>
         <% end %>
