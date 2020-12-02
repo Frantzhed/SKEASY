@@ -5,6 +5,7 @@
   width: 45%;
   border-radius: 2%;
   padding: 12px;
+  padding-bottom: 6px;
   margin-bottom: 50px;
   background-color: $light-gray;
 }
@@ -20,7 +21,7 @@
   margin-right: 8px;
 }
 
-.teacher-details, {
+.teacher-details {
   display: flex;
 }
 
@@ -52,9 +53,13 @@
 
 .price {
   display: flex;
-  justify-content: right;
+  justify-content: space-between;
+  align-items: flex-end;
   font-family: Inter;
   font-size: 17px;
+}
+.status {
+  font-style: italic;
 }
 .third-box {
 

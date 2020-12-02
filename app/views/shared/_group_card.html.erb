@@ -37,13 +37,26 @@
   </div>
     <div class="price">
       <% if booking.group_session == true %>
+        <div class="cardprice">
         💸<%= booking.individual_price %>€/person
+        </div>
+          <% if booking.status == "Accepted" %>
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
+          <% end %>
+      <div class="status">
         <%= booking.status %>
+      </div>
       <% else %>
+      <div class="cardprice">
         💸<%= booking.price %>€
+      </div>
+          <% if booking.status == "Accepted" %>
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
+          <% end %>      
+      <div class="status">
           <%= booking.status %>
+      </div>
       <% end %>
-      <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
     </div>
   </div>
 </div>
