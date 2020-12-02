@@ -59,9 +59,8 @@
 </div>
 
 <div class="container price-info">
-  <h1>Join a lesson and divide the price !</h1>
-  <h2>Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
-
+  <h1 class="tagline">Join a lesson and divide the price !</h1>
+  <h2 class="price-diff">Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
 </div>
 
 <div class="tab-content w-100" id="myTabContent">
@@ -72,8 +71,10 @@
             <div class="rectangle">
                 <div class="teacher-and-availabilities">
                     <div class="teacher-info">
-                      <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
-                        <div class="card-img-booking">
+                      <%= link_to user_path(booking.user) do %>
+                        <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
+                        <% end %>
+                       <div class="card-img-booking">
                           <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
                         </div>
                     </div>
@@ -92,18 +93,21 @@
                         </div>
                       </div>
                     </div>
-                  <p> <i class="far fa-calendar-alt mr-2"></i> <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+                  <p> <i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %> at xx pm ?? </p>
                   <p>
                     <% booking.user.categories.each do |categorie| %>
                       <%= image_tag(categorie.name + ".png", class:"category-image") %>
                     <% end %>
                    <%= booking.user.categories.pluck(:name).to_sentence %>
                   </p>
-                  <p> <i class="fas fa-mountain mr-2"> </i><%= booking.user.ski_resort %> </p>
-                  <p> <i class="far fa-comments mr-2"> </i> <%= booking.user.first_name %> speacks: <%= booking.user.languages.to_sentence %></p>
+                  <p> <i class="fas fa-mountain category-image"> </i><%= booking.user.ski_resort %> </p>
+                  <div class="language-and-price">
+                    <div class="language"><p> <i class="far fa-comments category-image"> </i><%= booking.user.languages.to_sentence %></p></div>
+                    <div class="price"> <span id="amount"><%= 90/4 %> € </span> / spot x??</div>
+                  </div>
                 </div>
                   <div class="book-button">
-                    <button type="button primary" class="btn btn-success" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
+                    <button type="button primary" class="btn btn-success join" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
                       Join this class!
                     </button>
                   </div>
