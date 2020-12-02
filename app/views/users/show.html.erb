@@ -14,8 +14,8 @@
         <% end %>
       </div>
       <div class="text-photo">
-        <h4> <strong> 🗻 </h4>
-        <h4>  I'm teaching in <%=@user.ski_resort %> </strong> </h4>
+        <p>  I'm teaching in </p>
+          <h4> 🗻 <%=@user.ski_resort %> 🗻 </h4>
       </div>
     </div>
 
@@ -29,33 +29,35 @@
       <div class="specialities-languages">
         <div class="card-specialities">
           <h3> <strong> Specialities </strong> </h3>
-            <div class="text-left">
-             <% @user.categories.each do |category| %>
-               <p> <%= category.name %> :
-              <% category.note.times do %>
-                <i class="fas fa-circle"></i>
-               <% end %>
-
-              <% (5 - category.note).times do |i| %>
-                <i class="far fa-circle"></i>
-              <% end %>
-
-              </p>
+          <div class="text-left">
+            <% @user.categories.each do |category| %>
+              <div class="d-flex align-items-center mb-2">
+                <div class="mr-2">
+                  <%= image_tag(category.name + ".png", class:"category-image") %>
+                  <p class="m-0 text-center text-lowercase"><%= category.name %></p>
+                </div>
+                <div>
+                  <% category.note.times do %>
+                    <i class="fas fa-circle level"></i>
+                  <% end %>
+                  <% (5 - category.note).times do |i| %>
+                    <i class="fas fa-circle"></i>
+                  <% end %>
+                </div>
+              </div>
             <% end %>
           </div>
         </div>
 
         <div class="card-languages p-2">
           <h3> <strong> Languages </strong> </h3>
-          <div class="text-left">
-            <%= "#{@user.languages.to_sentence}" %>
-          </div>
+          <p><%= "#{@user.languages.to_sentence}" %></p>
         </div>
       </div>
 
 
       <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
-          + Book your lesson
+          Book your lesson with me
       </button>
     </div>
   </div>
@@ -72,14 +74,12 @@
   </div>
 
   <div class="below-box">
-     <h3> Review : <p><% @user.average_rating.times do |review |%> <i class="fas fa-star"></i> <% end %></p></h3>
+     <h3> Review : <% @user.average_rating.times do |review |%> <i class="fas fa-star"></i> <% end %></h3>
 
     <div class="scrolling-wrapper-flexbox">
       <% @user.reviews.each do |review| %>
         <div class="card-review p-3 m-3">
-          <div class="text-card">
             <h4> <%= review.user.first_name %> </h4>
-          </div>
 
           <% review.rate.times do |i| %>
             <i class="fas fa-star"></i>
@@ -89,7 +89,7 @@
             <i class="far fa-star"></i>
           <% end %>
 
-          <p> <%= review.content %> </p>
+          <p> "<%= review.content %>" </p>
         </div>
       <% end %>
     </div>
