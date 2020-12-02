@@ -5,6 +5,9 @@ Rails.application.routes.draw do
     resources :bookings
   end
   resources :bookings do
+    member do
+      patch "update_status", to: 'bookings#update_status'
+    end
     resources :user_bookings
     resources :reviews
   end

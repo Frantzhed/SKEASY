@@ -1,0 +1,30 @@
+<% current_user.bookings.upcoming.each do |instructor_booking|%>
+  <%= instructor_booking.status %>
+  <% instructor_booking.user_bookings.each do |user_booking|%>
+    <div class="rectangle">
+          <div class="first-box">
+              <div class="teacher name">
+                <h5> <%= user_booking.user.first_name%> <%= user_booking.user.last_name%> </h5>
+              </div>
+          </div>
+          <div class="second-box">
+            <div class="infos">
+              <p> <%= user_booking.user.phone_number%> </p>
+              <p>    <%= user_booking.user.category%> </p>
+              <p>  <%= user_booking.user.technical_skill%></p>
+              <p> <%= user_booking.participants_number%></p>
+            </div>
+            <div class="price">
+              <%= link_to "Accept",  update_status_booking_path(user_booking.booking,params:{status: "Accepted"}), method: :patch%>
+              <%= link_to "Decline",  update_status_booking_path(user_booking.booking,params:{status: "Decline"}), method: :patch%>
+            </div>
+          </div>
+    </div>
+  <% end %>
+<% end %>
+            
+            
+            
+            
+            
+            

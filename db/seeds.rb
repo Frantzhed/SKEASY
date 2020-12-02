@@ -442,6 +442,35 @@ Review.create!(content: "Beautiful experience with someone who is passionated by
 # Review.create!(content: "Personnaly everybody loved the class but i did not", rate: 2, user_id: reviewer.id, booking_id: Booking.last.id)
 # Review.create!(content: "Nice moment with Nathan", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
 
+user = User.new(
+  instructor: false,
+  email: "neymar@gmail.com",
+  password: "123456",
+  first_name: "Jean",
+  last_name: "Neymar",
+  phone_number: "06 67 35 92 76",
+  description: "Hello. Haters are going to hate, but i have to say it :
+  I'm the best football player today.",
+  languages: ["French", "English", "Spanish", "Italian"].uniq,
+  ski_resort: "Megeve",
+  technical_skill: technical_skill.sample
+)
+user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user4.jpg")), filename: 'photo.jpg')
+user.save!
+puts "Created one user"
+Category.create!(name: category.sample, note: rand(0..5), user_id: User.last.id )
+puts "Created one category"
+Booking.create!(category: category.sample, price: 50, group_session: false,
+  user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+puts "Created one booking"
+
+Review.create!(content: "True", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
+Review.create!(content: "Yeah he's the best", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
+Review.create!(content: "People who will say the opposite are douchebags", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
+Review.create!(content: "The best", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
+Review.create!(content: "Incredible player", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)
+
 11.times do |index|
   user = User.new(instructor: true, email: Faker::Internet.email , password: "123456", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, phone_number: Faker::PhoneNumber.cell_phone, description: description.sample, languages: [User::LANGUAGES.sample, User::LANGUAGES.sample].uniq, ski_resort: "Vars", technical_skill: technical_skill.sample)
   user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user#{index + 1}.jpg")), filename: 'photo.jpg')

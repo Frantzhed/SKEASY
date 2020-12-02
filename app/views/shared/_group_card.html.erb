@@ -1,41 +1,43 @@
-
 <div class="rectangle">
-                <div class="teacher-and-availabilities">
-                    <div class="teacher-info">
-                      <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
-                        <div class="card-img-booking">
-                          <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
-                        </div>
-                    </div>
-                    <div class="available-spots">
-                      <h3><%= booking.available_spots %> available spot(s) </h3>
-                    </div>
-                </div>
-              <div class="booking-info">
-                <div class="infos">
-                    <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                      <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                          <div class="modal-body">
-                             <%= render 'user_bookings/new_user_booking', booking: booking, user_booking: UserBooking.new %>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
-                  <p>
-                    <% booking.user.categories.each do |categorie| %>
-                       <%= image_tag(categorie.name + ".png", class:"category-image") %>
-                    <% end %>
-                   <%= booking.user.categories.pluck(:name).to_sentence %>
-                  </p>
-                  <p> 🏔 <%= booking.user.ski_resort %> </p>
-                  <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
+  <div class="teacher-and-availabilities">
+      <div class="teacher-info">
+        <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
+          <div class="card-img-booking">
+            <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
+          </div>
+      </div>
+      <div class="available-spots">
+        <h3><%= booking.available_spots %> available spot(s) </h3>
+      </div>
+  </div>
+<div class="booking-info">
+  <div class="infos">
+      <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-body">
+               <%= render 'user_bookings/new_user_booking', booking: booking, user_booking: UserBooking.new %>
+            </div>
+          </div>
+        </div>
+      </div>
+    <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p>
+      <% booking.user.categories.each do |categorie| %>
+         <%= image_tag(categorie.name + ".png", class:"category-image") %>
+      <% end %>
+     <%= booking.user.categories.pluck(:name).to_sentence %>
+    </p>
+    <p> 🏔 <%= booking.user.ski_resort %> </p>
+    <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
 <!--                   <p> <%= booking.user.description %> </p> -->
+
                 </div>
                   <div class="price">
                     💸 Price: <%= booking.price %>€
+                    <%= booking.status %>
                   </div>
                   <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
                 </div>
               </div>
+
