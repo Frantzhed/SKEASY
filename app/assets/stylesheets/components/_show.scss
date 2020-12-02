@@ -27,6 +27,10 @@ h2 {
   text-align: center;
 }
 
+.specialities-languages h3 {
+  text-align: left;
+}
+
 
 
 #name {
@@ -159,7 +163,6 @@ h2 {
   text-align: center;
   width: 200px;
   border-radius: 2%;
-  margin-top: 10px;
   margin-bottom: 10px;
   color: $dark-blue;
   // background-color: $light-gray;
@@ -210,7 +213,7 @@ h2 {
   border-radius: 2%;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align: left-center;
+  text-align: center;
   background-color: $light-gray;
   width: 400px;
   padding: 5px;
