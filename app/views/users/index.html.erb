@@ -9,7 +9,12 @@
 <div class="container multi-drop-down" data-controller="filters">
     <%= simple_form_for :user, url: users_path, method: :get, defaults: {
       input_html: { data: { action: "change->filters#submit"}}
-    }, remote: true do |f| %>
+      }, remote: true do |f| %>
+
+
+
+      <%#= f.input :start_date, as: :string, placeholder: "Starting Hour", label: false,
+      required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
 
         <%= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
         required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
@@ -17,15 +22,25 @@
         <%= f.input :end_date, as: :string, placeholder: "End Date", label: false,
         required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
 
-        <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
-        selected: params.dig(:user, :category), include_blank: true %>
-        <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level", label: false,
-        selected: params.dig(:user, :technical_skill), include_blank: true %>
-        <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language", label: false,
-        selected: params.dig(:user, :languages), include_blank: true %>
-        <%= f.input :ski_resort, as: :hidden, input_html: {value: params.dig(:user, :ski_resort)} %>
 
-        <%= f.submit class: "d-none", data: {target: "filters.submit"} %>
+      <%#= f.input :start_date, as: :string, placeholder: "Ending Hour", label: false,
+      required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
+
+     <!--  <%#= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
+      required: false, input_html: {class: "datepickr", value: params[:user][:start_date]} %> -->
+
+
+
+      <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline", label: false,
+      selected: params.dig(:user, :category), include_blank: true %>
+      <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL, prompt: "Level", label: false,
+      selected: params.dig(:user, :technical_skill), include_blank: true %>
+      <%= f.input :languages, as: :select, collection: User::LANGUAGES, prompt: "Language", label: false,
+      selected: params.dig(:user, :languages), include_blank: true %>
+      <%= f.input :ski_resort, as: :hidden, input_html: {value: params.dig(:user, :ski_resort)} %>
+
+      <%= f.submit class: "d-none", data: {target: "filters.submit"} %>
+
     <% end %>
 </div>
 <br>
