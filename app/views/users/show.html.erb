@@ -1,8 +1,6 @@
-
 <h1 class="title-show" data-name= <%= @query_name %>>
   <%= @query_name %>
   </h1>
-
 <div>
   <div class="center-box">
     <div class="teacher-photo">
@@ -18,8 +16,6 @@
           <h4> 🗻 <%=@user.ski_resort %> 🗻 </h4>
       </div>
     </div>
-
-
     <div class="right-box">
       <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
       <!-- <div class="greeting-message"></div> -->
@@ -32,11 +28,11 @@
           <div class="text-left">
             <% @user.categories.each do |category| %>
               <div class="d-flex align-items-center mb-2">
-                <div class="mr-2">
+                <div class="mr-2" id= "specialtiesicon">
                   <%= image_tag(category.name + ".png", class:"category-image") %>
                   <p class="m-0 text-center text-lowercase"><%= category.name %></p>
                 </div>
-                <div>
+                <div id="technicalskills">
                   <% category.note.times do %>
                     <i class="fas fa-circle level"></i>
                   <% end %>
@@ -48,20 +44,18 @@
             <% end %>
           </div>
         </div>
-
         <div class="card-languages p-2">
           <h3> <strong> Languages </strong> </h3>
           <p><%= "#{@user.languages.to_sentence}" %></p>
+          <h4 style="text-align: left;">Price : <strong>45 euros / Hour </strong></h4>
         </div>
       </div>
-
-
       <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
           Book your lesson with me
       </button>
+        <%= link_to "< Check other instructors", users_path , id:"backtolist" %>
     </div>
   </div>
-
      <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -72,23 +66,18 @@
         </div>
       </div>
   </div>
-
   <div class="below-box">
      <h3> Review : <% @user.average_rating.times do |review |%> <i class="fas fa-star"></i> <% end %></h3>
-
     <div class="scrolling-wrapper-flexbox">
       <% @user.reviews.each do |review| %>
         <div class="card-review p-3 m-3">
             <h4> <%= review.user.first_name %> </h4>
-
           <% review.rate.times do |i| %>
             <i class="fas fa-star"></i>
           <% end %>
-
           <% (5 - review.rate).times do |i| %>
             <i class="far fa-star"></i>
           <% end %>
-
           <p> "<%= review.content %>" </p>
         </div>
       <% end %>
