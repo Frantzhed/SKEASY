@@ -28,7 +28,7 @@
           <div class="text-left">
             <% @user.categories.each do |category| %>
               <div class="d-flex align-items-center mb-2">
-                <div class="mr-2" id= "specialtiesicon">
+                <div class="mr-2 specialtiesicon">
                   <%= image_tag(category.name + ".png", class:"category-image") %>
                   <p class="m-0 text-center text-lowercase"><%= category.name %></p>
                 </div>
@@ -45,9 +45,11 @@
           </div>
         </div>
         <div class="card-languages p-2">
-          <h3> <strong> Languages </strong> </h3>
-          <p><%= "#{@user.languages.to_sentence}" %></p>
-          <h4 style="text-align: left;">Price : <strong>45 euros / Hour </strong></h4>
+          <div>
+            <h3> <strong> Languages </strong> </h3>
+            <p><%= "#{@user.languages.to_sentence}" %></p>
+          </div>
+            <h3 style="text-align: left;">Price : <strong><span>45</span></strong> €/h </h3>
         </div>
       </div>
       <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
