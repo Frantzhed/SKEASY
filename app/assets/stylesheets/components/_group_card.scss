@@ -5,7 +5,7 @@
   width: 45%;
   border-radius: 2%;
   padding: 12px;
-  padding-bottom: 6px;
+  padding-bottom: 20px;
   margin-bottom: 50px;
   background-color: $light-gray;
 }
@@ -47,17 +47,39 @@
   }
   }
 
+button.btn.btn-success.join {
+  width: 95%;
+}
   btn-review{
     color: white;
   }
 
-.price {
+
+.language-and-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  .language{
+  }
+  .price {
   display: flex;
-  justify-content: space-between;
+  font-size: large;
+  color: grey;
+  justify-content: flex-end;
   align-items: flex-end;
   font-family: Inter;
-  font-size: 17px;
+  font-size: 19px;
+  }
 }
+
+span#amount {
+    font-size: 31px;
+    font-family: 'Inter';
+    color: $dark-blue;
+    font-weight: bold;
+}
+
+
 .status {
   font-style: italic;
 }
