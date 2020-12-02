@@ -28,11 +28,11 @@
           <div class="text-left">
             <% @user.categories.each do |category| %>
               <div class="d-flex align-items-center mb-2">
-                <div class="mr-2">
+                <div class="mr-2" id= "specialtiesicon">
                   <%= image_tag(category.name + ".png", class:"category-image") %>
                   <p class="m-0 text-center text-lowercase"><%= category.name %></p>
                 </div>
-                <div>
+                <div id="technicalskills">
                   <% category.note.times do %>
                     <i class="fas fa-circle level"></i>
                   <% end %>
@@ -52,6 +52,7 @@
       <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
           Book your lesson with me
       </button>
+        <%= link_to "< Check other instructors", users_path , id:"backtolist" %>
     </div>
   </div>
      <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
