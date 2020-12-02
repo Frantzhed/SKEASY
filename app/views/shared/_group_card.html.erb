@@ -48,23 +48,17 @@
           <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
           <% end %>
           <% if booking.status == "Accepted" %>
-            <button class=" status-btn-accepted">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-accepted" style="text-align: center;">
+              <%= booking.status %>
+            </div>
           <% elsif booking.status == "Pending" %>
-            <button class=" status-btn-pending">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-pending" style="text-align: center;">
+            <%= booking.status %>
+            </div>
           <% elsif  booking.status == "Declined"%>
-            <button class=" status-btn-declined">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-declined" style="text-align: center;">
+              <%= booking.status %>
+            </div>
           <% end %>
       <% else %>
       <div class="cardprice">
@@ -74,23 +68,17 @@
           <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
           <% end %> 
           <% if booking.status == "Accepted" %>
-            <button class=" status-btn-accepted">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-accepted" style="text-align: center;">
+              <%= booking.status %>
+            </div>
           <% elsif booking.status == "Pending" %>
-            <button class=" status-btn-pending">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-pending" style="text-align: center;">
+              <%= booking.status %>
+            </div>
           <% elsif  booking.status == "Declined"%>
-            <button class=" status-btn-declined">     
-              <div class="status">
-                <%= booking.status %>
-              </div>
-            </button>
+            <div class="status-btn-declined" style="text-align: center;">
+              <%= booking.status %>
+            </div>
           <% end %>
       <% end %>
     </div>
