@@ -58,6 +58,8 @@ form.user .form-group:not(.hidden) {
     margin-bottom: 100px;
   }
 }
+
+
 .teacher-and-availabilities {
   display: flex;
   justify-content: space-between;
@@ -84,10 +86,12 @@ form.user .form-group:not(.hidden) {
   .available-spots {
     background-color: $light-blue;
     padding: 4px;
+    color: $dark-blue;
     border-radius: 18px;
     height: 30px;
       h3 {
         padding: 4px;
+        font-family: inter;
         font-size: 13px;
       }
   }
@@ -95,18 +99,25 @@ form.user .form-group:not(.hidden) {
 
 
 .price-info {
-  margin-top: 50px;
-}
-
-.price-info {
-  justify-content: space-around;
-  text-align: center
+    padding: 10px;
+    font-style: Josefin Sans;
+    justify-content: space-around;
+    text-align: center;
+    display: flex;
+    .tagline{
+      text-align: center;
+      padding: 15px;
+    }
+    .price-diff{
+      text-align: center;
+      padding: 15px;
+    }
 }
 
 .category-image {
-    height: 35px;
-    width: 35px;
-    margin: 10px;
+    height: 20px;
+    width: 20px;
+    margin-right: 10px;
 }
 
 .booking-cards {
@@ -121,8 +132,8 @@ form.user .form-group:not(.hidden) {
     .infos {
       text-align: left;
       p {
-        margin-top: 0;
-        margin-bottom: 10px;
+        margin-top: 0px;
+        margin-bottom: 0px;
       }
   }
 }
@@ -135,7 +146,9 @@ book-button-booking{
 
 button.btn.btn-primary,
 button.btn.btn-success {
-    width: 80%;
+  width: 95%;
+  border-radius: 40px;
+  margin-top: 14px;
 }
 
 a {
