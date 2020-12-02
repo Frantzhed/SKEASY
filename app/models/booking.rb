@@ -28,6 +28,10 @@ class Booking < ApplicationRecord
     update(participant_counter: user_bookings.map(&:participants_number).sum)
   end
 
+  def individual_price
+    (price / (user_bookings.flat_map(&:participants_number).sum )).truncate(2)
+  end
+
   # Ruby implementation that results in way too many SQL queries. Replaced by a participant_counter updated through ActiveRecord callbacks.
   # Details in PR
   # def self.available
