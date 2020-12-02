@@ -56,7 +56,7 @@ puts "Created one booking"
 
 
 user = User.new(
-  instructor: true,
+  instructor: false,
   email: "patrick@gmail.com",
   password: "123456",
   first_name: "Noémie",
@@ -77,7 +77,7 @@ user.photo.attach(io: File.open(Rails.root.join("db/fixtures/jess.jpg")), filena
 user.save!
 
 user = User.new(
-  instructor: true,
+  instructor: false,
   email: "guillaume@gmail.com",
   password: "123456",
   first_name: "Léa",
