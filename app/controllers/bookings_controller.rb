@@ -14,7 +14,7 @@ class BookingsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.price = 90
+    @booking.price = 45
     @booking.instructor = @user
 
     if @booking.save!

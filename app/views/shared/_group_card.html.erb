@@ -50,11 +50,11 @@
       <div class="price">
         <% if booking.group_session == true %>
             <div class="price-dashboard">
-            <%= booking.individual_price %>€/person
+              <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))/4%> /spot
             </div>
           <% else %>
             <div class="price-dashboard">
-              <%= booking.price %>€
+              <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))%>
             </div>
           <% end %>
       </div>
