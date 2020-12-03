@@ -18,7 +18,7 @@ class BookingsController < ApplicationController
   def create
     @user = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.amount = 45
+    @booking.amount = ((@user.price_cents) / 100) * ((@booking.end_time.hour)-(@booking.start_time.hour))
     @booking.instructor = @user
     @booking.user_sku = @user.first_name[0..3] + "-" + @user.last_name[0..3]
     if @booking.save
@@ -30,26 +30,13 @@ class BookingsController < ApplicationController
       )
       redirect_to dashboard_path
     else
-      render "users/show" #locals: {id: @booking.instructor}stripe?
+      render "users/show" #locals: {id: @booking.instructor}
     end
   end
 
   def booking_accepted
       booking = Booking.find(params[:booking_id])
-    session = Stripe::Checkout::Session.create(
-                 payment_method_types: ["card"],
-                 line_items: [{
-                   name: booking.user_sku,
-                   images: [booking.instructor.photo],
-                   amount: booking.amount_cents,
-                   currency: "eur",
-                   quantity: 1
-                 }],
-                 success_url: dashboard_url,
-                 cancel_url: dashboard_url
-               )
-             booking.update(checkout_session_id: session.id,status: “Paid”)
-            redirect_to dashboard_path
+      booking.update(status: "Paid")
   end
 
   def edit
@@ -69,7 +56,22 @@ class BookingsController < ApplicationController
   end
 
   def update_status
-    Booking.find(params[:id]).update(status: params[:status])
+    @booking = Booking.find(params[:id])
+    @booking.update(status: params[:status])
+    session = Stripe::Checkout::Session.create(
+      payment_method_types: ["card"],
+               line_items: [{
+                 name: @booking.user_sku,
+                 images: [@booking.instructor.photo],
+                 amount: @booking.amount_cents,
+                 currency: "eur",
+                 quantity: 1
+               }],
+               success_url: dashboard_url,
+               cancel_url: dashboard_url
+               )
+              
+               @booking.update(checkout_session_id: session.id)
   end
 
   private

@@ -28,7 +28,7 @@
   </div>
 
   <div class="booking-info">
-    <div class="infos">
+    <div class="infos" data-session="<%= booking.checkout_session_id%>">
       <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%B %d")%> | <%= booking.start_time.hour %>-<%= booking.end_time.hour %>h</p>
       <p>
         <%= image_tag(booking.category + ".png", class:"category-image")%><%= booking.category %>
@@ -52,7 +52,7 @@
             <% end %>
           <% else %>
             <div class="price-dashboard">
-              <%=  booking.amount * ((booking.end_time.hour)-(booking.start_time.hour)) %>€
+              <%= booking.amount %> €
             </div>
             <% if booking.status == "Accepted" %>
               <div class='payment-btns' data-booking="<%= booking.to_json %>" >
@@ -78,23 +78,7 @@
     
 
 
-<script src="https://js.stripe.com/v3/"></script>
-<script>
-    let paymentButtons = document.querySelectorAll(".payment-btns")
-    console.log(paymentButtons)
-    // const paymentButton = document.getElementById('pay');
-    paymentButtons.forEach((btn) => {
-      btn.addEventListener('click', (event) => {
-        // console.log(event.target.parentElement.parentElement)
-        let booking = JSON.parse(event.target.parentElement.parentElement.dataset.booking)
-        // console.log(booking)
-      let stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
-      stripe.redirectToCheckout({
-        sessionId: booking.checkout_session_id })
-        }
-      )
-    });
-  </script>
+
 
 
 

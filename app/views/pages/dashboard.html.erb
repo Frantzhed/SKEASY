@@ -36,4 +36,25 @@
   </div>
 <% end %>
 
+<script src="https://js.stripe.com/v3/"></script>
+<script>
+    let paymentButtons = document.querySelectorAll(".payment-btns")
+    console.log(paymentButtons)
+    // const paymentButton = document.getElementById('pay');
+      let stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+    paymentButtons.forEach((btn) => {
+      btn.addEventListener('click', (event) => {
+        console.log(btn.closest(".infos").dataset.session)
+        console.log(btn.closest(".infos"))
+
+        let booking = JSON.parse(event.target.parentElement.parentElement.dataset.booking)
+        // console.log(booking)
+        stripe.redirectToCheckout({
+          sessionId: btn.closest(".infos").dataset.session
+        }
+      )
+    });
+    });
+</script>
+
 
