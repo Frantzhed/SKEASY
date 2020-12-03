@@ -29,7 +29,7 @@
 
   <div class="booking-info">
     <div class="infos">
-      <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %></p>
+      <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%B %d")%> | <%= booking.start_time.hour %>-<%= booking.end_time.hour %>h</p>
       <p>
         <%= image_tag(booking.category + ".png", class:"category-image")%><%= booking.category %>
       </p>
@@ -38,7 +38,7 @@
         <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
         <div class="price">
           <% if booking.group_session == true %>
-            <div class="cardprice">
+            <div class="price-dashboard">
               <%= booking.individual_price %>€/person
             </div>
             <% if booking.status == "Accepted" %>
@@ -51,7 +51,7 @@
             <% elsif booking.status == "Paid"%>
             <% end %>
           <% else %>
-            <div class="cardprice">
+            <div class="price-dashboard">
               <%=  booking.amount * ((booking.end_time.hour)-(booking.start_time.hour)) %>€
             </div>
             <% if booking.status == "Accepted" %>
