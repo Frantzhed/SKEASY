@@ -202,7 +202,7 @@ a {
 .simple_form.user select {
   background: transparent;
   border: none;
-  border-left: 1px solid grey;
+  border-left: 1px solid $light-blue;
   height: 60px;
 }
 
@@ -237,13 +237,27 @@ a {
   text-align: center;
   padding: 15px;
   background: $sk-yellow;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   p {
-    margin: 9px 0 0;
+    margin: 0;
   }
   span {
     color: white;
     font-size: 40px;
     font-weight: bold;
-    font-family: "Open Sans";
+    // font-family: "Open Sans";
   }
+}
+
+#users-index .mountain-index img {
+  border-color: $sk-blue-purple;
+}
+
+.rectangle .category-image {
+  height: 20px;
+  width: 20px;
+  font-size: 20px;
+  color: #333739;
 }
