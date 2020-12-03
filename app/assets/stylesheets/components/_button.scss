@@ -1,4 +1,4 @@
-.login{
+.login {
   background-color: $third-blue;
   color: white;
 }
@@ -6,6 +6,11 @@
   color: white;
 }
 .btn:hover {
-    color: #ffffff;
-    text-decoration: none;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.btn:not(.btn-home) {
+  border-radius: 50px;
+  padding: 0.5rem 2rem;
 }

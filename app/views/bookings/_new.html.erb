@@ -1,8 +1,10 @@
 <div class="form-wrapper show-modal">
+
   <h2> Finalize your booking </h2>
   <%# <h3> Little recap of your search </h3> %>
 
   <%= simple_form_for [ user, booking ] do |f| %>
+
 
     <%= f.input :end_date, as: :string, placeholder: "Do you want to confirm your booking date ?", label: false,
       required: false, input_html: { class: "datepickr", value: session[:end_date] } %>
@@ -23,7 +25,6 @@
 
     <%= f.input :participants_number, label: "How many will you be? " ,collection: 1..4, selected: 1, wrapper_html: {class: "d-none"} %>
 
-    <%= f.submit "Submit your booking", class: "btn btn-primary" %>
-  <% end %>
+    <%= f.submit "Submit your booking", class: "btn btn-success" %>
+    <% end %>
 </div>
-

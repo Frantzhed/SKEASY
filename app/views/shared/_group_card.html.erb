@@ -42,22 +42,45 @@
     <p>
       <%= image_tag(booking.category + ".png", class:"category-image")%> <%= booking.category %>
     </p>
-
-    <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
-    
-    <div class="language-and-price">
-      <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
-      <div class="price">
-        <% if booking.group_session == true %>
-            <div class="price-dashboard">
-              <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))/4%>/spot
-            </div>
-          <% else %>
-            <div class="price-dashboard">
-              <%= (booking.price * ((booking.end_time.hour)-(booking.start_time.hour))).round %>$
-            </div>
+    <p> <i class="fas fa-mountain category-image"></i> <%= booking.user.ski_resort %> </p>
+    <p><i class="far fa-comments category-image"></i> <%= booking.user.languages.to_sentence %></p>
+  </div>
+    <div class="price">
+      <% if booking.group_session == true %>
+        <div class="cardprice">
+        💸<%= booking.individual_price %>€/person
+        </div>
+          <% if booking.status == "Accepted" %>
+              <div class='payment-btns' data-booking="<%= booking.to_json %>" >
+                <%= form_tag booking_accepted_path(booking) do %>
+                  <%= hidden_field_tag 'booking_id', booking.id %>
+                  <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+                <% end %>
+              </div>
+          <% elsif booking.status == "Paid"%>
           <% end %>
+      
+        <div class="status">
+          <%= booking.status %>
+        </div>
+      <% else %>
+      <div class="cardprice">
+        💸<%=  booking.amount * ((booking.end_time.hour)-(booking.start_time.hour)) %>€
       </div>
+          <% if booking.status == "Accepted" %>
+            <div class='payment-btns' data-booking="<%= booking.to_json %>" >
+              <%= form_tag booking_accepted_path(booking) do %>
+                <%= hidden_field_tag 'booking_id', booking.id %>
+                <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
+              <% end %>
+            </div>
+          <% elsif booking.status == "Paid"%>
+          <% end %>
+      <div class="status">
+          <%= booking.status %>
+      </div>
+      <% end %>
+
     </div>
         <% if booking.status == "Accepted" %>
         <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success join book-button w-100" %>
@@ -67,6 +90,26 @@
 
   </div>
 </div>
+
+
+   <script src="https://js.stripe.com/v3/"></script>
+   <script>
+        let paymentButtons = document.querySelectorAll(".payment-btns")
+        console.log(paymentButtons)
+        // const paymentButton = document.getElementById('pay');
+        paymentButtons.forEach((btn) => {
+          btn.addEventListener('click', (event) => {
+            // console.log(event.target.parentElement.parentElement)
+            let booking = JSON.parse(event.target.parentElement.parentElement.dataset.booking)
+            // console.log(booking)
+          let stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
+          stripe.redirectToCheckout({
+            sessionId: booking.checkout_session_id })
+            }
+          )
+        });
+      </script>
+
 
 
 
