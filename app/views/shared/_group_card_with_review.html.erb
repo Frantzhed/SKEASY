@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-    <p>🗓 <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p> <i class="fas fa-calendar-check"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time %> // <%= booking.end_time %> </p>
     <p>
     <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
     </p>
