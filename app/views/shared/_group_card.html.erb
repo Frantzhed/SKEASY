@@ -29,7 +29,7 @@
           </div>
         </div>
       </div>
-    <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p> 🗓 <%= booking.end_date.strftime("%A %B %d") %></p>
     <p>
       <% booking.user.categories.each do |categorie| %>
          <%= image_tag(categorie.name + ".png", class:"category-image") %>
@@ -37,7 +37,7 @@
      <%= booking.user.categories.pluck(:name).to_sentence %>
     </p>
     <p> 🏔 <%= booking.user.ski_resort %> </p>
-    <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
+    <p> 💬 <%= booking.user.languages.to_sentence %></p>
   </div>
     <div class="price">
       <% if booking.group_session == true %>
@@ -45,7 +45,7 @@
         💸<%= booking.individual_price %>€/person
         </div>
           <% if booking.status == "Accepted" %>
-          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
           <% end %>
       <div class="status">
         <%= booking.status %>
@@ -55,8 +55,8 @@
         💸<%= booking.price %>€
       </div>
           <% if booking.status == "Accepted" %>
-          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
-          <% end %>      
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
+          <% end %>
       <div class="status">
           <%= booking.status %>
       </div>

@@ -11,17 +11,14 @@
       input_html: { data: { action: "change->filters#submit"}}
       }, remote: true do |f| %>
 
-
+      <%= f.input :end_date, as: :string, placeholder: "Booking date", label: false,
+        required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
 
       <%#= f.input :start_date, as: :string, placeholder: "Starting Hour", label: false,
       required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
 
-        <%= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
-
-        <%= f.input :end_date, as: :string, placeholder: "End Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
-
+      <%#= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
+      required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
 
       <%#= f.input :start_date, as: :string, placeholder: "Ending Hour", label: false,
       required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
