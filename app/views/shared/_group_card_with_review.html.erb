@@ -29,12 +29,11 @@
     <div class="language-and-price">
       <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
       <div class="price-dashboard">
-         <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))%>
+         <%= booking.amount * ((booking.end_time.hour)-(booking.start_time.hour))%>
       </div>
     </div>
   <!--                   <p> <%= booking.user.description %> </p> -->
   </div>
-
 
   </div>
   <div class="btn btn-success join book-button w-100" data-toggle="modal" data-target="#NewReviewModal"> Leave a review </div>
