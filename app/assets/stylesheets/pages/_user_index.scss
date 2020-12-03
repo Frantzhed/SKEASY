@@ -1,13 +1,32 @@
-  .resort-title{
-    position: relative;
-    text-align: center;
-    color: $dark-blue;
-    height: 191px;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
+#users-index .custom-container {
+  padding: 56px 0 0px;
+}
 
-    &:before {
+.mountain-index {
+  background-image: image-url("share-bg.svg");
+  background-repeat: no-repeat;
+  background-position: top;
+  background-size: cover;
+  // padding-bottom: 100px;
+  padding: 190px 0 56px;
+  margin-top: -40px;
+  .mountain-intro {
+    h2 {
+      color: white;
+      margin-top: 30px;
+    }
+  }
+}
+.resort-title {
+  position: relative;
+  text-align: center;
+  color: $dark-blue;
+  height: 191px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+
+  &:before {
     content: attr(data-name);
     position: absolute;
     width: 95vw;
@@ -27,21 +46,20 @@
   display: flex;
   background: white;
   border-radius: 50px;
-  border:  none;
+  border: none;
 }
 
 .show-modal .simple_form {
-    flex-direction: column;
+  flex-direction: column;
 }
 
 form.user select {
-    background-color: #e9ecef;
+  background-color: #e9ecef;
 }
 
 form.user .form-group:not(.hidden) {
-  flex: 1 1 auto
+  flex: 1 1 auto;
 }
-
 
 .multi-drop-down {
   margin-top: 64px;
@@ -51,14 +69,18 @@ form.user .form-group:not(.hidden) {
 
 .teacher-cards {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   margin-top: 50px;
-   a {
+  a {
     width: 22%;
     margin-bottom: 100px;
   }
+  &:after {
+    content: "";
+    flex: 1 1 100%;
+    max-width: 72%;
+  }
 }
-
 
 .teacher-and-availabilities {
   display: flex;
@@ -73,17 +95,17 @@ form.user .form-group:not(.hidden) {
         width: 110px;
         height: 110px;
         margin-top: -80px;
-        border: 6px solid #D7E0F0;
+        border: 6px solid #d7e0f0;
       }
     }
     h5 {
-    font-size: 25px;
-    margin-left: 135px;
-    font-family: 'Inter';
-    color: #001E54;
+      font-size: 25px;
+      margin-left: 135px;
+      font-family: "Inter";
+      color: #001e54;
     }
   }
-}
+
 
 .available-spots {
   background-color: $light-blue;
@@ -96,31 +118,36 @@ form.user .form-group:not(.hidden) {
       font-family: inter;
       font-size: 13px;
     }
-}
-
+  }
 
 .price-info {
-    padding: 10px;
-    font-style: Josefin Sans;
-    justify-content: space-around;
+  padding: 10px;
+  font-style: Josefin Sans;
+  justify-content: space-around;
+  text-align: center;
+  display: flex;
+  .tagline {
     text-align: center;
-    display: flex;
-    .tagline{
-      text-align: center;
-      padding: 15px;
-    }
-    .price-diff{
-      text-align: center;
-      padding: 15px;
-    }
+    padding: 15px;
+  }
+  .price-diff {
+    text-align: center;
+    padding: 15px;
+  }
 }
 
 .category-image {
+
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+
   height: 36px;
   font-size: 35px;
   width: 35px;
   margin-bottom: 10px;
   margin-right: 21px;
+
 }
 
 .booking-cards {
@@ -144,7 +171,7 @@ form.user .form-group:not(.hidden) {
       }
   }
 }
-book-button-booking{
+book-button-booking {
   text-align: center;
   border-radius: 20px;
   display: block;
@@ -161,7 +188,7 @@ button.btn.btn-success {
 a {
   text-decoration: none;
   &:hover {
-    text-decoration: none
+    text-decoration: none;
   }
 }
 
@@ -169,12 +196,52 @@ a {
   margin: 0;
 }
 
-.simple_form.user input, .simple_form.user select {
+.simple_form.user input,
+.simple_form.user select {
   background: transparent;
   border: none;
   border-left: 1px solid grey;
+  height: 60px;
 }
 
 #user_start_date {
-    border: none;
+  border: none;
+}
+
+.nuage {
+  position: fixed;
+  z-index: -1;
+  &.nuage1 {
+    top: 5%;
+    left: 20px;
+  }
+  &.nuage2 {
+    top: 21%;
+    right: 0;
+    transform: translateX(-50%);
+  }
+  &.nuage3 {
+    top: 58%;
+    left: 33%;
+  }
+}
+
+.price-individual {
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: white;
+  text-align: center;
+  padding: 15px;
+  background: $sk-yellow;
+  p {
+    margin: 9px 0 0;
+  }
+  span {
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+    font-family: "Open Sans";
+  }
 }
