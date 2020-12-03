@@ -54,7 +54,7 @@
             </div>
           <% else %>
             <div class="price-dashboard">
-              <%= booking.price %>€
+              <%= (booking.price * ((booking.end_time.hour)-(booking.start_time.hour))) %>€
             </div>
           <% end %>
       </div>
