@@ -47,6 +47,10 @@
   background: white;
   border-radius: 50px;
   border: none;
+
+  #user_end_date {
+    border: none;
+  }
 }
 
 .show-modal .simple_form {
@@ -105,7 +109,7 @@ form.user .form-group:not(.hidden) {
       color: #001e54;
     }
   }
-
+}
 
 .available-spots {
   background-color: $light-blue;
@@ -113,12 +117,12 @@ form.user .form-group:not(.hidden) {
   color: $dark-blue;
   border-radius: 18px;
   height: 30px;
-    h3 {
-      padding: 4px;
-      font-family: inter;
-      font-size: 13px;
-    }
+  h3 {
+    padding: 4px;
+    font-family: inter;
+    font-size: 13px;
   }
+}
 
 .price-info {
   padding: 10px;
@@ -137,7 +141,6 @@ form.user .form-group:not(.hidden) {
 }
 
 .category-image {
-
   height: 20px;
   width: 20px;
   margin-right: 10px;
@@ -147,7 +150,6 @@ form.user .form-group:not(.hidden) {
   width: 35px;
   margin-bottom: 10px;
   margin-right: 21px;
-
 }
 
 .booking-cards {
@@ -156,19 +158,19 @@ form.user .form-group:not(.hidden) {
   margin-top: 50px;
 }
 .booking-info {
-    justify-content: space-between;
-    align-items: flex-end;
-    margin-top: 8px;
-    // flex-grow: 1;
-    // display: flex;
-    // height: 50%;
-    .infos {
-      text-align: left;
-      p {
-        margin-top: 0px;
-        margin-bottom: 0px;
-        padding-left: 28px;
-      }
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 8px;
+  // flex-grow: 1;
+  // display: flex;
+  // height: 50%;
+  .infos {
+    text-align: left;
+    p {
+      margin-top: 0px;
+      margin-bottom: 0px;
+      padding-left: 28px;
+    }
   }
 }
 book-button-booking {
