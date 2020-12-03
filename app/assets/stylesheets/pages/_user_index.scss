@@ -131,6 +131,9 @@ form.user .form-group:not(.hidden) {
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 8px;
+    flex-grow: 1;
+    display: flex;
+    height: 50%;
     .infos {
       text-align: left;
       p {
