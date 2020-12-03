@@ -16,21 +16,24 @@ end
   end
 
   def create
-    @instructor = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.amount = 90
+    @booking.amount = 45
     @booking.instructor = @instructor
     @booking.user_sku = @instructor.first_name[0..3] + "-"+ @instructor.last_name[0..3]
     if @booking.save
       @user_booking = UserBooking.create(
         user: current_user,
+
         booking: @booking,
         participants_number: booking_params[:participants_number]
       )
 
       redirect_to dashboard_path
     else
-      render "users/show", locals: {id: @booking.instructor}
+
+      render "users/show", #locals: {id: @booking.instructor}stripe?
+
     end
   end
 
@@ -79,7 +82,7 @@ end
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :category, :participants_number,:group_session)
+    params.require(:booking).permit(:end_date, :category, :participants_number, :group_session, :start_time, :end_time)
   end
 
   def set_booking

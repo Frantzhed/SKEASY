@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <title><%= meta_title %></title>
     <meta name="description" content="<%= meta_description %>">
     <!-- Facebook Open Graph data -->
@@ -26,14 +27,20 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
-  </head>
-  <body id="<%= controller.controller_name %>-<%= controller.action_name %>">
+</head>
+
+<body id="<%= controller.controller_name %>-<%= controller.action_name %>">
     <%= render 'shared/navbar' %>
     <div class="container custom-container">
-      <%= yield %>
+        <%= yield %>
     </div>
     <%= render 'shared/flashes' %>
     <%= render 'shared/footer' %>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/rellax/1.12.1/rellax.js"></script>
+    <script>
+        // Accepts any class name
+        var rellax = new Rellax('.rellax');
+    </script>
+</body>
 
-  </body>
 </html>

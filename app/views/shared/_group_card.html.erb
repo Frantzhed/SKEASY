@@ -1,23 +1,32 @@
-<div class="rectangle">
-  <div class="teacher-and-availabilities">
+<div class="rectangle rectangle-cards">
+  <div class="teacher-and-availabilities-dashboard">
+      <div class="card-img-booking-dashboard">
+        <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
+      </div>
       <div class="teacher-info">
         <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
-          <div class="card-img-booking">
-            <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
-          </div>
+            <% if booking.status == "Accepted" %>
+              <p class="phone-number"><%= booking.user.phone_number  %></p>
+            <% end %>
       </div>
-      <div class="available-spots">
-        <% if booking.group_session %>
-          <% if booking.available_spots == 0 %>
-            <h3> Group completed </h3>
+      <div class="spots-and-status">
+        <div class="available-spots">
+          <% if booking.group_session %>
+            <% if booking.available_spots == 0 %>
+              <h3> Group completed </h3>
+            <% else %>
+              <h3><%= booking.available_spots %> available spot(s) </h3>
+            <% end %>
           <% else %>
-            <h3><%= booking.available_spots %> available spot(s) </h3>
+            <h3> Private Lesson </h3>
           <% end %>
-        <% else %>
-          <h3> Private Lesson </h3>
-        <% end %>
+        </div>
+        <div class="status-btn-<%= booking.status.downcase %> status-tag" style="text-align: center;">
+          <%= booking.status %>
+        </div>
       </div>
   </div>
+
 <div class="booking-info">
   <div class="infos">
       <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -29,15 +38,13 @@
           </div>
         </div>
       </div>
-    <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p> <i class="far fa-calendar-alt category-image"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time.hour %>h // <%= booking.end_time.hour %>h </p>
     <p>
-      <% booking.user.categories.each do |categorie| %>
-         <%= image_tag(categorie.name + ".png", class:"category-image") %>
-      <% end %>
-     <%= booking.user.categories.pluck(:name).to_sentence %>
+      <%= image_tag(booking.category + ".png", class:"category-image")%> <%= booking.category %>
     </p>
-    <p> 🏔 <%= booking.user.ski_resort %> </p>
-    <p>💬 <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
+
+    <p> <i class="fas fa-mountain category-image"></i> <%= booking.user.ski_resort %> </p>
+    <p><i class="far fa-comments category-image"></i> <%= booking.user.languages.to_sentence %></p>
   </div>
     <div class="price">
       <% if booking.group_session == true %>
@@ -51,16 +58,15 @@
                   <%= submit_tag 'Purchase', class: 'btn btn-primary' %>
                 <% end %>
               </div>
-          <%#= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
           <% elsif booking.status == "Paid"%>
-
           <% end %>
-      <div class="status">
-        <%= booking.status %>
-      </div>
+      
+        <div class="status">
+          <%= booking.status %>
+        </div>
       <% else %>
       <div class="cardprice">
-        💸<%= booking.amount %>€
+        💸<%=  booking.amount * ((booking.end_time.hour)-(booking.start_time.hour)) %>€
       </div>
           <% if booking.status == "Accepted" %>
             <div class='payment-btns' data-booking="<%= booking.to_json %>" >
@@ -75,9 +81,17 @@
           <%= booking.status %>
       </div>
       <% end %>
+
     </div>
+        <% if booking.status == "Accepted" %>
+        <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success join book-button w-100" %>
+        <% end %>
+
+  </div>
+
   </div>
 </div>
+
 
    <script src="https://js.stripe.com/v3/"></script>
    <script>
@@ -96,6 +110,7 @@
           )
         });
       </script>
+
 
 
 
