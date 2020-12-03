@@ -44,9 +44,6 @@
       let stripe = Stripe('<%= ENV['STRIPE_PUBLISHABLE_KEY'] %>');
     paymentButtons.forEach((btn) => {
       btn.addEventListener('click', (event) => {
-        console.log(btn.closest(".infos").dataset.session)
-        console.log(btn.closest(".infos"))
-
         let booking = JSON.parse(event.target.parentElement.parentElement.dataset.booking)
         // console.log(booking)
         stripe.redirectToCheckout({
