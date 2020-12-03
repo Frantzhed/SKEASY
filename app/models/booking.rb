@@ -8,7 +8,7 @@ class Booking < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :user_bookings, dependent: :destroy
 
-  validates :start_date, presence: true
+  # validates :start_date, presence: true
   validates :end_date, presence: true
   validates :category, presence: true, inclusion: { in: Category::CATEGORIES }
   validates :status, inclusion: { in: ["Pending", "Accepted", "Rejected"] }

@@ -19,6 +19,16 @@
     <div class="right-box">
       <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
       <!-- <div class="greeting-message"></div> -->
+      <hr>
+
+      <%= session[:technical_skill] %>
+      <%= session[:category] %>
+      <%= session[:ski_resort] %>
+      <%= session[:languages] %>
+      <%= session[:end_date] %>
+
+      <hr>
+
       <p id="greeting-message">
           <%= @user.description %>
       </p>
