@@ -21,7 +21,7 @@
           </div>
         </div>
       </div>
-    <p> <i class="far fa-calendar-alt category-image"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time.hour %> // <%= booking.end_time.hour %> </p>
+    <p> <i class="far fa-calendar-alt category-image"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time.hour %><i class="far fa-clock"></i><%= booking.end_time.hour %> </p>
     <p>
     <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
     </p>
