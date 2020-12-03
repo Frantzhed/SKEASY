@@ -9,3 +9,37 @@
     color: #ffffff;
     text-decoration: none;
 }
+
+.status-btn-pending{
+  border-radius: 2px;
+  margin-bottom: 0px;
+  color: #fff;
+  padding: 4px;
+  border: 0px;
+  border-radius: 50px;
+  width: 80px;
+  border: 2px solid orange;
+  color: orange;
+}
+.status-btn-accepted {
+  width: 90px;
+  margin-bottom: 0px;
+  color: #fff;
+  padding: 4px;
+  border: 0px;
+  border-radius: 50px;
+  width: 90px;
+  border: 2px solid rgb(22, 201, 37);
+  color: rgb(47, 223, 23);
+}
+  
+.status-btn-declined{
+  width: 100%;
+  border-radius: 2px;
+  margin-bottom: 0px;
+  color: #fff;
+  background-color: #f80c0c9e;
+  padding: 4px;
+  border: 0px;
+  border-radius: 3px
+}
