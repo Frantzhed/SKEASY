@@ -12,19 +12,20 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @instructor = User.find(params[:user_id])
+    @user = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.price = 90
-    @booking.instructor = @instructor
-    if @booking.save
-     @user_booking = UserBooking.create(
+    @booking.price = 45
+    @booking.instructor = @user
+
+    if @booking.save!
+    @user_booking = UserBooking.create(
       user: current_user,
         booking: @booking,
         participants_number: booking_params[:participants_number]
       )
       redirect_to dashboard_path
     else
-      render "users/", locals: {id: @booking.instructor}
+      render "users/show"
     end
   end
 
@@ -52,7 +53,7 @@ class BookingsController < ApplicationController
   private
 
   def booking_params
-    params.require(:booking).permit(:start_date, :end_date, :category, :participants_number,:group_session)
+    params.require(:booking).permit(:end_date, :category, :participants_number, :group_session, :start_time, :end_time)
   end
 
   def set_booking

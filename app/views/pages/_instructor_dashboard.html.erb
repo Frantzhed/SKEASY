@@ -20,7 +20,7 @@
             <%= user_booking.user.technical_skill%>
             <%= user_booking.participants_number%>
             <%= link_to "Accept", update_status_booking_path(user_booking.booking,params:{status: "Accepted"}), method: :patch%>
-            <%= link_to "Decline", update_status_booking_path(user_booking.booking,params:{status: "Decline"}), method: :patch%>
+            <%= link_to "Decline", update_status_booking_path(user_booking.booking,params:{status: "Rejected"}), method: :patch%>
           <% end %>
       <% end %>
       <% if current_user.client_bookings.upcoming.each == 0 %>

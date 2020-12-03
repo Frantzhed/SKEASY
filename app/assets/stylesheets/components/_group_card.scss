@@ -1,13 +1,39 @@
 .rectangle {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  text-align: center;
+  text-align: left;
   width: 45%;
   border-radius: 2%;
   padding: 12px;
   padding-bottom: 20px;
   margin-bottom: 50px;
   background-color: $light-gray;
+}
+
+.teacher-and-availabilities-dashboard {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  .teacher-info {
+    h5 {
+    font-size: 25px;
+    // margin-left: 135px;
+    font-family: 'Inter';
+    color: #001E54;
+    }
+  }
+}
+
+.card-img-booking-dashboard {
+  display: flex;
+  > img {
+    border-radius: 50%;
+    margin-left: 17px;
+    width: 110px;
+    height: 110px;
+    margin-top: -40px;
+    border: 6px solid #D7E0F0;
+  }
 }
 
 .photo-profile-teacher {
@@ -19,6 +45,19 @@
   display: flex;
   align-items: flex-start;
   margin-right: 8px;
+}
+
+p.phone-number {
+  margin-top: 0px;
+  margin-bottom: 0;
+  font-family: Inter;
+}
+
+
+.spots-and-status {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
 }
 
 .teacher-details {
@@ -79,6 +118,34 @@ span#amount {
     font-weight: bold;
 }
 
+
+.status-tag {
+  border-radius: 2px;
+  border-top:4px;
+  margin-top: 5px;
+  text-align: center;
+  margin-bottom: 0px;
+  color: #fff;
+  padding: 4px;
+  border: 0px;
+  border-radius: 50px;
+  width: 80px;
+}
+
+.status-btn-pending{
+  border: 2px solid orange;
+  color: orange;
+}
+.status-btn-accepted {
+  border: 2px solid rgb(22, 201, 37);
+  color: rgb(47, 223, 23);
+}
+
+.status-btn-rejected{
+  color: #f80c0c9e;
+  border: 2px solid #f80c0c9e;
+
+}
 
 .status {
   font-style: italic;

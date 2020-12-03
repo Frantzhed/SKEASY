@@ -13,17 +13,14 @@
       input_html: { data: { action: "change->filters#submit"}}
       }, remote: true do |f| %>
 
-
+      <%= f.input :end_date, as: :string, placeholder: "Booking date", label: false,
+        required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
 
         <%#= f.input :start_date, as: :string, placeholder: "Starting Hour", label: false,
       required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
 
-        <%= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
-
-        <%= f.input :end_date, as: :string, placeholder: "End Date", label: false,
-        required: false, input_html: {class: "datepickr", value: params.dig(:user, :end_date)} %>
-
+      <%#= f.input :start_date, as: :string, placeholder: "Start Date", label: false,
+      required: false, input_html: {class: "datepickr", value: params.dig(:user, :start_date)} %>
 
         <%#= f.input :start_date, as: :string, placeholder: "Ending Hour", label: false,
       required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
@@ -44,18 +41,19 @@
         <%= f.submit class: "d-none", data: {target: "filters.submit"} %>
 
         <% end %>
-    </div>
+
+    <% end %>
+</div>
+<br>
+  <h2 style="text-align:center"><%= "Private lessons ===> Fixed Price: 45euros/hour"  %></h2>
+
+    
     <br>
 
     <h2>Take a private lesson with the bests !</h2>
     <div class="price-amount price-individual">
         <p><span>45</span>€/h</p>
     </div>
-    <%
-=begin%>
-    <h2 style="text-align:center"><%= "Fixed Price: 45euros/hour"  %></h2>
-    <%
-=end%>
 
     <div class="pay-less">
         <div id="Shared" class="button-shared-groups btn btn-success">
@@ -72,20 +70,12 @@
 <div class="mountain-index">
     <div class="container">
         <div class="mountain-intro">
-            <%
-=begin%>
-            <h1 class="tagline">Join a lesson and divide the price !</h1>
-            <%
-=end%>
+
             <h2>Join a lesson and divide the price !</h2>
             <div class="price-amount price-individual">
                 <p><span>20</span>€/h</p>
             </div>
-            <%
-=begin%>
-            <h2 class="price-diff">Private booking 45 € / hour | Shared booking up to 21 € / hour </h2>
-            <%
-=end%>
+
         </div>
 
         <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
@@ -131,11 +121,24 @@
                             <div class="price"> <span id="amount"><%= 90/4 %> € </span> / spot x??</div>
                         </div>
                     </div>
+
                     <div class="book-button">
                         <button type="button primary" class="btn btn-success join" data-toggle="modal" data-target="#indexModal-<%= booking.id %>">
                             Join this class!
                         </button>
                     </div>
+
+                  <p> <i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %> between <%=booking.start_time.hour%>am and <%=booking.end_time.hour %>pm </p>
+                  <p>
+                    <%= image_tag(booking.category + ".png", class:"category-image") %>
+                    <%= booking.category %>
+                  </p>
+                  <p> <i class="fas fa-mountain category-image"> </i><%= booking.user.ski_resort %> </p>
+                  <div class="language-and-price">
+                    <div class="language"><p> <i class="far fa-comments category-image"> </i><%= booking.user.languages.to_sentence %></p></div>
+                    <div class="price"> <span id="amount"><%=(booking.price * ((booking.end_time.hour)-(booking.start_time.hour)))/4%> € / spot</span>  </div>
+                  </div>
+
                 </div>
             </div>
             <%end%>

@@ -42,6 +42,46 @@
                         </div>
                         <% end %>
                     </div>
+  <div class="center-box">
+    <div class="teacher-photo">
+      <div class="photo-description">
+        <% if @user.photo.attached? %>
+            <%= cl_image_tag @user.photo.key, width: 1200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
+        <% else %>
+            <img src="https://picsum.photos/200" alt="Avatar" class="pix-profile-teacher">
+        <% end %>
+      </div>
+      <div class="text-photo">
+        <p>  I'm teaching in </p>
+          <h4> 🗻 <%=@user.ski_resort %> 🗻 </h4>
+      </div>
+    </div>
+    <div class="right-box">
+      <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
+      <!-- <div class="greeting-message"></div> -->
+      <hr>
+
+      <%= session[:technical_skill] %>
+      <%= session[:category] %>
+      <%= session[:ski_resort] %>
+      <%= session[:languages] %>
+      <%= session[:end_date] %>
+
+      <hr>
+
+      <p id="greeting-message">
+          <%= @user.description %>
+      </p>
+      <div class="specialities-languages">
+        <div class="card-specialities">
+          <h3> <strong> Specialities </strong> </h3>
+          <div class="text-left">
+            <% @user.categories.each do |category| %>
+              <div class="d-flex align-items-center mb-2">
+                <div class="mr-2 specialtiesicon">
+                  <%= image_tag(category.name + ".png", class:"category-image") %>
+                  <p class="m-0 text-center text-lowercase"><%= category.name %></p>
+
                 </div>
                 <div class="card-languages p-2">
                     <h3> <strong> Languages </strong> </h3>
@@ -53,6 +93,18 @@
                 Book your lesson with me
             </button>
             <%= link_to "< Check other instructors", users_path , id:"backtolist" %>
+
+              </div>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-languages p-2">
+          <div>
+            <h3> <strong> Languages </strong> </h3>
+            <p><%= "#{@user.languages.to_sentence}" %></p>
+          </div>
+            <h3 style="text-align: left;">Price : <strong><span>45</span></strong> €/h </h3>
+
         </div>
     </div>
     <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -1,4 +1,4 @@
-<div class="rectangle">
+<div class="rectangle rectangle-cards">
   <div class="teacher-and-availabilities">
       <div class="teacher-info">
         <h5> <%= booking.user.first_name %> <%= booking.user.last_name %> </h5>
@@ -7,7 +7,7 @@
           </div>
       </div>
       <div class="available-spots">
-        <h3><%= booking.available_spots %> available spot(s) </h3>
+        <h3> Done ✓</h3>
       </div>
   </div>
   <div class="booking-info">
@@ -21,36 +21,37 @@
           </div>
         </div>
       </div>
-    <p>🗓 <%= booking.start_date.strftime("%A %B %d") %> to <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p> <i class="far fa-calendar-alt category-image"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time.hour %> // <%= booking.end_time.hour %> </p>
     <p>
-      <% booking.user.categories.each do |categorie| %>
-          <%= image_tag(categorie.name + ".png", class:"category-image") %>
-      <% end %>
-     <%= booking.user.categories.pluck(:name).to_sentence %>
+    <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
     </p>
-    <p> 🏔 <%= booking.user.ski_resort %> </p>
-    <p>:speech_balloon: <%= booking.user.first_name %> speaks: <%= booking.user.languages.to_sentence %></p>
+    <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
+    <div class="language-and-price">
+      <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
+      <div class="price-dashboard">
+         <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))%>
+      </div>
+    </div>
   <!--                   <p> <%= booking.user.description %> </p> -->
   </div>
-    <div class="price">
-      :money_with_wings: Price: <%= booking.price %>€
+
+
+  </div>
+  <div class="btn btn-success join book-button w-100" data-toggle="modal" data-target="#NewReviewModal"> Leave a review </div>
+</div>
+  <!-- Modal -->
+  <div class="modal fade" id="NewReviewModal" tabindex="-1" role="dialog" aria-labelledby="NewReviewModal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">Leave a review</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <%= render "reviews/new", booking: booking %>
+        </div>
+      </div>
     </div>
   </div>
-  <div class="btn btn-success btn-review" data-toggle="modal" data-target="#NewReviewModal"> Leave a review </div>
-</div>
-<!-- Modal -->
-<div class="modal fade" id="NewReviewModal" tabindex="-1" role="dialog" aria-labelledby="NewReviewModal" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Leave a review</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <%= render "reviews/new", booking: booking %>
-      </div>
-    </div>
-  </div>
-</div>
