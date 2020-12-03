@@ -1,9 +1,9 @@
 <div class="form-wrapper show-modal">
 
-  <h2> Finalize your booking </h2>
-  <%# <h3> Little recap of your search </h3> %>
+    <h2> Finalize your booking </h2>
+    <%# <h3> Little recap of your search </h3> %>
 
-  <%= simple_form_for [ user, booking ] do |f| %>
+    <%= simple_form_for [ user, booking ] do |f| %>
 
 
     <%= f.input :end_date, as: :string, placeholder: "Do you want to confirm your booking date ?", label: false,

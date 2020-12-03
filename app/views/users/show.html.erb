@@ -64,13 +64,23 @@
                         <h3> <strong> Languages </strong> </h3>
                         <p><%= "#{@user.languages.to_sentence}" %></p>
                     </div>
+                    <div class="price text-left">
+                        <h3><strong>Price</strong></h3> <span id="amount">45 </span> €/h
+                    </div>
+
+                    <%
+=begin%>
                     <h3 style="text-align: left;">Price : <strong><span>45</span></strong> €/h </h3>
+                    <%
+=end%>
                 </div>
             </div>
-            <button type="button" class="btn btn-primary book-button" data-toggle="modal" data-target="#bookingModal">
+            <button type="button" class="btn btn-success book-button" data-toggle="modal" data-target="#bookingModal">
                 Book your lesson with me
             </button>
-            <%= link_to "< Check other instructors", users_path , id:"backtolist" %>
+            <%= link_to users_path , id:"backtolist" do %>
+            <i class='far fa-hand-point-left'></i> Check other instructors
+            <% end %>
         </div>
         <div class="modal fade" id="bookingModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -102,4 +112,3 @@
         <iframe width="1100" height="415" src="https://www.youtube.com/embed/n-UBie4Ioqo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
-

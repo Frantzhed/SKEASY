@@ -3,6 +3,10 @@
   background: transparent;
   position: absolute;
   width: 100%;
+
+  .nav-item {
+    cursor: pointer;
+  }
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -11,7 +15,7 @@
 
 .navbar-lewagon .navbar-brand {
   width: 40px;
-  color: #0F3057;
+  color: #0f3057;
 }
 
 .nav-item {
@@ -20,18 +24,18 @@
 
 .navbar-nav {
   align-items: center;
-  color: #0F3057;
+  color: #0f3057;
 }
 
 .nav-link {
-  color: #0F3057;
+  color: #0f3057;
 }
 
 .navbar-nav .nav-item .nav-link {
-  color:  #0F3057;;
+  color: #0f3057;
 }
 
 .navbar-nav .nav-item-language {
-  color:  #0F3057;;
+  color: #0f3057;
   justify-content: center;
 }
