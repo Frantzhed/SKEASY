@@ -29,7 +29,7 @@
     <div class="language-and-price">
       <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
       <div class="price-dashboard">
-         <%= booking.price * ((booking.end_time.hour)-(booking.start_time.hour))%>
+         <%= (booking.price * ((booking.end_time.hour)-(booking.start_time.hour))).round%>$
       </div>
     </div>
   <!--                   <p> <%= booking.user.description %> </p> -->

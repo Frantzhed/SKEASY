@@ -108,7 +108,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now) )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -141,11 +141,11 @@ Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
 puts "Created one booking"
-Booking.create!(category: "Snowboard", price: 45, group_session: true,
+Booking.create!(category: "Snowboard", price: 45, group_session: false,
   user_id: User.find_by(first_name: "Dorian").id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date: DateTime.parse("09/01/2019 19:00"))
+  end_date: DateTime.parse("09/01/2021 19:00"), start_time: Time.now, end_time: (Time.now)+ 2, status: "Accepted")
 puts "Created one booking"
-UserBooking.create!(user_id: User.last.id, booking_id: Booking.last.id)
+UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 puts "Created one Userbooking"
 
 user = User.new(
@@ -670,9 +670,10 @@ Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
 
 Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
+
 Booking.create!(category: category.sample, price: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now) )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
