@@ -6,6 +6,17 @@
                 <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
             </div>
         </div>
+      </div>
+    <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%B %d")%> | <%= booking.start_time.hour %>-<%= booking.end_time.hour %>h</p>
+    <p>
+    <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
+    </p>
+    <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
+    <div class="language-and-price">
+      <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
+      <div class="price-dashboard">
+         <%= booking.amount %>€
+      </div>
         <div class="available-spots">
             <h3> Done ✓</h3>
         </div>

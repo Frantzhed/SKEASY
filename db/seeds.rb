@@ -51,7 +51,8 @@ user = User.new(
   I would be thrilled to become your new teacher for your holidays",
   languages: ["French", User::LANGUAGES.sample].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/jess.jpg")), filename: 'photo.jpg')
 user.save!
@@ -72,7 +73,8 @@ user = User.new(
   I would be thrilled to become your new teacher for your holidays",
   languages: ["French", User::LANGUAGES.sample].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/léa.jpg")), filename: 'photo.jpg')
 user.save!
@@ -84,7 +86,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now )
 puts "Created one booking"
 
 
@@ -100,7 +102,8 @@ user = User.new(
   if you choose me as your teacher, we're going intense and you won't regret it i promise.",
   languages: ["French", User::LANGUAGES.sample].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Sebastian-Keiler.jpg")), filename: 'photo.jpg')
 user.save!
@@ -112,7 +115,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now) )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -134,20 +137,21 @@ user = User.new(
   description: "I'm nicolas i want to save money by sharing group lessons",
   languages: ["French", User::LANGUAGES.sample].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/nicolas.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: category.sample, amount: 45, group_session: false,
+Booking.create!(category: category.sample, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
-Booking.create!(category: "Snowboard", amount: 45, group_session: true,
+Booking.create!(category: "Snowboard", group_session: true,
   user_id: User.find_by(first_name: "Dorian").id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date: DateTime.parse("09/01/2021 19:00"), start_time: Time.now, end_time: (Time.now)+ 2, status: "Accepted")
+  end_date: DateTime.parse("09/01/2021 19:00"), start_time: Time.now, end_time: (Time.now)+ 2, status: "Accepted", user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3])
 puts "Created one booking"
 UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 puts "Created one Userbooking"
@@ -166,7 +170,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English","Russian"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Pauline.jpg")), filename: 'photo.jpg')
 user.save!
@@ -176,7 +181,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: "Ski", amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:DateTime.parse("09/04/2019 19:00")  )
+  end_date:DateTime.parse("09/04/2019 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -204,7 +209,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Marguerite.jpg")), filename: 'photo.jpg')
 user.save!
@@ -214,7 +220,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: "Ski", amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:DateTime.parse("09/04/2019 19:00")  )
+  end_date:DateTime.parse("09/04/2019 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -242,7 +248,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English","Spanish"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Flore.jpg")), filename: 'photo.jpg')
 user.save!
@@ -250,9 +257,9 @@ puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
-Booking.create!(category: "Ski", amount: 45, group_session: false,
+Booking.create!(category: "Ski", group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:DateTime.parse("09/04/2019 19:00")  )
+  end_date:DateTime.parse("09/04/2019 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 
@@ -283,7 +290,8 @@ user = User.new(
   If you're looking for the best ski teacher in Megeve i think you've just found him ! ;)",
   languages: ["French", "English", "German", "Russian"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user3.jpg")), filename: 'photo.jpg')
 user.save!
@@ -293,10 +301,10 @@ Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 
 
-Booking.create!(category: category.sample, amount: 45, group_session: false,
+Booking.create!(category: category.sample, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 
@@ -326,7 +334,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English", "Italian", "Spanish"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/melanie.jpg")), filename: 'photo.jpg')
 user.save!
@@ -338,7 +347,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -366,7 +375,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Rose.jpg")), filename: 'photo.jpg')
 user.save!
@@ -376,7 +386,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -404,7 +414,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "English", "Spanish"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/John.jpg")), filename: 'photo.jpg')
 user.save!
@@ -414,7 +425,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -442,7 +453,8 @@ user = User.new(
   experience new adventures with you !",
   languages: ["French", "Spanish"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Kameron.jpg")), filename: 'photo.jpg')
 user.save!
@@ -452,7 +464,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -479,7 +491,8 @@ user = User.new(
   everything. If you want to have an incredible experience in Megeve, i'm your man.",
   languages: ["French"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Lee.jpg")), filename: 'photo.jpg')
 user.save!
@@ -490,7 +503,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -516,7 +529,8 @@ user = User.new(
   book a course in the resort",
   languages: ["French"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/camille.jpg")), filename: 'photo.jpg')
 user.save!
@@ -528,7 +542,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -555,7 +569,8 @@ user = User.new(
   you that there won't be a slice of regret !",
   languages: ["French", "English", "Russian"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/paul.jpg")), filename: 'photo.jpg')
 user.save!
@@ -567,7 +582,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -595,7 +610,8 @@ user = User.new(
   to spend great times and especially great adventures with you !",
   languages: ["French", "English", "Italian"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/preise.jpg")), filename: 'photo.jpg')
 user.save!
@@ -608,7 +624,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -638,7 +654,8 @@ user = User.new(
   I would be thrilled to become your new teacher for your holidays",
   languages: ["French", "English", "Spanish"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/raphael.jpg")), filename: 'photo.jpg')
 user.save!
@@ -651,7 +668,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now) )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -679,7 +696,8 @@ user = User.new(
   If you have any questions let me know i answer fast trying to be the more avaible for you. See you soon ! :)",
   languages: ["French", "English", "German", "Spanish"].uniq,
   ski_resort: "Val d'isère",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/elodie.jpg")), filename: 'photo.jpg')
 user.save!
@@ -693,7 +711,7 @@ puts "Created one category"
 
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now) )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -723,7 +741,8 @@ user = User.new(
   I would be thrilled to become your new teacher for your holidays",
   languages: ["French", "English"].uniq,
   ski_resort: "Tignes",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Nathan.jpg")), filename: 'photo.jpg')
 user.save!
@@ -734,7 +753,7 @@ Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -763,7 +782,8 @@ user = User.new(
   off pistes and backcountry if you're ready to do experience a more adventurous journey.",
   languages: ["French", "English"].uniq,
   ski_resort: "Les Arcs",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Valentin.jpg")), filename: 'photo.jpg')
 user.save!
@@ -774,7 +794,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -804,7 +824,9 @@ user = User.new(
   know if you have any questions i can answer really fast",
   languages: ["French", "Arabic"].uniq,
   ski_resort: "Tignes",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
+
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Joacquim.jpg")), filename: 'photo.jpg')
 user.save!
@@ -815,7 +837,7 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 reviewer = User.where.not(id: user.id).sample
@@ -845,7 +867,8 @@ user = User.new(
   I would be thrilled to become your new teacher for your holidays",
   languages: ["French", User::LANGUAGES.sample].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/emanuel_bellwald_530.jpg")), filename: 'photo.jpg')
 user.save!
@@ -859,7 +882,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 
@@ -882,7 +905,8 @@ user = User.new(
   I'm the best football player today.",
   languages: ["French", "English", "Spanish", "Italian"].uniq,
   ski_resort: "Megeve",
-  technical_skill: technical_skill.sample
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
 )
 user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user4.jpg")), filename: 'photo.jpg')
 user.save!
@@ -894,7 +918,7 @@ puts "Created one category"
 Booking.create!(category: category.sample, amount: 45, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now)  )
+  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
 
 Review.create!(content: "True", rate: 5, user_id: User.last.id, booking_id: Booking.last.id)

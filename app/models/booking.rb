@@ -33,6 +33,10 @@ class Booking < ApplicationRecord
     (amount / (user_bookings.flat_map(&:participants_number).sum ))#.truncate(2)
   end
 
+  def totalprice
+    (amount) * ((end_time.hour)-(start_time.hour))      
+  end
+
   # Ruby implementation that results in way too many SQL queries. Replaced by a participant_counter updated through ActiveRecord callbacks.
   # Details in PR
   # def self.available
