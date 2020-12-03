@@ -30,10 +30,10 @@
         </div>
       </div>
 
-    <p> 🗓 <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p> <i class="fas fa-calendar-check"></i> <%= booking.end_date.strftime("%A %B %d") %> <%= booking.start_time.hour %>h // <%= booking.end_time.hour %>h </p>
 
     <p>
-      <%= image_tag(booking.category + ".png", class:"category-image")%><%= booking.category %>
+      <%= image_tag(booking.category + ".png", class:"category-image")%> <%= booking.category %>
     </p>
 
     <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
@@ -70,8 +70,8 @@
       </div>
           <% if booking.status == "Accepted" %>
 
-          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
-          <% end %> 
+          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %>
+          <% end %>
           <% if booking.status == "Accepted" %>
             <div class="status-btn-accepted" style="text-align: center;">
               <%= booking.status %>

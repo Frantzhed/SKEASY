@@ -1,5 +1,5 @@
 <div class="form-wrapper show-modal">
-  <h2>Finalize your booking for the <%= booking.end_date %> </h2>
+  <h2> Finalize your booking </h2>
   <%# <h3> Little recap of your search </h3> %>
 
   <%= simple_form_for [ user, booking ] do |f| %>
@@ -17,7 +17,7 @@
       required: false, input_html: {class: "datepickr"} %>
 
     <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
-        selected: params.dig(:user, :category), value: session[:category] %>
+        selected: session[:category] %>
 
     <%= f.input :group_session, label: "Would you like to share your lesson and pay less ? ",id: "groupsession"%>
 
