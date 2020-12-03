@@ -115,9 +115,11 @@ form.user .form-group:not(.hidden) {
 }
 
 .category-image {
-    height: 20px;
-    width: 20px;
-    margin-right: 10px;
+  height: 36px;
+  font-size: 35px;
+  width: 35px;
+  margin-bottom: 10px;
+  margin-right: 21px;
 }
 
 .booking-cards {
@@ -134,6 +136,7 @@ form.user .form-group:not(.hidden) {
       p {
         margin-top: 0px;
         margin-bottom: 0px;
+        padding-left: 28px;
       }
   }
 }
