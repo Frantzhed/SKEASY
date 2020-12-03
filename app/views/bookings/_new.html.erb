@@ -1,27 +1,23 @@
 <div class="form-wrapper show-modal">
-  <h2>Finalize your booking</h2>
+  <h2>Finalize your booking for the <%= booking.end_date %> </h2>
   <%# <h3> Little recap of your search </h3> %>
 
-    <%#= @technical_skill unless @technical_skill == ""%>
-    <%#= @ski_resort unless @ski_resort == ""%>
-    <%#= @languages unless @languages == ""%>
-    <%#= @category unless @category == ""%>
   <%= simple_form_for [ user, booking ] do |f| %>
 
-    <%= f.input :start_date, as: :string,
+    <%= f.input :end_date, as: :string, placeholder: "Do you want to confirm your booking date ?", label: false,
+      required: false, input_html: { class: "datepickr", value: session[:end_date] } %>
+
+    <%= f.input :start_time, as: :string, placeholder: "Debut hour", label: false,
+                  required: false, input_html: {class: "timepickr"} %>
+
+    <%= f.input :end_time, as: :string, placeholder: "End hour", label: false,
+                  required: false, input_html: {class: "timepickr"} %>
+
+    <%#= f.input :start_date, as: :string,
       required: false, input_html: {class: "datepickr"} %>
-
-    <%= f.input :end_date, as: :string,
-      required: false, input_html: {class: "datepickr"} %>
-
-    <%#= f.input :start_date, as: :string, placeholder: "Starting Hour", label: false,
-      required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
-
-    <%#= f.input :start_date, as: :string, placeholder: "Ending Hour", label: false,
-      required: false, input_html: {class: "timepickr", value: params[:user][:end_date]} %>
 
     <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
-      selected: params.dig(:user, :category)%>
+        selected: params.dig(:user, :category), value: session[:category] %>
 
     <%= f.input :group_session, label: "Would you like to share your lesson and pay less ? ",id: "groupsession"%>
 
