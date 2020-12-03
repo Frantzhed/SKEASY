@@ -1,76 +1,133 @@
+body#pages-home {
+  background-image: linear-gradient(180deg, #d7e0f0 0%, #f5f7ff 27%);
+  h2 {
+    // color: $sk-darker-blue;
+  }
+}
+
 .banner {
-  background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(215,224,240,1) 100%), image-url('homepage_skeasy2.png');
-  background-size: cover;
-  background-position: top;
+  // background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(215,224,240,1) 100%), image-url('homepage_skeasy2.png');
+  // background-image: image-url("mountains.svg");
+  // background-size: cover;
+  // background-position: 100% -35%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
-  padding-bottom: 75px;
-
+  justify-content: center;
+  // justify-content: flex-end;
+  // padding-bottom: 75px;
+  svg {
+    height: 115vh;
+    width: 100vw;
+    position: absolute;
+    z-index: -1;
+    top: 85px;
+  }
 }
 
 .banner h1 {
   margin: -10px;
-  color: $blue;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  // color: $blue;
+  color: $sk-dark-blue;
+  // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-size: 80px;
   font-weight: bold;
   font-family: Josefin Sans;
+  margin-top: 70px;
 }
 
 .banner p {
   font-size: 30px;
-  color: $third-blue;
-  opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-family: 'Inter';
-  letter-spacing: 2px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  color: $sk-darker-blue;
+  // opacity: 0.7;
+  // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  font-family: "Open Sans";
+  // letter-spacing: 2px;
+  // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+// #pages-home form {
+//   width: 70%;
+//   display: flex;
+// }
+
 #pages-home form {
-    width: 70%;
-    display: flex;
+  width: 35%;
+  display: flex;
+  border: 1px solid $sk-medium-blue-purple;
+  border-radius: 50px;
+  position: relative;
+  height: 60px;
+
+  .btn-home {
+    border-radius: 50px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
   }
+}
 
 .search-bar {
   width: 100%;
   padding: 6px;
   padding-left: 31px;
-  border-radius: 9px;
-  border-style: none;
+  border-radius: 50px;
+  border: 1px solid $sk-light-blue-purple;
+  // border-style: none;
+  &:focus {
+    outline: none;
+    box-shadow: 0px 0px 6px 1px #627cbc;
+  }
 }
 
 .btn-home {
-  margin-left: 7px;
-  border-radius: 11px;
+  // margin-left: 7px;
+  border-radius: 50px;
 }
-
 
 .banner-down {
-  background-image: linear-gradient(rgba(0,0,0,0.0),rgba(0,0,0,0.0)), image-url('homepage_bas.png');
+  // background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
+  // image-url("homepage_bas.png");
+  // background-color: $sk-blue-purple;
+  background-image: image-url("homepage-bottom.svg");
   background-size: cover;
-  background-position: center;
-  height: 745px;
+  background-position: top;
+  // height: 745px;
+  padding: 250px 0 150px;
+  .teachers-month {
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    a {
+      width: 23%;
+
+      .card-teacher {
+        .card-img > img {
+          border-color: $sk-blue-purple;
+        }
+      }
+    }
+  }
 }
 
-.banner-down h1 {
-  color: $dark-blue;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  font-size: 50px;
-  font-family: Josefin Sans;
-  }
+.banner-down .container > h2 {
+  color: white;
+  font-size: 2.5rem;
+  // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  // font-size: 50px;
+  // font-family: Josefin Sans;
+}
 
 .container-down {
   width: 100%;
   padding-right: 19px;
   padding-left: 19px;
   text-align: center;
-  margin-right: auto;
-  margin-left: auto;
-  padding-top: 111px;
+  // margin-right: auto;
+  // margin-left: auto;
+  padding: 100px 0;
 }
 
 // commentaire
@@ -78,30 +135,53 @@
 .product-demo {
   display: flex;
   width: 60%;
-  height: 200px;
-  justify-content: center;
+  // height: 200px;
+  justify-content: space-between;
   align-items: end;
   margin: 0 auto;
   padding-top: 65px;
-    h1 {
-      color: $blue;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      font-size: 80px;
-      font-family: Josefin Sans;
-      }
-    p {
-      color: $blue;
-      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-      font-size: 20px;
-      font-family: Inter;
-      }
+  h1,
+  p {
+    color: white;
+  }
+  h1 {
+    // color: $blue;
+    // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 80px;
+    font-family: Josefin Sans;
+  }
+  p {
+    // color: $blue;
+    // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    font-family: "Open Sans";
+  }
 }
 
 .flex-item {
-    padding: 11px;
-    width: 100%;
+  padding: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  &#demo-1 {
+    background-color: $sk-light-blue-purple;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+  }
+  &#demo-2 {
+    background-color: $sk-medium-blue-purple;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+  }
+  &#demo-3 {
+    background-color: $sk-blue-purple;
+    border-radius: 50%;
+    height: 300px;
+    width: 300px;
+  }
 }
 
 // Specific CSS for your home-page
-
-

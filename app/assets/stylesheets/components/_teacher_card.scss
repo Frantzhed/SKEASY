@@ -1,6 +1,5 @@
-
 .card-teacher {
-  box-shadow: 0 4px 8px 0 rgba(0, 30, 84, 0.2) ;
+  box-shadow: 0 4px 8px 0 rgba(0, 30, 84, 0.2);
   transition: 0.3s;
   text-align: center;
   height: 380px;
@@ -11,7 +10,7 @@
     box-shadow: 0 4px 12px 0 rgba(0, 30, 84, 0.5);
   }
   .fa-star {
-    color: #ffbe00;
+    color: $sk-yellow;
   }
 }
 .card-img {
@@ -27,7 +26,7 @@
   }
 }
 .card-teachershow {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   transition: 0.3s;
   text-align: center;
   width: 180px;
@@ -39,10 +38,9 @@
   margin-bottom: 80px;
   &:hover {
     background-color: #dbdde0;
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
   }
 }
-
 
 .card-imgshow {
   display: flex;
@@ -57,7 +55,6 @@
   }
 }
 
-
 .card-info {
   padding: 10px;
   > h2 {
@@ -70,7 +67,7 @@
   font-weight: bold;
   font-size: 28px;
   margin-top: 0px;
-  color: #001E54;
+  color: #001e54;
 }
 
 #last-name {
@@ -78,7 +75,7 @@
   font-size: 17px;
   margin-top: -7px;
   font-weight: lighter;
-  color: #001E54;
+  color: #001e54;
 }
 
 #stars {
@@ -104,7 +101,7 @@
 }
 
 #resort {
-padding: 30px;
+  padding: 30px;
 }
 
 #languages {
@@ -112,7 +109,6 @@ padding: 30px;
   font-size: 13px;
   margin-bottom: 0px;
 }
-
 
 // .p {
 //   font-family: inter;
