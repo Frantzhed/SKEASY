@@ -4,7 +4,7 @@ class UsersController < ApplicationController
     @users = User.instructor
     if query.present? && params.dig(:user)
       @users = @users.where("ski_resort ILIKE ?", "%#{params[:user][:ski_resort]}%")
-      session[:ski_resort] = params[:user][:ski_resort]
+      session[:ski_resort] = params[:user][:ski_resort] 
     end
     if params.dig(:user, :category).present?
       @users = @users.joins(:categories).where(categories: {name: params[:user][:category]})
@@ -18,7 +18,7 @@ class UsersController < ApplicationController
       @users = @users.where("? = ANY(languages)", "#{params[:user][:languages]}")
       session[:languages] = params[:user][:languages]
     end
-    session[:end_date] = params[:user][:end_date]
+    session[:end_date] = params[:user][:end_date] if params[:user]
     @bookings = Booking.upcoming.available
   end
 
