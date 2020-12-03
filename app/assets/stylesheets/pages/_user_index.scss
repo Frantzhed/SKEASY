@@ -1,12 +1,21 @@
 #users-index .custom-container {
-  padding: 56px 0 50px;
+  padding: 56px 0 0px;
 }
 
 .mountain-index {
-  background-image: image-url("mountain-index.svg");
+  background-image: image-url("share-bg.svg");
   background-repeat: no-repeat;
   background-position: top;
   background-size: cover;
+  // padding-bottom: 100px;
+  padding: 190px 0 56px;
+  margin-top: -40px;
+  .mountain-intro {
+    h2 {
+      color: white;
+      margin-top: 30px;
+    }
+  }
 }
 .resort-title {
   position: relative;
@@ -199,23 +208,25 @@ a {
     transform: translateX(-50%);
   }
   &.nuage3 {
-    top: 41%;
+    top: 58%;
     left: 33%;
   }
 }
 
 .price-individual {
-  background: image-url("nuage2.svg");
-  background-repeat: no-repeat;
-  background-size: contain;
+  margin: auto;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  color: white;
   text-align: center;
-  background-position: center;
   padding: 15px;
+  background: $sk-yellow;
   p {
     margin: 9px 0 0;
   }
   span {
-    color: $sk-yellow;
+    color: white;
     font-size: 40px;
     font-weight: bold;
     font-family: "Open Sans";

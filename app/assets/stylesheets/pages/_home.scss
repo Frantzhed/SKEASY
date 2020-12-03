@@ -6,23 +6,29 @@ body#pages-home {
 }
 
 .banner {
-  // background-image: linear-gradient(180deg, rgba(0,0,0,0) 50%, rgba(215,224,240,1) 100%), image-url('homepage_skeasy2.png');
+  background-image: linear-gradient(
+      180deg,
+      rgba(185, 197, 237, 0.11) 61.71%,
+      #f5f7ff 75.06%
+    ),
+    image-url("homepage_skeasy2.png");
   // background-image: image-url("mountains.svg");
-  // background-size: cover;
-  // background-position: 100% -35%;
+  background-size: cover;
+  background-position: top;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+  padding-bottom: 75px;
   // justify-content: flex-end;
   // padding-bottom: 75px;
   svg {
-    height: 115vh;
+    height: 112vh;
     width: 100vw;
     position: absolute;
-    z-index: -1;
-    top: 85px;
+    z-index: 1;
+    top: 20px;
   }
 }
 
@@ -34,7 +40,7 @@ body#pages-home {
   font-size: 80px;
   font-weight: bold;
   font-family: Josefin Sans;
-  margin-top: 70px;
+  z-index: 1;
 }
 
 .banner p {
@@ -43,6 +49,7 @@ body#pages-home {
   // opacity: 0.7;
   // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   font-family: "Open Sans";
+  z-index: 1;
   // letter-spacing: 2px;
   // text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
@@ -59,6 +66,7 @@ body#pages-home {
   border-radius: 50px;
   position: relative;
   height: 60px;
+  z-index: 1;
 
   .btn-home {
     border-radius: 50px;
@@ -91,11 +99,11 @@ body#pages-home {
   // background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)),
   // image-url("homepage_bas.png");
   // background-color: $sk-blue-purple;
-  background-image: image-url("homepage-bottom.svg");
+  background-image: image-url("share-bg.svg");
   background-size: cover;
   background-position: top;
   // height: 745px;
-  padding: 250px 0 150px;
+  padding: 228px 0 110px;
   .teachers-month {
     margin-top: 50px;
     display: flex;
