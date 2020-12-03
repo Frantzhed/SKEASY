@@ -83,18 +83,19 @@ form.user .form-group:not(.hidden) {
     color: #001E54;
     }
   }
-  .available-spots {
-    background-color: $light-blue;
-    padding: 4px;
-    color: $dark-blue;
-    border-radius: 18px;
-    height: 30px;
-      h3 {
-        padding: 4px;
-        font-family: inter;
-        font-size: 13px;
-      }
-  }
+}
+
+.available-spots {
+  background-color: $light-blue;
+  padding: 4px;
+  color: $dark-blue;
+  border-radius: 18px;
+  height: 30px;
+    h3 {
+      padding: 4px;
+      font-family: inter;
+      font-size: 13px;
+    }
 }
 
 
@@ -131,9 +132,9 @@ form.user .form-group:not(.hidden) {
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 8px;
-    flex-grow: 1;
-    display: flex;
-    height: 50%;
+    // flex-grow: 1;
+    // display: flex;
+    // height: 50%;
     .infos {
       text-align: left;
       p {

@@ -1,23 +1,32 @@
 <div class="rectangle rectangle-cards">
-  <div class="teacher-and-availabilities">
+  <div class="teacher-and-availabilities-dashboard">
+      <div class="card-img-booking-dashboard">
+        <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
+      </div>
       <div class="teacher-info">
         <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
-          <div class="card-img-booking">
-            <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
-          </div>
+            <% if booking.status == "Accepted" %>
+              <p class="phone-number"><%= booking.user.phone_number  %></p>
+            <% end %>
       </div>
-      <div class="available-spots">
-        <% if booking.group_session %>
-          <% if booking.available_spots == 0 %>
-            <h3> Group completed </h3>
+      <div class="spots-and-status">
+        <div class="available-spots">
+          <% if booking.group_session %>
+            <% if booking.available_spots == 0 %>
+              <h3> Group completed </h3>
+            <% else %>
+              <h3><%= booking.available_spots %> available spot(s) </h3>
+            <% end %>
           <% else %>
-            <h3><%= booking.available_spots %> available spot(s) </h3>
+            <h3> Private Lesson </h3>
           <% end %>
-        <% else %>
-          <h3> Private Lesson </h3>
-        <% end %>
+        </div>
+        <div class="status-btn-<%= booking.status.downcase %> status-tag" style="text-align: center;">
+          <%= booking.status %>
+        </div>
       </div>
   </div>
+
 <div class="booking-info">
   <div class="infos">
       <div class="modal fade" id="indexModal-<%= booking.id %>" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -29,59 +38,31 @@
           </div>
         </div>
       </div>
-    <p>🗓   <%= booking.end_date.strftime("%A %B %d") %></p>
+    <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %></p>
     <p>
       <%= image_tag(booking.category + ".png", class:"category-image")%><%= booking.category %>
     </p>
     <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
-    <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
-    <% if booking.status == "Accepted" %>
-      <i class="fas fa-phone-volume category-image"></i><%= booking.user.phone_number  %>
-    <% end %>
-  </div>
-    <div class="price">
-      <% if booking.group_session == true %>
-        <div class="cardprice">
-        💸<%= booking.individual_price %>€/person
-        </div>
-          <% if booking.status == "Accepted" %>
-          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
-          <% end %>
-          <% if booking.status == "Accepted" %>
-            <div class="status-btn-accepted" style="text-align: center;">
-              <%= booking.status %>
+    <div class="language-and-price">
+      <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
+      <div class="price">
+        <% if booking.group_session == true %>
+            <div class="price-dashboard">
+            <%= booking.individual_price %>€/person
             </div>
-          <% elsif booking.status == "Pending" %>
-            <div class="status-btn-pending" style="text-align: center;">
-            <%= booking.status %>
-            </div>
-          <% elsif  booking.status == "Declined"%>
-            <div class="status-btn-declined" style="text-align: center;">
-              <%= booking.status %>
+          <% else %>
+            <div class="price-dashboard">
+              <%= booking.price %>€
             </div>
           <% end %>
-      <% else %>
-      <div class="cardprice">
-        💸<%= booking.price %>€
       </div>
-          <% if booking.status == "Accepted" %>
-          <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success btn-payment" %> 
-          <% end %> 
-          <% if booking.status == "Accepted" %>
-            <div class="status-btn-accepted" style="text-align: center;">
-              <%= booking.status %>
-            </div>
-          <% elsif booking.status == "Pending" %>
-            <div class="status-btn-pending" style="text-align: center;">
-              <%= booking.status %>
-            </div>
-          <% elsif  booking.status == "Declined"%>
-            <div class="status-btn-declined" style="text-align: center;">
-              <%= booking.status %>
-            </div>
-          <% end %>
-      <% end %>
     </div>
+        <% if booking.status == "Accepted" %>
+        <%= link_to "Go to payment", booking_path(booking), class: "btn btn-success join book-button w-100" %>
+        <% end %>
+
+  </div>
+
   </div>
 </div>
 
