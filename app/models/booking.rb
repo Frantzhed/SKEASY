@@ -7,11 +7,12 @@ class Booking < ApplicationRecord
   has_many :reviews
   has_many :reviews, dependent: :destroy
   has_many :user_bookings, dependent: :destroy
+  monetize :amount_cents
 
   validates :start_date, presence: true
   validates :end_date, presence: true
   validates :category, presence: true, inclusion: { in: Category::CATEGORIES }
-  validates :status, inclusion: { in: ["Pending", "Accepted", "Rejected"] }
+  validates :status, inclusion: { in: ["Pending", "Accepted", "Rejected","Paid"] }
 
   scope :past, -> { where("end_date < ?", Date.today) }
   scope :upcoming, -> { where("end_date > ?", Date.today) }
@@ -29,7 +30,7 @@ class Booking < ApplicationRecord
   end
 
   def individual_price
-    (price / (user_bookings.flat_map(&:participants_number).sum )).truncate(2)
+    (amount / (user_bookings.flat_map(&:participants_number).sum )).truncate(2)
   end
 
   # Ruby implementation that results in way too many SQL queries. Replaced by a participant_counter updated through ActiveRecord callbacks.

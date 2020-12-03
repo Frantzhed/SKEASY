@@ -5,6 +5,10 @@ class BookingsController < ApplicationController
 
   end
 
+def show
+  @booking = Booking.find(params[:id])
+
+end
 
   def new
     @user = User.find(params[:user_id])
@@ -14,18 +18,41 @@ class BookingsController < ApplicationController
   def create
     @instructor = User.find(params[:user_id])
     @booking = Booking.new(booking_params)
-    @booking.price = 90
+    @booking.amount = 90
     @booking.instructor = @instructor
+    @booking.user_sku = @instructor.first_name[0..3] + "-"+ @instructor.last_name[0..3]
     if @booking.save
-     @user_booking = UserBooking.create(
-      user: current_user,
+      @user_booking = UserBooking.create(
+        user: current_user,
         booking: @booking,
         participants_number: booking_params[:participants_number]
       )
+
       redirect_to dashboard_path
     else
-      render "users/", locals: {id: @booking.instructor}
+      render "users/show", locals: {id: @booking.instructor}
     end
+  end
+
+  def booking_accepted
+
+    booking = Booking.find(params[:booking_id])
+    session = Stripe::Checkout::Session.create(
+                 payment_method_types: ['card'],
+                 line_items: [{
+                   name: booking.user_sku,
+                   images: [booking.instructor.photo],
+                   amount: booking.amount_cents,
+                   currency: 'eur',
+                   quantity: 1
+                 }],
+                 success_url: dashboard_url,
+                 cancel_url: dashboard_url
+               )
+
+             booking.update(checkout_session_id: session.id,status: "Paid")
+            redirect_to dashboard_path
+
   end
 
   def edit
