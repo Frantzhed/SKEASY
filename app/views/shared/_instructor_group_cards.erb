@@ -6,7 +6,7 @@
           <%= cl_image_tag user_booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
         </div>     
         <div class="teacher-info">
-          <h5> <%= user_booking.user.first_name%> <%= user_booking.user.last_name%>. </h5>
+          <h5> <%= user_booking.user.first_name%> <%= user_booking.user.last_name.first(1)%>. </h5>
           <% if booking.status == "Accepted" %>
             <p class="phone-number"><%= user_booking.user.phone_number%></p>
           <% end %>
@@ -49,8 +49,11 @@
           </div>
             <% if  user_booking.booking.status == "Paid"%>
             <% else %>
-            <%= link_to "Accept", update_status_booking_path(user_booking.booking,params:{status: "Accepted"}), method: :patch, class: 'btn btn-success btn-block my-3'%>
-            <%= link_to "Decline", update_status_booking_path(user_booking.booking,params:{status: "Rejected"}), method: :patch, class: 'btn btn-success btn-block my-3'%>
+              <% if user_booking.booking.end_date > Time.now %>
+                <%= link_to "Accept", update_status_booking_path(user_booking.booking,params:{status: "Accepted"}), method: :patch, class: 'btn btn-success btn-block my-3'%>
+                <%= link_to "Decline", update_status_booking_path(user_booking.booking,params:{status: "Rejected"}), method: :patch, class: 'btn btn-success btn-block my-3'%>
+              <% else %>
+              <% end %>
             <% end %>
         </div>
           <%= link_to users_path , id:"backtolist" do %>
