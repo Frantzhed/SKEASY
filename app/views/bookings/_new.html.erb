@@ -18,7 +18,7 @@
     <%#= f.input :start_date, as: :string,
       required: false, input_html: {class: "datepickr"} %>
 
-    <%= f.input :category, as: :select, collection: user.categories, prompt: "Discipline",
+    <%= f.input :category, as: :select, collection: Category::CATEGORIES, prompt: "Discipline",
         selected: session[:category] %>
 
     <%= f.input :group_session, label: "Would you like to share your lesson and pay less ? ",id: "groupsession"%>
