@@ -114,12 +114,12 @@ btn-review {
   }
 }
 
-span#amount {
-  font-size: 31px;
-  font-family: "Inter";
-  color: $dark-blue;
-  font-weight: bold;
-}
+// span#amount {
+//   font-size: 31px;
+//   font-family: "Inter";
+//   color: $dark-blue;
+//   font-weight: bold;
+// }
 
 .status-tag {
   border-radius: 2px;
@@ -137,17 +137,35 @@ span#amount {
 .status-btn-pending {
   border: 2px solid orange;
   color: orange;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .status-btn-accepted {
-  border: 2px solid rgb(22, 201, 37);
-  color: rgb(47, 223, 23);
+  border: 2px solid #19B994;
+  color:#19B994;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .status-btn-rejected {
   color: #f80c0c9e;
   border: 2px solid #f80c0c9e;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-
+.status-btn-paid{
+  background: #19B994;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .status {
   font-style: italic;
 }

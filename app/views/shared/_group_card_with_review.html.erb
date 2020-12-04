@@ -21,17 +21,17 @@
                     </div>
                 </div>
             </div>
-            <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%B %d")%> | <%= booking.start_time.hour %>-<%= booking.end_time.hour %>h</p>
-            <p>
-                <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
-            </p>
-            <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
-            <div class="language-and-price">
-                <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
-                <div class="price-dashboard">
-                    <%= booking.amount * ((booking.end_time.hour)-(booking.start_time.hour))%>€
-                </div>
+            <div class="details">
+                <p><i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%B %d")%> | <%= booking.start_time.hour %>-<%= booking.end_time.hour %>h</p>
+                <p>
+                    <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
+                </p>
+                <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
+                    <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
             </div>
+                <div class="price text-right">
+                    <span class="amount"><%=  booking.amount %></span>€
+                </div>
             <!--                   <p> <%= booking.user.description %> </p> -->
         </div>
 

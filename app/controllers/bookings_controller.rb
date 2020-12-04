@@ -67,11 +67,11 @@ class BookingsController < ApplicationController
                  currency: "eur",
                  quantity: 1
                }],
-               success_url: dashboard_url,
-               cancel_url: dashboard_url
+               success_url: dashboard_url(host: ENV["APP_DOMAIN"]),
+               cancel_url: dashboard_url(host: ENV["APP_DOMAIN"])
                )
               
-               @booking.update(checkout_session_id: session.id)
+    @booking.update(checkout_session_id: session.id)
   end
 
   private
