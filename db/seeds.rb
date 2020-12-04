@@ -149,12 +149,49 @@ Booking.create!(category: category.sample, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
 puts "Created one booking"
-Booking.create!(category: "Snowboard", group_session: true,
-  user_id: User.find_by(first_name: "Dorian").id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date: DateTime.parse("09/01/2021 19:00"), start_time: Time.now, end_time: (Time.now)+ 2, status: "Accepted", user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3])
+
+
 puts "Created one booking"
-UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 puts "Created one Userbooking"
+
+user_frantz = User.new(
+  instructor: true,
+  email: "frantz@gmail.com",
+  password: "123456",
+  first_name: "Frantz",
+  last_name: "Hedrich",
+  phone_number: "+33 7 24 92 78 19",
+  description: "My name is Frantz. I grew up in Saint Nicolas de Veroce!
+  I've been sking since I was 2 years old. I speak
+  multiples languages, and if you have questions I can answer quickly. Let me know
+  your level, your mindset and your need I will adapt. I'm enthousiastic to
+  experience new adventures with you !",
+  languages: ["French", "English","Spanish"].uniq,
+  ski_resort: "Megeve",
+  technical_skill: technical_skill.sample,
+  price_cents: 5000
+)
+user_frantz.photo.attach(io: File.open(Rails.root.join("db/fixtures/Frantz.JPG")), filename: 'photo.jpg')
+user_frantz.save!
+puts "Created one user"
+Category.create!(name: "Snowboard", note: 5, user_id: User.last.id )
+Category.create!(name: "Ski", note: 4, user_id: User.last.id )
+puts "Created one category"
+booking = Booking.create!(category: "Snowboard", group_session: false,
+user_id: user_frantz.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+end_date:DateTime.parse("27/12/2020 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.new(2020, 12, 27, 12, 2, 2, "+02:00"), end_time: Time.new(2020, 12, 27, 14, 2, 2, "+02:00"),  participant_counter: 2)
+puts "Created one booking"
+
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Excellent teacher, wonderful time, he's the best", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Great times in a beautiful place with nice people", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "He's the best !", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "It's been a while since i've enjoyed a course that much", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
+reviewer = User.where.not(id: user.id).sample
+Review.create!(content: "Wonderful !", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
 
 user = User.new(
   instructor: true,
@@ -183,6 +220,7 @@ Booking.create!(category: "Ski", amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:DateTime.parse("09/04/2019 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
+
 
 reviewer = User.where.not(id: user.id).sample
 Review.create!(content: "Excellent teacher, wonderful time, she's the best", rate: 5, user_id: reviewer.id, booking_id: Booking.last.id)
@@ -259,9 +297,8 @@ Category.create!(name: "Handiski", note: rand(1..5), user_id: User.last.id )
 puts "Created one category"
 Booking.create!(category: "Ski", group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:DateTime.parse("09/04/2019 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
+  end_date:DateTime.parse("27/11/2020 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.new(2020, 11, 27, 12, 2, 2, "+02:00"), end_time: Time.new(2020, 11, 27, 14, 2, 2, "+02:00")   )
 puts "Created one booking"
-UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 
 
 reviewer = User.where.not(id: user.id).sample
@@ -304,9 +341,8 @@ puts "Created one category"
 Booking.create!(category: category.sample, group_session: false,
 
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
-  end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now   )
+  end_date:DateTime.parse("10/11/2020 19:00"), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.new(2020, 11, 10, 12, 2, 2, "+02:00"), end_time: Time.new(2020, 11, 10, 14, 2, 2, "+02:00")  )
 puts "Created one booking"
-UserBooking.create!(user_id: User.find_by(first_name: "Nicolas").id, booking_id: Booking.last.id)
 
 
 reviewer = User.where.not(id: user.id).sample
@@ -670,6 +706,9 @@ Booking.create!(category: category.sample, amount: 45, group_session: false,
   user_id: User.last.id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
   end_date:Faker::Date.between(from:Date.today, to: 30.days.from_now), user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3], start_time: Time.now, end_time: Time.now  )
 puts "Created one booking"
+Booking.create!(category: "Snowboard", group_session: false,
+  user_id: User.find_by(first_name: "Raphael").id, start_date: Faker::Date.between(from:30.days.ago, to: Date.today),
+  end_date: DateTime.parse("27/12/2020 19:00"), start_time: Time.new(2020, 12, 27, 12, 2, 2, "+02:00"),end_time: Time.new(2020, 12, 27, 14, 2, 2, "+02:00"), participant_counter: 3, user_sku: User.last.first_name[0..3] + "-" + User.last.last_name[0..3])
 
 reviewer = User.where.not(id: user.id).sample
 Review.create!(content: "Nice guy, very simple and a good instructor", rate: 4, user_id: reviewer.id, booking_id: Booking.last.id)
