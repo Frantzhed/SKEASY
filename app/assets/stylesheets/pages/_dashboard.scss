@@ -1,21 +1,38 @@
-.nav-tabs .nav-link:hover, .nav-tabs .nav-link:focus {
-    border-color: transparent;
-    color: $dark-blue;
+.nav-tabs .nav-link:hover,
+.nav-tabs .nav-link:focus {
+  border-color: transparent;
+  color: $dark-blue;
 }
-.rectangle-cards{
-    padding-bottom: 7px;
+.rectangle-cards {
+  padding-bottom: 7px;
 }
 .booking-info {
-    .category-image{
-        height: 20px;
-        width: 20px;
-        font-size: 20px;
-        color: #3B3E41;
-    }
+  .category-image {
+    height: 20px;
+    width: 20px;
+    font-size: 20px;
+    color: #3b3e41;
+  }
 }
 
-#pages-dashboard{
-    .rectangle{
-        height: fit-content;
-    }
+#pages-dashboard {
+  .rectangle {
+    height: fit-content;
+  }
+}
+
+// #pages-dashboard {
+//   background-image: image-url("mountain-back.svg");
+//   background-repeat: no-repeat;
+//   background-position: 0 23vh;
+//   background-size: cover;
+// }
+
+#pages-dashboard .nav-tabs .nav-link.active,
+.nav-tabs .nav-item.show .nav-link {
+  color: $fourth-blue;
+}
+
+#pages-dashboard .nav-tabs .nav-link {
+  color: $sk-medium-blue-purple;
 }
