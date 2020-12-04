@@ -8,21 +8,20 @@
     </li>
   </ul>
 
-
   <div class="tab-content w-100" id="myTabContent">
-    <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
-      <% current_user.bookings.upcoming.each do |instructor_booking|%>
-          <% instructor_booking.user_bookings.each do |user_booking|%>
-            <%= user_booking.user.first_name%>
-            <%= user_booking.user.last_name%>
-            <%= user_booking.user.phone_number%>
-            <%= user_booking.user.category%>
-            <%= user_booking.user.technical_skill%>
-            <%= user_booking.participants_number%>
-            <%= link_to "Accept", update_status_booking_path(user_booking.booking,params:{status: "Accepted"}), method: :patch%>
-            <%= link_to "Decline", update_status_booking_path(user_booking.booking,params:{status: "Rejected"}), method: :patch%>
-          <% end %>
-      <% end %>
+  <div class="tab-pane fade show active w-100" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <% if current_user.bookings.upcoming.each == 0 %>
+        <p> No bookings </p>
+    <% else %>
+      <div class="d-flex flex-wrap justify-content-between mt-5 w-100">
+        <% current_user.bookings.upcoming.each do |booking| %>
+            <%= render "shared/instructor_group_cards", booking: booking %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+          
       <% if current_user.client_bookings.upcoming.each == 0 %>
           <p> No bookings </p>
       <% else %>
