@@ -39,6 +39,9 @@
               <p><i class="fas fa-mountain category-image"></i><%= booking.user.ski_resort %> </p>
                   <p><i class="far fa-comments category-image"></i><%= booking.user.languages.to_sentence %></p>
             </div>
+            <%= link_to users_path , id:"backtolist" do %>
+            <i class='far fa-hand-point-left '></i> Back to teachers
+            <% end %>
                 <div class="price text-right">
                     <% if booking.group_session == true %>
                       <div >

@@ -86,10 +86,10 @@
                             </div>
                         </div>
                         <div class="details">
-                            <p> <i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %> between <%=booking.start_time.hour%>am and <%=booking.end_time.hour %>pm </p>
+                            <p> <i class="far fa-calendar-alt category-image"></i><%= booking.end_date.strftime("%A %B %d") %> | <%=booking.start_time.hour%>-<%=booking.end_time.hour %>pm </p>
                             <p>
-                                <%= image_tag(booking.category + ".png", class:"category-image") %>
-                                <%= booking.category %>
+                                <%= image_tag(booking.category + ".png", class:"category-image") %><%= booking.category %>
+                                
                             </p>
                             <p> <i class="fas fa-mountain category-image"> </i><%= booking.user.ski_resort %> </p>
                             <p> <i class="far fa-comments category-image"> </i><%= booking.user.languages.to_sentence %></p>
