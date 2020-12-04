@@ -101,7 +101,7 @@
                         </div>
                         <%
 =end%>
-                        <div class="price text-right"> <span id="amount"><%= ((booking.amount * ((booking.end_time.hour)-(booking.start_time.hour)))/4)%> </span> €/spot</div>
+                        <div class="price text-right"> <span class="amount"><%= (booking.amount)/4 %> </span> €/spot</div>
                     </div>
 
                     <div class="book-button">

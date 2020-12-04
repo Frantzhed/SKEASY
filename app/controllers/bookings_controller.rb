@@ -71,7 +71,7 @@ class BookingsController < ApplicationController
                cancel_url: dashboard_url(host: ENV["APP_DOMAIN"])
                )
               
-               @booking.update(checkout_session_id: session.id)
+    @booking.update(checkout_session_id: session.id)
   end
 
   private
