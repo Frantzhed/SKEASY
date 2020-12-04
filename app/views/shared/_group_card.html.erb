@@ -1,13 +1,15 @@
 <div class="rectangle rectangle-cards">
   <div class="teacher-and-availabilities-dashboard">
-    <div class="card-img-booking-dashboard">
-      <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
-    </div>
-    <div class="teacher-info">
-      <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
-        <% if booking.status == "Accepted" %>
-          <p class="phone-number"><%= booking.user.phone_number  %></p>
-        <% end %>
+    <div class="pic-name-phone">
+      <div class="card-img-booking-dashboard">
+        <%= cl_image_tag booking.user.photo.key, width: 200, crop: :thumb, gravity: :face %>
+      </div>
+      <div class="teacher-info">
+        <h5> <%= booking.user.first_name %> <%= booking.user.last_name.first(1) %>. </h5>
+          <% if booking.status == "Accepted" %>
+            <p class="phone-number"><%= booking.user.phone_number  %></p>
+          <% end %>
+      </div>
     </div>
     <div class="spots-and-status">
       <div class="available-spots">
@@ -26,10 +28,6 @@
       </div>
     </div>
   </div>
-
-  
-
-
 
     <div class="booking-info">
           <div class="infos" data-session="<%= booking.checkout_session_id%>">
