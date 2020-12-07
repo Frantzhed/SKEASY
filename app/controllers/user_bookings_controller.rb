@@ -24,7 +24,6 @@ end
 
 private
 
-
-  def user_booking_params
-    params.require(:user_booking).permit(:participants_number)
-  end
+def user_booking_params
+  params.require(:user_booking).permit(:participants_number)
+end
