@@ -12,7 +12,7 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :client_bookings, through: :user_bookings, class_name: "Booking", source: "booking"
   has_many :orders
-  validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
+  # validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
   validate :languages_included_in_list
   has_one_attached :photo
   monetize :price_cents
