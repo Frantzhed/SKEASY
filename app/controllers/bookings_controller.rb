@@ -24,7 +24,6 @@ class BookingsController < ApplicationController
     if @booking.save
       @user_booking = UserBooking.create(
         user: current_user,
-
         booking: @booking,
         participants_number: booking_params[:participants_number]
       )
