@@ -2,7 +2,7 @@
 <div class="card-teacher">
     <div class="card-img">
         <% if teacher.photo.attached? %>
-        <%= cl_image_tag teacher.photo.key, width: 200, crop: :thumb, gravity: :face %>
+        <%= cl_image_tag teacher.photo.first.key, width: 200, crop: :thumb, gravity: :face %>
         <% end %>
     </div>
     <div class="card-info">
