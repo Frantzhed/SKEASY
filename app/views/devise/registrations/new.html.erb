@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h2>Create your account</h2>
   
 <div class="container">
   <div class="row">
@@ -6,11 +6,7 @@
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
-          <%= f.input :email,
-                      required: true,
-                      autofocus: true,
-                      input_html: { autocomplete: "email" }%>
-
+          
           <%= f.input :first_name,
                       required: true,
                       autofocus: true,
@@ -21,10 +17,32 @@
                       autofocus: true,
                       input_html: { autocomplete: "email" }%>
 
+          <%= f.input :description,
+                      autofocus: true,
+                      input_html: { autocomplete: "Description" }%>
+
+          <%= f.input :instructor,
+                      autofocus: true,
+                      input_html: { autocomplete: "Description" }%>
+
+          <%= f.input :ski_resort,
+          autofocus: true,
+          input_html: { autocomplete: "Ski resort" }%>
+
+          <%= f.input :category, as: :select, collection: Category::CATEGORIES%>
+
+          <%= f.input :technical_skill, as: :select, collection: User::TECHNICALSKILL %>
+
+          <%= f.input :languages, as: :select, collection: User::LANGUAGES%>
+
           <%= f.input :photos, as: :file, input_html: { multiple: true } %>
 
-        
+          <%= f.input :email,
+                      required: true,
+                      autofocus: true,
+                      input_html: { autocomplete: "email" }%>
 
+        
           <%= f.input :password,
                       required: true,
                       hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
