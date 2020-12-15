@@ -54,7 +54,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/jess.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/jess.jpg")), filename: 'photo.jpg')
 user.save!
 
 user = User.new(
@@ -76,7 +76,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/léa.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/léa.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -105,7 +105,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Sebastian-Keiler.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Sebastian-Keiler.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -140,7 +140,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/nicolas.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/nicolas.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: category.sample, note: rand(1..5), user_id: User.last.id )
@@ -171,7 +171,7 @@ user_frantz = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user_frantz.photo.attach(io: File.open(Rails.root.join("db/fixtures/Frantz.JPG")), filename: 'photo.jpg')
+user_frantz.photos.attach(io: File.open(Rails.root.join("db/fixtures/Frantz.JPG")), filename: 'photo.jpg')
 user_frantz.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: 5, user_id: User.last.id )
@@ -210,7 +210,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Pauline.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Pauline.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -250,7 +250,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Marguerite.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Marguerite.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -289,7 +289,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Flore.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Flore.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -330,7 +330,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user3.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/user3.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -373,7 +373,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/melanie.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/melanie.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -414,7 +414,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Rose.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Rose.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -453,7 +453,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/John.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/John.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -492,7 +492,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Kameron.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Kameron.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -530,7 +530,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Lee.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Lee.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -568,7 +568,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/camille.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/camille.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -608,7 +608,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/paul.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/paul.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -649,7 +649,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/preise.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/preise.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 
@@ -693,7 +693,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/raphael.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/raphael.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -738,7 +738,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/elodie.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/elodie.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -783,7 +783,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Nathan.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Nathan.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -824,7 +824,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Valentin.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Valentin.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )
@@ -867,7 +867,7 @@ user = User.new(
   price_cents: 5000
 
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/Joacquim.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/Joacquim.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Snowboard", note: rand(1..5), user_id: User.last.id )
@@ -909,7 +909,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/emanuel_bellwald_530.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/emanuel_bellwald_530.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 
@@ -947,7 +947,7 @@ user = User.new(
   technical_skill: technical_skill.sample,
   price_cents: 5000
 )
-user.photo.attach(io: File.open(Rails.root.join("db/fixtures/user4.jpg")), filename: 'photo.jpg')
+user.photos.attach(io: File.open(Rails.root.join("db/fixtures/user4.jpg")), filename: 'photo.jpg')
 user.save!
 puts "Created one user"
 Category.create!(name: "Ski", note: rand(1..5), user_id: User.last.id )

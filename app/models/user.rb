@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :orders
   # validates :technical_skill, presence: true, inclusion: { in: User::TECHNICALSKILL }
   validate :languages_included_in_list
-  has_many_attached :photo
+  has_many_attached :photos
   monetize :price_cents
 
   attr_accessor :category
