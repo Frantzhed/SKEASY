@@ -7,7 +7,6 @@
     <div class="center-box">
         <div class="teacher-photo">
             <div class="photo-description">
-            <% raise %>
                 <% if @user.photos.attached? %>
                 <%= cl_image_tag @user.photos.first.key, width: 1200, crop: :thumb, gravity: :face, class: "pix-profile-teacher" %>
                 <% else %>
@@ -19,22 +18,6 @@
             </div>
         </div>
         <div class="right-box">
-            <!-- <h1 id="name"> Hello ! I'm <%= @user.first_name %></h1> -->
-            <!-- <div class="greeting-message"></div> -->
-            <%
-=begin%>
-            <hr>
-
-            <%= session[:technical_skill] %>
-            <%= session[:category] %>
-            <%= session[:ski_resort] %>
-            <%= session[:languages] %>
-            <%= session[:end_date] %>
-
-            <hr>
-            <%
-=end%>
-
             <p id="greeting-message">
                 <%= @user.description %>
             </p>
@@ -68,12 +51,6 @@
                     <div class="price text-left">
                         <h3><strong>Price</strong></h3> <span class="amount">50 </span> €/h
                     </div>
-
-                    <%
-=begin%>
-                    <h3 style="text-align: left;">Price : <strong><span>45</span></strong> €/h </h3>
-                    <%
-=end%>
                 </div>
             </div>
             <button type="button" class="btn btn-success book-button" data-toggle="modal" data-target="#bookingModal">
